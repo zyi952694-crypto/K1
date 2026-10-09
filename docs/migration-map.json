@@ -1084,11 +1084,83 @@
     },
     {
       "source_repository": "zyi952694-crypto/K1",
-      "source_revision": "7e4cb6ac24b71c661db658fba6e2adb6e27a7d50",
-      "source": "人工智能与算法/视觉/K1_Object_Detection.md",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/01 目标检测.md",
       "target": "04-AI与算法/4.2-视觉/4.2.1-目标检测.md",
       "action": "preserve-latest-k1",
-      "source_sha256": "d3ac3a683d6b8a6335e42cbdf692e4fbff2ba388d5db853daeb54913be231d35"
+      "source_sha256": "d4454afcfbc4b039cbda3c00f834213f4051ea33452329ed99529c8dd916df0e"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/02 实例分割.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.2-实例分割.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "fa26a426820ab908a19d578ab3d4549bc0361da36961f7b2d09436c9c8445f40"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/03 人体姿态.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.3-人体姿态.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "4d933e4608ed1e78b672ae5af0cc095e48be348de0c227ebc458a4c37b1cbc46"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/04 人脸检测.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.4-人脸检测.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "3052f55c6643f3fa88d8b75e62986fb5166090d1bc096aa951dda6bbebcf428f"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/05 手势识别.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.5-手势识别.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "4e581a47a55060786753ca56678003f89f60b0f62ae0be42c35847bdb38ee166"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/06 图像分类.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.6-图像分类.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "eb998ac0bffe94a12e1e24b9ea002566587076f6fd9a09a158b782b6e2b63236"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/07 表情与情绪识别.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.7-表情与情绪识别.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "591d74277314a4dc45800ee0d74dcfa3913f7bae695fd50b16370c58b820fe05"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/08 行为识别.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.8-行为识别.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "c10356c32ca842f2e59381d6821b8ba025bbc7d40e302f6ab39d075a1a293b58"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/09 多目标跟踪.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.9-多目标跟踪.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "bb6c34df7e656a77356b29376b79f4fe8e78cf939dffa5442fc7dc30d055e7fe"
+    },
+    {
+      "source_repository": "zyi952694-crypto/K1",
+      "source_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055",
+      "source": "人工智能与算法/视觉/10 人脸识别.md",
+      "target": "04-AI与算法/4.2-视觉/4.2.10-人脸识别.md",
+      "action": "preserve-latest-k1",
+      "source_sha256": "bf5ea2ed463c28e2afb64b07d3c4f30bc781203a3e95867c2af564f026492810"
     }
   ],
   "k3_framework": [
@@ -1153,15 +1225,6 @@
     "05-机器人开发/index.md"
   ],
   "pending_pages": [
-    "04-AI与算法/4.2-视觉/4.2.10-人脸识别.md",
-    "04-AI与算法/4.2-视觉/4.2.2-实例分割.md",
-    "04-AI与算法/4.2-视觉/4.2.3-人体姿态.md",
-    "04-AI与算法/4.2-视觉/4.2.4-人脸检测.md",
-    "04-AI与算法/4.2-视觉/4.2.5-手势识别.md",
-    "04-AI与算法/4.2-视觉/4.2.6-图像分类.md",
-    "04-AI与算法/4.2-视觉/4.2.7-表情与情绪识别.md",
-    "04-AI与算法/4.2-视觉/4.2.8-行为识别.md",
-    "04-AI与算法/4.2-视觉/4.2.9-多目标跟踪.md",
     "04-AI与算法/4.3-强化学习.md",
     "05-机器人开发/5.1-机器感知/5.1.2-人脸检测.md",
     "05-机器人开发/5.1-机器感知/5.1.3-人型检测.md",
@@ -1185,5 +1248,6 @@
     "05-机器人开发/5.6-基础传感器/5.6.7-LED.md",
     "05-机器人开发/5.6-基础传感器/5.6.8-IO.md",
     "05-机器人开发/5.6-基础传感器/5.6.9-WiFi.md"
-  ]
+  ],
+  "k1_sync_revision": "cd28b2311037bad6a7c7865028c4d1c5eef5f055"
 }

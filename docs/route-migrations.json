@@ -946,9 +946,72 @@
   },
   {
     "source_repository": "zyi952694-crypto/K1",
-    "old_path": "人工智能与算法/视觉/K1_Object_Detection.md",
+    "old_path": "人工智能与算法/视觉/01 目标检测.md",
     "old_slug": "/k1/ai/vision/4-2-1-目标检测",
     "new_path": "04-AI与算法/4.2-视觉/4.2.1-目标检测.md",
     "new_slug": "/k1/ai/4.2-视觉/4.2.1-目标检测"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/02 实例分割.md",
+    "old_slug": "/k1/ai/vision/4-2-2-实例分割",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.2-实例分割.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.2-实例分割"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/03 人体姿态.md",
+    "old_slug": "/k1/ai/vision/4-2-3-人体姿态",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.3-人体姿态.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.3-人体姿态"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/04 人脸检测.md",
+    "old_slug": "/k1/ai/vision/4-2-4-人脸检测",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.4-人脸检测.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.4-人脸检测"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/05 手势识别.md",
+    "old_slug": "/k1/ai/vision/4-2-5-手势识别",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.5-手势识别.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.5-手势识别"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/06 图像分类.md",
+    "old_slug": "/k1/ai/vision/4-2-6-图像分类",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.6-图像分类.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.6-图像分类"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/07 表情与情绪识别.md",
+    "old_slug": "/k1/ai/vision/4-2-7-表情与情绪识别",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.7-表情与情绪识别.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.7-表情与情绪识别"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/08 行为识别.md",
+    "old_slug": "/k1/ai/vision/4-2-8-行为识别",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.8-行为识别.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.8-行为识别"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/09 多目标跟踪.md",
+    "old_slug": "/k1/ai/vision/4-2-9-多目标跟踪",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.9-多目标跟踪.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.9-多目标跟踪"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/10 人脸识别.md",
+    "old_slug": "/k1/ai/vision/4-2-10-人脸识别",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.10-人脸识别.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.10-人脸识别"
   }
 ]

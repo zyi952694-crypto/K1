@@ -964,12 +964,93 @@
     "target_content_sha256": "c0f6dd2b99bbac7eae4c24bb7038e4f5e0bb6d7ac3995d77cc3a3223ecb2b7de"
   },
   {
-    "source": "人工智能与算法/视觉/K1_Object_Detection.md",
+    "source": "人工智能与算法/视觉/01 目标检测.md",
     "target": "04-AI与算法/4.2-视觉/4.2.1-目标检测.md",
-    "same_content": false,
-    "retained_original": false,
+    "same_content": true,
+    "retained_original": true,
     "protected": false,
-    "source_content_sha256": "c70cbf51235823a95360f393caa22ba11dfe01464252f7f9c4d0b216ea7089b0",
-    "target_content_sha256": "036aadded67616aac42f7ab426b90baabd9630f5ae100c206c982f8b90f7abea"
+    "source_content_sha256": "eb8e6f759a60a70c5bbab51d3bc101b815c5011e1ecc48e0bf1cf8a75a37b4c4",
+    "target_content_sha256": "eb8e6f759a60a70c5bbab51d3bc101b815c5011e1ecc48e0bf1cf8a75a37b4c4"
+  },
+  {
+    "source": "人工智能与算法/视觉/02 实例分割.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.2-实例分割.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "11e725882d972d33b0186f1fb4a745222406cc94fce40c747c49efe683b87a79",
+    "target_content_sha256": "11e725882d972d33b0186f1fb4a745222406cc94fce40c747c49efe683b87a79"
+  },
+  {
+    "source": "人工智能与算法/视觉/03 人体姿态.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.3-人体姿态.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "648e59f0f03ffd150666d42a81f8b5e84dae659ac476abe147fc80e08a1913f6",
+    "target_content_sha256": "648e59f0f03ffd150666d42a81f8b5e84dae659ac476abe147fc80e08a1913f6"
+  },
+  {
+    "source": "人工智能与算法/视觉/04 人脸检测.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.4-人脸检测.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "67776d6b09815594ba2d0f593e9226e4964b0c7096ded97a10daec94620788b9",
+    "target_content_sha256": "67776d6b09815594ba2d0f593e9226e4964b0c7096ded97a10daec94620788b9"
+  },
+  {
+    "source": "人工智能与算法/视觉/05 手势识别.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.5-手势识别.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "4ff0e25a590d2e889301b115d7afab20dd5c43960c84773837dd96b7a2e80b21",
+    "target_content_sha256": "4ff0e25a590d2e889301b115d7afab20dd5c43960c84773837dd96b7a2e80b21"
+  },
+  {
+    "source": "人工智能与算法/视觉/06 图像分类.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.6-图像分类.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "5d16816acc72f762906d6279a2a7d2ba7226c37705de2cc6bcac5f138e46135a",
+    "target_content_sha256": "5d16816acc72f762906d6279a2a7d2ba7226c37705de2cc6bcac5f138e46135a"
+  },
+  {
+    "source": "人工智能与算法/视觉/07 表情与情绪识别.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.7-表情与情绪识别.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "88543ef0342682a016cfb50025eeebf1938df7a1059ba99ee2dae7949a6a161b",
+    "target_content_sha256": "88543ef0342682a016cfb50025eeebf1938df7a1059ba99ee2dae7949a6a161b"
+  },
+  {
+    "source": "人工智能与算法/视觉/08 行为识别.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.8-行为识别.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "1209b1de458a2d38a7641762c617984e15e27535b1070f1a69a9dd09549dadf4",
+    "target_content_sha256": "1209b1de458a2d38a7641762c617984e15e27535b1070f1a69a9dd09549dadf4"
+  },
+  {
+    "source": "人工智能与算法/视觉/09 多目标跟踪.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.9-多目标跟踪.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "7d2ae54532fc219f691c6604c1f8831cd929c19c7652de9833d0bf2d7fa066e4",
+    "target_content_sha256": "7d2ae54532fc219f691c6604c1f8831cd929c19c7652de9833d0bf2d7fa066e4"
+  },
+  {
+    "source": "人工智能与算法/视觉/10 人脸识别.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.10-人脸识别.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "1ef6fcb7bd999087f177be93eb882239a07ad56c976b03d8a2dccdfaaebe65a4",
+    "target_content_sha256": "1ef6fcb7bd999087f177be93eb882239a07ad56c976b03d8a2dccdfaaebe65a4"
   }
 ]

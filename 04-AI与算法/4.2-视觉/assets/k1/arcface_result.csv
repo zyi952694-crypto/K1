@@ -1,0 +1,2 @@
+image_a,image_b,similarity,threshold,matched
+/root/.cache/assets/image/003_face0.png,/root/.cache/assets/image/004_face1.png,0.43840140104293823,0.6,False
