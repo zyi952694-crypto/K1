@@ -429,70 +429,6 @@
     {
       "source_repository": "spacemit-com/docs-ros",
       "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/04_Model_deployment/4.1_Demo_Zoo_Overview.md",
-      "target": "04-AI与算法/4.8-模型开发与部署/4.8.1-AI-Demo-Zoo.md",
-      "action": "preserve-content",
-      "source_sha256": "de3ad2b643507ce5f9c4ebfebd1cbd1cc357c02f8e69e97a88abfeb03a2b2920"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/04_Model_deployment/4.2_Python_Inference_Example.md",
-      "target": "04-AI与算法/4.8-模型开发与部署/4.8.2-Python推理示例.md",
-      "action": "preserve-content",
-      "source_sha256": "25e6fa3b4a610c71132344c730da799803e7c315a5c1cf1758e9b8a824c1b51e"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/04_Model_deployment/4.3_CPP_Inference_Example.md",
-      "target": "04-AI与算法/4.8-模型开发与部署/4.8.3-C++推理示例.md",
-      "action": "preserve-content",
-      "source_sha256": "680c03c5ed6515a44d5c860e92177faf958217f5a140c4c00a8f1bfdc28bb248"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/04_Model_deployment/4.4_Training_and_Deployment_Pipeline.md",
-      "target": "04-AI与算法/4.8-模型开发与部署/4.8.4-YOLOv8训练部署全流程.md",
-      "action": "preserve-content",
-      "source_sha256": "86fbf4a42a31c0f9434efbf4078375bb04ff7662c9d5c7fc2bceee745bdaa253"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/04_Model_deployment/index.md",
-      "target": "04-AI与算法/4.8-模型开发与部署/index.md",
-      "action": "merge-navigation",
-      "source_sha256": "81500c337b0659133ec33297a80377872151edc048d363239cad1b3b6cfaa742"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/05_AI_Feature_Experience/5.0_preliminary_knowledge.md",
-      "target": "04-AI与算法/4.10-预备知识.md",
-      "action": "preserve-content",
-      "source_sha256": "43ff433af1f6df3419de82581fec8bb6206b4bd43b00c313e9b54b3c158a28d1"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.1_Voice_Activity_Detection.md",
-      "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.1-VAD.md",
-      "action": "preserve-content",
-      "source_sha256": "c4b54b37533cbd663e3e39fefecb4a47fcbb20c793ee791b62002b0bf84b4697"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.2_Speech_to_Text.md",
-      "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.2-ASR.md",
-      "action": "preserve-content",
-      "source_sha256": "cc5f33049d1d8591e19bb3ed82e145e25cf15e76f36a5ebb23708360c77011a2"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
       "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.3_Large_Language_Models.md",
       "target": "04-AI与算法/4.4-LLM.md",
       "action": "preserve-content",
@@ -505,14 +441,6 @@
       "target": "04-AI与算法/4.7-语音控制.md",
       "action": "preserve-content",
       "source_sha256": "e67c4f243749f2d3ad7055a1421f137e391edba37bac432a17123715f8d9f44e"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.5_Text_to_Speech.md",
-      "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.3-TTS.md",
-      "action": "preserve-content",
-      "source_sha256": "77bc61438d9a6201228c41e56c3f571fd5b9b7926fc21482c762cb5eee5c056e"
     },
     {
       "source_repository": "spacemit-com/docs-ros",
@@ -1121,22 +1049,6 @@
       "target": "index.md",
       "action": "merge-navigation",
       "source_sha256": "50a41e5f804812c87a212775e8e129c9fb20e3c44b417b5ebd4c28777fce501c"
-    },
-    {
-      "source_repository": "spacemit-com/docs-ros",
-      "source_revision": "5b94e7e61e3be4bf00981fd74b7c9eba7595f4e1",
-      "source": "zh/k1/intro.md",
-      "target": "平台概览/K1原版简介.md",
-      "action": "preserve-content",
-      "source_sha256": "d8cd9a819c3cc23d54b2fa24b08b1df74022e8dc531fa2dfd8e34afbc59aa768"
-    },
-    {
-      "source_repository": "zyi952694-crypto/K1",
-      "source_revision": "7e4cb6ac24b71c661db658fba6e2adb6e27a7d50",
-      "source": "平台概览/平台概览.md",
-      "target": "平台概览/平台概览.md",
-      "action": "preserve-latest-k1",
-      "source_sha256": "b7225cf7b3cd7f4e69d19379b6a56595d0af1c112a02fe379fa33fd564f574d2"
     },
     {
       "source_repository": "zyi952694-crypto/K1",

@@ -372,62 +372,6 @@
   },
   {
     "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/04_Model_deployment/4.1_Demo_Zoo_Overview.md",
-    "old_slug": "/04_Model_deployment/4.1_Demo_Zoo_Overview",
-    "new_path": "04-AI与算法/4.8-模型开发与部署/4.8.1-AI-Demo-Zoo.md",
-    "new_slug": "/k1/ai/4.8-模型开发与部署/4.8.1-AI-Demo-Zoo"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/04_Model_deployment/4.2_Python_Inference_Example.md",
-    "old_slug": "/04_Model_deployment/4.2_Python_Inference_Example",
-    "new_path": "04-AI与算法/4.8-模型开发与部署/4.8.2-Python推理示例.md",
-    "new_slug": "/k1/ai/4.8-模型开发与部署/4.8.2-Python推理示例"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/04_Model_deployment/4.3_CPP_Inference_Example.md",
-    "old_slug": "/04_Model_deployment/4.3_CPP_Inference_Example",
-    "new_path": "04-AI与算法/4.8-模型开发与部署/4.8.3-C++推理示例.md",
-    "new_slug": "/k1/ai/4.8-模型开发与部署/4.8.3-C++推理示例"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/04_Model_deployment/4.4_Training_and_Deployment_Pipeline.md",
-    "old_slug": "/04_Model_deployment/4.4_Training_and_Deployment_Pipeline",
-    "new_path": "04-AI与算法/4.8-模型开发与部署/4.8.4-YOLOv8训练部署全流程.md",
-    "new_slug": "/k1/ai/4.8-模型开发与部署/4.8.4-YOLOv8训练部署全流程"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/04_Model_deployment/index.md",
-    "old_slug": "/04_Model_deployment",
-    "new_path": "04-AI与算法/4.8-模型开发与部署/index.md",
-    "new_slug": "/k1/ai/4.8-模型开发与部署"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/05_AI_Feature_Experience/5.0_preliminary_knowledge.md",
-    "old_slug": "/05_AI_Feature_Experience/5.0_preliminary_knowledge",
-    "new_path": "04-AI与算法/4.10-预备知识.md",
-    "new_slug": "/k1/ai/4.10-预备知识"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.1_Voice_Activity_Detection.md",
-    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.1_Voice_Activity_Detection",
-    "new_path": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.1-VAD.md",
-    "new_slug": "/k1/ai/4.1-语音/4.1.5-K1原有Python接口/4.1.5.1-VAD"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.2_Speech_to_Text.md",
-    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.2_Speech_to_Text",
-    "new_path": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.2-ASR.md",
-    "new_slug": "/k1/ai/4.1-语音/4.1.5-K1原有Python接口/4.1.5.2-ASR"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
     "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.3_Large_Language_Models.md",
     "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.3_Large_Language_Models",
     "new_path": "04-AI与算法/4.4-LLM.md",
@@ -439,13 +383,6 @@
     "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.4_Speech_Input_LLM_Output",
     "new_path": "04-AI与算法/4.7-语音控制.md",
     "new_slug": "/k1/ai/4.7-语音控制"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.5_Text_to_Speech.md",
-    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.5_Text_to_Speech",
-    "new_path": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.3-TTS.md",
-    "new_slug": "/k1/ai/4.1-语音/4.1.5-K1原有Python接口/4.1.5.3-TTS"
   },
   {
     "source_repository": "spacemit-com/docs-ros",
@@ -978,20 +915,6 @@
     "old_slug": null,
     "new_path": "index.md",
     "new_slug": "/k1"
-  },
-  {
-    "source_repository": "spacemit-com/docs-ros",
-    "old_path": "zh/k1/intro.md",
-    "old_slug": "/",
-    "new_path": "平台概览/K1原版简介.md",
-    "new_slug": "/k1/overview/K1原版简介"
-  },
-  {
-    "source_repository": "zyi952694-crypto/K1",
-    "old_path": "平台概览/平台概览.md",
-    "old_slug": null,
-    "new_path": "平台概览/平台概览.md",
-    "new_slug": "/k1/overview"
   },
   {
     "source_repository": "zyi952694-crypto/K1",

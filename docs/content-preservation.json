@@ -477,69 +477,6 @@
     "target_content_sha256": "40c9e876a997d21eccfb31327d0858f6003029f6024f38ef535c5cbadbb069e1"
   },
   {
-    "source": "zh/k1/04_Model_deployment/4.1_Demo_Zoo_Overview.md",
-    "target": "04-AI与算法/4.8-模型开发与部署/4.8.1-AI-Demo-Zoo.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "a1c5c8f61bf4613b608b74b424044d617df103c3b1cb723e86e6511ad650f7dd",
-    "target_content_sha256": "a1c5c8f61bf4613b608b74b424044d617df103c3b1cb723e86e6511ad650f7dd"
-  },
-  {
-    "source": "zh/k1/04_Model_deployment/4.2_Python_Inference_Example.md",
-    "target": "04-AI与算法/4.8-模型开发与部署/4.8.2-Python推理示例.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "57cb1bf89840be916230dfe860b9951b9f07ed514011643be73777101bc58d72",
-    "target_content_sha256": "57cb1bf89840be916230dfe860b9951b9f07ed514011643be73777101bc58d72"
-  },
-  {
-    "source": "zh/k1/04_Model_deployment/4.3_CPP_Inference_Example.md",
-    "target": "04-AI与算法/4.8-模型开发与部署/4.8.3-C++推理示例.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "b1c70c36578369077b28d6665e1984896c14372e220b7f9ac0c28aee912934a6",
-    "target_content_sha256": "b1c70c36578369077b28d6665e1984896c14372e220b7f9ac0c28aee912934a6"
-  },
-  {
-    "source": "zh/k1/04_Model_deployment/4.4_Training_and_Deployment_Pipeline.md",
-    "target": "04-AI与算法/4.8-模型开发与部署/4.8.4-YOLOv8训练部署全流程.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "1263c0232963b44758ecc8fa3bbbf341d494ed90ec110267d5f8b32c14371090",
-    "target_content_sha256": "1263c0232963b44758ecc8fa3bbbf341d494ed90ec110267d5f8b32c14371090"
-  },
-  {
-    "source": "zh/k1/05_AI_Feature_Experience/5.0_preliminary_knowledge.md",
-    "target": "04-AI与算法/4.10-预备知识.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "a65a3df5b7dc657233220135c746127fba391130e47d3b2807cd6f498a4b2c49",
-    "target_content_sha256": "a65a3df5b7dc657233220135c746127fba391130e47d3b2807cd6f498a4b2c49"
-  },
-  {
-    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.1_Voice_Activity_Detection.md",
-    "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.1-VAD.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "8e47812051e169a7dc1b690f5ece0f82aae1acb8890a68b8894de9e657209700",
-    "target_content_sha256": "8e47812051e169a7dc1b690f5ece0f82aae1acb8890a68b8894de9e657209700"
-  },
-  {
-    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.2_Speech_to_Text.md",
-    "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.2-ASR.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "216adb3f1df12ba042042300c07edec303ab95e3ab24832ecd4ec524e2af49cb",
-    "target_content_sha256": "216adb3f1df12ba042042300c07edec303ab95e3ab24832ecd4ec524e2af49cb"
-  },
-  {
     "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.3_Large_Language_Models.md",
     "target": "04-AI与算法/4.4-LLM.md",
     "same_content": true,
@@ -551,20 +488,12 @@
   {
     "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.4_Speech_Input_LLM_Output.md",
     "target": "04-AI与算法/4.7-语音控制.md",
-    "same_content": true,
-    "retained_original": true,
+    "same_content": false,
+    "retained_original": false,
     "protected": false,
     "source_content_sha256": "f0196a7c2e7beedcecd1a954b4cd329fc6aa77e11b59c49df6fe67694031f552",
-    "target_content_sha256": "f0196a7c2e7beedcecd1a954b4cd329fc6aa77e11b59c49df6fe67694031f552"
-  },
-  {
-    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.5_Text_to_Speech.md",
-    "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.3-TTS.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "bad1c64e82f7947bffabe08002fee7f1bf63957449eb8407e82525e586951902",
-    "target_content_sha256": "bad1c64e82f7947bffabe08002fee7f1bf63957449eb8407e82525e586951902"
+    "target_content_sha256": "82225c16fa6daa1af8e130c5a7664c2d7223329f7db7f21bbeb771a36f9c0af4",
+    "change_note": "删除旧语音接口章节后，将其设备枚举命令内联到语音控制页，替换失效引用。"
   },
   {
     "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.6_Function_Call.md",
@@ -997,24 +926,6 @@
     "protected": false,
     "source_content_sha256": "3f813ec0434417b0e981412a2f370eacab7f6df2d0bc18f607bd456e48480e2c",
     "target_content_sha256": "3f813ec0434417b0e981412a2f370eacab7f6df2d0bc18f607bd456e48480e2c"
-  },
-  {
-    "source": "zh/k1/intro.md",
-    "target": "平台概览/K1原版简介.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "d591fa047b9645c568514313bc3771982b856d20c592fb370721e88b63d8df30",
-    "target_content_sha256": "d591fa047b9645c568514313bc3771982b856d20c592fb370721e88b63d8df30"
-  },
-  {
-    "source": "平台概览/平台概览.md",
-    "target": "平台概览/平台概览.md",
-    "same_content": true,
-    "retained_original": true,
-    "protected": false,
-    "source_content_sha256": "65cfc5f53c5c8f43c46002abd73ce11e00184a4cfa1a087bb533cf8a0244561d",
-    "target_content_sha256": "65cfc5f53c5c8f43c46002abd73ce11e00184a4cfa1a087bb533cf8a0244561d"
   },
   {
     "source": "人工智能与算法/语音/K1_ASR.md",
