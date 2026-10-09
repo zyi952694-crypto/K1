@@ -1,0 +1,1064 @@
+[
+  {
+    "source": "zh/k1/01_Quick_start/1.1_Hardware_Overview/1.1.1_MUSE_Pi_Pro.md",
+    "target": "01-快速开始/1.1-硬件介绍/1.1.1-MUSE-Pi-Pro.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "fca1752d2c5805705ab02ae24e9bbf27e23444d3c02ae19a0be0779eac6b81d2",
+    "target_content_sha256": "fca1752d2c5805705ab02ae24e9bbf27e23444d3c02ae19a0be0779eac6b81d2"
+  },
+  {
+    "source": "zh/k1/01_Quick_start/1.1_Hardware_Overview/index.md",
+    "target": "01-快速开始/1.1-硬件介绍/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "5a0130d65a4fbf30be3345745b79eadd2c1faa5fa26b9168205580aa3650cf85",
+    "target_content_sha256": "5a0130d65a4fbf30be3345745b79eadd2c1faa5fa26b9168205580aa3650cf85"
+  },
+  {
+    "source": "zh/k1/01_Quick_start/1.2_System_Flashing/1.2.1_MUSE_Pi_Pro.md",
+    "target": "01-快速开始/1.2-系统烧录/1.2.1-MUSE-Pi-Pro.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "f0a3c3ddec8ef7e13759bb220b8444c89943d6af0b353de154daaac29361a5b0",
+    "target_content_sha256": "f0a3c3ddec8ef7e13759bb220b8444c89943d6af0b353de154daaac29361a5b0"
+  },
+  {
+    "source": "zh/k1/01_Quick_start/1.2_System_Flashing/index.md",
+    "target": "01-快速开始/1.2-系统烧录/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "0bed070206eed8f6b70398b6f2d6ad33bcd372af8a138f7aff2ffbe9947a728f",
+    "target_content_sha256": "0bed070206eed8f6b70398b6f2d6ad33bcd372af8a138f7aff2ffbe9947a728f"
+  },
+  {
+    "source": "zh/k1/01_Quick_start/1.3_Environment_Setup.md",
+    "target": "01-快速开始/1.3-入门配置.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "2308883ca6da028e2c992af3aa250813af75503e2c233e199a521043133c1109",
+    "target_content_sha256": "2308883ca6da028e2c992af3aa250813af75503e2c233e199a521043133c1109"
+  },
+  {
+    "source": "zh/k1/01_Quick_start/1.4_Remote_Access.md",
+    "target": "01-快速开始/1.4-远程连接.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "578852c5fd339e23672499f04391a7fea585c1487e0a2aab8f6df53523fcdf11",
+    "target_content_sha256": "578852c5fd339e23672499f04391a7fea585c1487e0a2aab8f6df53523fcdf11"
+  },
+  {
+    "source": "zh/k1/01_Quick_start/1.5_Resources_Summary.md",
+    "target": "01-快速开始/1.5-资源汇总.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "370eca074ab192f0dadfbe4fb4c1620f9bc094d3a3498773d50ee051bbb8e38c",
+    "target_content_sha256": "370eca074ab192f0dadfbe4fb4c1620f9bc094d3a3498773d50ee051bbb8e38c"
+  },
+  {
+    "source": "zh/k1/01_Quick_start/1.6_Supported_Hardware_List.md",
+    "target": "01-快速开始/1.6-支持的硬件清单.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "57d82949749eb9122327eaad50c9fda76c9b3dfc06a59550719c831716775e76",
+    "target_content_sha256": "57d82949749eb9122327eaad50c9fda76c9b3dfc06a59550719c831716775e76"
+  },
+  {
+    "source": "zh/k1/01_Quick_start/index.md",
+    "target": "01-快速开始/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "6630f540cdb4c545d8a285ed3bac8b58f2b44a17c42265c4b60912a753025f49",
+    "target_content_sha256": "6630f540cdb4c545d8a285ed3bac8b58f2b44a17c42265c4b60912a753025f49"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.1_System_Functional_Specification.md",
+    "target": "02-ROS2_LXQT基础使用/2.1-系统功能清单.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "b31e6971a086e8680a02efa5aed1f9e515be2cc8e27c810433c438903c090df8",
+    "target_content_sha256": "b31e6971a086e8680a02efa5aed1f9e515be2cc8e27c810433c438903c090df8"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.2_Detailed_List_of_Development_Documents.md",
+    "target": "02-ROS2_LXQT基础使用/2.2-开发文档明细列表.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "2156c777bb4f75b6e3161d8f03123faa34a227c443f5cee8496bae391d1f1aaf",
+    "target_content_sha256": "2156c777bb4f75b6e3161d8f03123faa34a227c443f5cee8496bae391d1f1aaf"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.3_System_Dependency_Installation.md",
+    "target": "02-ROS2_LXQT基础使用/2.3-系统依赖安装.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "ad963f0d4dcf3dd096ec9d56b81d48512a8680de6da472b6ad3b1a925aab9170",
+    "target_content_sha256": "ad963f0d4dcf3dd096ec9d56b81d48512a8680de6da472b6ad3b1a925aab9170"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.4_Python_Usage.md",
+    "target": "02-ROS2_LXQT基础使用/2.4-Python-使用.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "d08a1216873fd2e100e9cfd2632361f02a8023d752195990117d098deac9d3c6",
+    "target_content_sha256": "d08a1216873fd2e100e9cfd2632361f02a8023d752195990117d098deac9d3c6"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.5_CPP_Usage.md",
+    "target": "02-ROS2_LXQT基础使用/2.5-C++-使用指南.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "b6260d442404d53fb470bf0d0774713b209cef110b40ee1ccf50b65dcd92c1fe",
+    "target_content_sha256": "b6260d442404d53fb470bf0d0774713b209cef110b40ee1ccf50b65dcd92c1fe"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.6_Docker_Usage/2.6.1_Docker_setup.md",
+    "target": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/2.6.1-Docker-环境设置.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "a1f35da9e155018148b38da49956f468797d8b2434bc382c5f222ff1a2e3bef1",
+    "target_content_sha256": "a1f35da9e155018148b38da49956f468797d8b2434bc382c5f222ff1a2e3bef1"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.6_Docker_Usage/2.6.2_Node-RED_Usage.md",
+    "target": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/2.6.2-Node-RED-使用指南.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "87715fdefca64ce82b08b6f7de94c8cea6fff8a20ac9527d6afcfffb23f82d5b",
+    "target_content_sha256": "87715fdefca64ce82b08b6f7de94c8cea6fff8a20ac9527d6afcfffb23f82d5b"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.6_Docker_Usage/2.6.3_JupyterLab_Usage.md",
+    "target": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/2.6.3-JupyterLab-使用指南.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "5cfc9e759933e3ea982d004bafe4e478f0685b63be29b94a5eced287f8692523",
+    "target_content_sha256": "5cfc9e759933e3ea982d004bafe4e478f0685b63be29b94a5eced287f8692523"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.6_Docker_Usage/2.6.4_DemoZoo_Usage.md",
+    "target": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/2.6.4-DemoZoo-容器使用指南.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "f4e2fa0f4952dc8a334f48d0e5296f0cebb3733abdd694e169c42dbc096e39fd",
+    "target_content_sha256": "f4e2fa0f4952dc8a334f48d0e5296f0cebb3733abdd694e169c42dbc096e39fd"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.6_Docker_Usage/index.md",
+    "target": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "445ffc4676957f34160639930898e1e6e691e02a142967ea0194a43f6b76775a",
+    "target_content_sha256": "445ffc4676957f34160639930898e1e6e691e02a142967ea0194a43f6b76775a"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/2.7_Automatic_Startup.md",
+    "target": "02-ROS2_LXQT基础使用/2.7-开机自启.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "7afa8635171ae08d339c88aef3255764519bfe46ee76dfead7ee07348c26e5aa",
+    "target_content_sha256": "7afa8635171ae08d339c88aef3255764519bfe46ee76dfead7ee07348c26e5aa"
+  },
+  {
+    "source": "zh/k1/02_System_configuration/index.md",
+    "target": "02-ROS2_LXQT基础使用/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "857796fcc5c7175a484f6ed049bd55e82d8fce46d01a8278b64b6e228d5eb97b",
+    "target_content_sha256": "857796fcc5c7175a484f6ed049bd55e82d8fce46d01a8278b64b6e228d5eb97b"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.1_Image_Capture_and_Applications/3.1.1_Using_MIPI_Camera.md",
+    "target": "03-基础应用开发/3.1-图像采集与应用/3.1.1-MIPI-相机使用说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "869f17874e80f1c3025eafc9cfd09009b8e00fb8a39cc0c322ca9cf2fa23c2b8",
+    "target_content_sha256": "869f17874e80f1c3025eafc9cfd09009b8e00fb8a39cc0c322ca9cf2fa23c2b8"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.1_Image_Capture_and_Applications/3.1.2_Using_USB_Camera.md",
+    "target": "03-基础应用开发/3.1-图像采集与应用/3.1.2-USB-相机使用说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "ee6ac105201b19620d40b388593cae916eec7a35e8a123c5bcd2a99e28a8302c",
+    "target_content_sha256": "ee6ac105201b19620d40b388593cae916eec7a35e8a123c5bcd2a99e28a8302c"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.1_Image_Capture_and_Applications/3.1.3_USB_Camera_Python_Usage.md",
+    "target": "03-基础应用开发/3.1-图像采集与应用/3.1.3-Python-使用-USB-相机.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "53d7d58c3a3673632a9b17e227da1837ba4280f6eff82d3cfe7d62a3f145feec",
+    "target_content_sha256": "53d7d58c3a3673632a9b17e227da1837ba4280f6eff82d3cfe7d62a3f145feec"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.1_Image_Capture_and_Applications/index.md",
+    "target": "03-基础应用开发/3.1-图像采集与应用/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "b9c411bbe55e5c8f37bfa5a427971bb15eb802492cb89eb6eaa30844b38f537d",
+    "target_content_sha256": "b9c411bbe55e5c8f37bfa5a427971bb15eb802492cb89eb6eaa30844b38f537d"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/1_Mic_Hardware_Preparation.md",
+    "target": "03-基础应用开发/3.2-语音采集与播放/1-麦克风硬件调试说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "0bb13898c10ef3f3a2db5dbc4557fc61b8a4c5648b82729d3c5bc220dfe62420",
+    "target_content_sha256": "0bb13898c10ef3f3a2db5dbc4557fc61b8a4c5648b82729d3c5bc220dfe62420"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/2_Speaker_Hardware_Preparation.md",
+    "target": "03-基础应用开发/3.2-语音采集与播放/2-扬声器硬件调试说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "9b4e56f2936d46178febda66d80a7098663650b6aa69f26e19c763707b2a6db0",
+    "target_content_sha256": "9b4e56f2936d46178febda66d80a7098663650b6aa69f26e19c763707b2a6db0"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/3.2.1_USB_Microphone_Audio_Capture.md",
+    "target": "03-基础应用开发/3.2-语音采集与播放/3.2.1-USB-麦克风使用说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "101ae47e13a796ddb53130edfa391bee6c00917f979f0124ca46d7220bb48991",
+    "target_content_sha256": "101ae47e13a796ddb53130edfa391bee6c00917f979f0124ca46d7220bb48991"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/3.2.2_Using_Array_Microphone.md",
+    "target": "03-基础应用开发/3.2-语音采集与播放/3.2.2-环形麦克风使用说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "7455bc6816fadf9b860bb8f99bc20213fdf79405fb06e20a248a2100ccb46f50",
+    "target_content_sha256": "7455bc6816fadf9b860bb8f99bc20213fdf79405fb06e20a248a2100ccb46f50"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/index.md",
+    "target": "03-基础应用开发/3.2-语音采集与播放/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "7741a10c9a825668ba864b5353257c62da6746ca800a52e361cb4fb5bac07598",
+    "target_content_sha256": "7741a10c9a825668ba864b5353257c62da6746ca800a52e361cb4fb5bac07598"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.1_Pin_Definitions.md",
+    "target": "03-基础应用开发/3.3-引脚应用/3.3.1-引脚定义说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "d91cdb2a99866c076ce0a53ea68d2e556549ceaeb4c476aeb0ddb0b9a67e5e2a",
+    "target_content_sha256": "d91cdb2a99866c076ce0a53ea68d2e556549ceaeb4c476aeb0ddb0b9a67e5e2a"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.2_GPIO_Applications.md",
+    "target": "03-基础应用开发/3.3-引脚应用/3.3.2-GPIO-应用说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "4211bbcd0f006c1275b680857eb8f5e22576b68f09065b0b4e51a18a8f94102b",
+    "target_content_sha256": "4211bbcd0f006c1275b680857eb8f5e22576b68f09065b0b4e51a18a8f94102b"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.3_Using_PWM.md",
+    "target": "03-基础应用开发/3.3-引脚应用/3.3.3-PWM-使用说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "7fb9d01f18c03426cb649e9be04afb1c834aa47a608c064f2466dae5beffaf4a",
+    "target_content_sha256": "7fb9d01f18c03426cb649e9be04afb1c834aa47a608c064f2466dae5beffaf4a"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.4_Using_I2C.md",
+    "target": "03-基础应用开发/3.3-引脚应用/3.3.4-I2C-使用说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "f04df6e47a5ce9e2f0d059323e757660f0ac884a4a9bc805a4bf968239fec5e0",
+    "target_content_sha256": "f04df6e47a5ce9e2f0d059323e757660f0ac884a4a9bc805a4bf968239fec5e0"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.5_Using_SPI_.md",
+    "target": "03-基础应用开发/3.3-引脚应用/3.3.5-SPI-使用说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "e157dd75f487932033c4ae1452d4e4a397562cd84d236f29a6aee8d0c9fd3444",
+    "target_content_sha256": "e157dd75f487932033c4ae1452d4e4a397562cd84d236f29a6aee8d0c9fd3444"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.3_Pin_Applications/index.md",
+    "target": "03-基础应用开发/3.3-引脚应用/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "fb0c1ae0c92a19c1dd2e0bca5220203a6282ac9c8bdad9609af41c6484a8dd97",
+    "target_content_sha256": "fb0c1ae0c92a19c1dd2e0bca5220203a6282ac9c8bdad9609af41c6484a8dd97"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.4_Multimedia_Applications/3.4.1_Introduction_to_JDK.md",
+    "target": "03-基础应用开发/3.4-多媒体应用/3.4.1-JDK-简介.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "6ee06137b88db8082434d2619734dd3aaaeb604fd053a11855ddda1dbdb666ea",
+    "target_content_sha256": "6ee06137b88db8082434d2619734dd3aaaeb604fd053a11855ddda1dbdb666ea"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.4_Multimedia_Applications/3.4.2_JDK_Reference_Examples.md",
+    "target": "03-基础应用开发/3.4-多媒体应用/3.4.2-JDK-示例参考.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "ff008c1d555e8a2d6d9fc0eb98332c9b83e3a9409cf126e90d26008d56a764a5",
+    "target_content_sha256": "ff008c1d555e8a2d6d9fc0eb98332c9b83e3a9409cf126e90d26008d56a764a5"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.4_Multimedia_Applications/3.4.3_JDK_API_Descriptions.md",
+    "target": "03-基础应用开发/3.4-多媒体应用/3.4.3-JDK-API-说明（含-Python-封装）.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "436eba4e211372dbe0a0098798b12e57cd10c1e32352c27d5d700e5ce8585442",
+    "target_content_sha256": "436eba4e211372dbe0a0098798b12e57cd10c1e32352c27d5d700e5ce8585442"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.4_Multimedia_Applications/index.md",
+    "target": "03-基础应用开发/3.4-多媒体应用/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "16d8dc06bdbaeb5fcab42e8b11265bab5db8eb845f2d5342bde950d06f770c82",
+    "target_content_sha256": "16d8dc06bdbaeb5fcab42e8b11265bab5db8eb845f2d5342bde950d06f770c82"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/3.5.1_opencv_rvv.md",
+    "target": "03-基础应用开发/3.5-RVV优化库/3.5.1-OpenCV-RVV-使用.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "c0a127ddeabbe76aff5f6b5e16ae629eeb174974ba8a25e7b5db1fa816e78a72",
+    "target_content_sha256": "c0a127ddeabbe76aff5f6b5e16ae629eeb174974ba8a25e7b5db1fa816e78a72"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/3.5.2_eigen-rvv.md",
+    "target": "03-基础应用开发/3.5-RVV优化库/3.5.2-Eigen-RVV-使用.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "86a67fbd0366ee8b242e4022b03f161435e105cccf62ef020ba2a75d6fa17cba",
+    "target_content_sha256": "86a67fbd0366ee8b242e4022b03f161435e105cccf62ef020ba2a75d6fa17cba"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/3.5.3_openblas-rvv.md",
+    "target": "03-基础应用开发/3.5-RVV优化库/3.5.3-OpenBLAS-RVV.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "ad29ce159dadbd3486e218c728f7576626375e4329e08604fdc29bd14c9cab6e",
+    "target_content_sha256": "ad29ce159dadbd3486e218c728f7576626375e4329e08604fdc29bd14c9cab6e"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/3.5.4_openVML-rvv.md",
+    "target": "03-基础应用开发/3.5-RVV优化库/3.5.4-OpenVML-RVV-使用.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target_content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/index.md",
+    "target": "03-基础应用开发/3.5-RVV优化库/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "d9ee9773bc74c4f0609ed7c14466f48d0d2939559899b5f0ad9b6a88fbf40ec6",
+    "target_content_sha256": "d9ee9773bc74c4f0609ed7c14466f48d0d2939559899b5f0ad9b6a88fbf40ec6"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.6_SDK_integration/3.6.1_Depth_Camera.md",
+    "target": "03-基础应用开发/3.6-SDK-集成/3.6.1-深度相机使用.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "5ef6de7519ffb80e46f89c1c3bf795c6565c8cf078cd734b487591b7e4801d53",
+    "target_content_sha256": "5ef6de7519ffb80e46f89c1c3bf795c6565c8cf078cd734b487591b7e4801d53"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.6_SDK_integration/index.md",
+    "target": "03-基础应用开发/3.6-SDK-集成/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "18f7eaabd3b2fbb876353c1171ab4e12147362a6dba8e11cebf7802ee3d21d02",
+    "target_content_sha256": "18f7eaabd3b2fbb876353c1171ab4e12147362a6dba8e11cebf7802ee3d21d02"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.7_Image_processing_acceleration/3.7.1_opengl_img_preproc_acc.md",
+    "target": "03-基础应用开发/3.7-图像处理加速/3.7.1-OpenCL-图像预处理加速.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "470e18bbe7a9421c09633efc17b184cc91fd8095cd5d6f70056f6c859b2c5e4e",
+    "target_content_sha256": "470e18bbe7a9421c09633efc17b184cc91fd8095cd5d6f70056f6c859b2c5e4e"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.7_Image_processing_acceleration/index.md",
+    "target": "03-基础应用开发/3.7-图像处理加速/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "7e72398c4a1f78912a37b058e80b2163b56c706bff0b988f1b122e028873356b",
+    "target_content_sha256": "7e72398c4a1f78912a37b058e80b2163b56c706bff0b988f1b122e028873356b"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.8_realsense_usage/3.8.1_realsense_D4xx.md",
+    "target": "03-基础应用开发/3.8-RealSense-深度相机使用/3.8.1-Realsense-D4xx-系列深度相机使用.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "e906376fc5c4fc37d54c2536395b765051e91923980fc42f856fb430459b2b05",
+    "target_content_sha256": "e906376fc5c4fc37d54c2536395b765051e91923980fc42f856fb430459b2b05"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.8_realsense_usage/3.8.2_realsense_L515.md",
+    "target": "03-基础应用开发/3.8-RealSense-深度相机使用/3.8.2-Realsense-L515-深度相机使用.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "682bffcbec7be71d78643270f3ab643947de59d22b7a6a8e0909ffb32c1258a9",
+    "target_content_sha256": "682bffcbec7be71d78643270f3ab643947de59d22b7a6a8e0909ffb32c1258a9"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/3.8_realsense_usage/index.md",
+    "target": "03-基础应用开发/3.8-RealSense-深度相机使用/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "5e27235e589618567a3e9481e32511c20e9150d93b71ed2d02f9bf33ed36fb16",
+    "target_content_sha256": "5e27235e589618567a3e9481e32511c20e9150d93b71ed2d02f9bf33ed36fb16"
+  },
+  {
+    "source": "zh/k1/03_Basic_applications/index.md",
+    "target": "03-基础应用开发/index.md",
+    "same_content": false,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "307e8e181bdf22065b1dfef8df80ccc0c36da3d79a4eeb18fed417cfad4909a6",
+    "target_content_sha256": "40c9e876a997d21eccfb31327d0858f6003029f6024f38ef535c5cbadbb069e1"
+  },
+  {
+    "source": "zh/k1/04_Model_deployment/4.1_Demo_Zoo_Overview.md",
+    "target": "04-AI与算法/4.8-模型开发与部署/4.8.1-AI-Demo-Zoo.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "a1c5c8f61bf4613b608b74b424044d617df103c3b1cb723e86e6511ad650f7dd",
+    "target_content_sha256": "a1c5c8f61bf4613b608b74b424044d617df103c3b1cb723e86e6511ad650f7dd"
+  },
+  {
+    "source": "zh/k1/04_Model_deployment/4.2_Python_Inference_Example.md",
+    "target": "04-AI与算法/4.8-模型开发与部署/4.8.2-Python推理示例.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "57cb1bf89840be916230dfe860b9951b9f07ed514011643be73777101bc58d72",
+    "target_content_sha256": "57cb1bf89840be916230dfe860b9951b9f07ed514011643be73777101bc58d72"
+  },
+  {
+    "source": "zh/k1/04_Model_deployment/4.3_CPP_Inference_Example.md",
+    "target": "04-AI与算法/4.8-模型开发与部署/4.8.3-C++推理示例.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "b1c70c36578369077b28d6665e1984896c14372e220b7f9ac0c28aee912934a6",
+    "target_content_sha256": "b1c70c36578369077b28d6665e1984896c14372e220b7f9ac0c28aee912934a6"
+  },
+  {
+    "source": "zh/k1/04_Model_deployment/4.4_Training_and_Deployment_Pipeline.md",
+    "target": "04-AI与算法/4.8-模型开发与部署/4.8.4-YOLOv8训练部署全流程.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "1263c0232963b44758ecc8fa3bbbf341d494ed90ec110267d5f8b32c14371090",
+    "target_content_sha256": "1263c0232963b44758ecc8fa3bbbf341d494ed90ec110267d5f8b32c14371090"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.0_preliminary_knowledge.md",
+    "target": "04-AI与算法/4.10-预备知识.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "a65a3df5b7dc657233220135c746127fba391130e47d3b2807cd6f498a4b2c49",
+    "target_content_sha256": "a65a3df5b7dc657233220135c746127fba391130e47d3b2807cd6f498a4b2c49"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.1_Voice_Activity_Detection.md",
+    "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.1-VAD.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "8e47812051e169a7dc1b690f5ece0f82aae1acb8890a68b8894de9e657209700",
+    "target_content_sha256": "8e47812051e169a7dc1b690f5ece0f82aae1acb8890a68b8894de9e657209700"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.2_Speech_to_Text.md",
+    "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.2-ASR.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "216adb3f1df12ba042042300c07edec303ab95e3ab24832ecd4ec524e2af49cb",
+    "target_content_sha256": "216adb3f1df12ba042042300c07edec303ab95e3ab24832ecd4ec524e2af49cb"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.3_Large_Language_Models.md",
+    "target": "04-AI与算法/4.4-LLM.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "7aa4e5c287c4a56bf34677db753c8e767d8d0603f0113913c727913154d76473",
+    "target_content_sha256": "7aa4e5c287c4a56bf34677db753c8e767d8d0603f0113913c727913154d76473"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.4_Speech_Input_LLM_Output.md",
+    "target": "04-AI与算法/4.7-语音控制.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "f0196a7c2e7beedcecd1a954b4cd329fc6aa77e11b59c49df6fe67694031f552",
+    "target_content_sha256": "f0196a7c2e7beedcecd1a954b4cd329fc6aa77e11b59c49df6fe67694031f552"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.5_Text_to_Speech.md",
+    "target": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.3-TTS.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "bad1c64e82f7947bffabe08002fee7f1bf63957449eb8407e82525e586951902",
+    "target_content_sha256": "bad1c64e82f7947bffabe08002fee7f1bf63957449eb8407e82525e586951902"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.6_Function_Call.md",
+    "target": "04-AI与算法/4.5-Agent.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "740a3887293196244dc33c4d18585662ad5e9332a4b4ab8fc3622f113bf2f0c7",
+    "target_content_sha256": "740a3887293196244dc33c4d18585662ad5e9332a4b4ab8fc3622f113bf2f0c7"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.7_Vision_Language_Model.md",
+    "target": "04-AI与算法/4.6-VLM.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "19386f10b445381d4f814245f6bcdbc6f4498b868f16122b7640b839cde1fd8c",
+    "target_content_sha256": "19386f10b445381d4f814245f6bcdbc6f4498b868f16122b7640b839cde1fd8c"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.8_LLMDet.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.11-开放词汇检测.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "c21dbd958ef87d5895a6fab8da73d85740dd6952ffebd5fac8baf8a9fd9dfb27",
+    "target_content_sha256": "c21dbd958ef87d5895a6fab8da73d85740dd6952ffebd5fac8baf8a9fd9dfb27"
+  },
+  {
+    "source": "zh/k1/05_AI_Feature_Experience/5.2_AI_Framework_Support/5.2.1_ultralytics_usage.md",
+    "target": "04-AI与算法/4.9-AI框架集成/4.9.1-Ultralytics.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "1949250c35fc7e22aed5ba60c46c6fe84e1dc61f7e518e5ffa220341433446a9",
+    "target_content_sha256": "1949250c35fc7e22aed5ba60c46c6fe84e1dc61f7e518e5ffa220341433446a9"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.1_OS_Preparation/6.1.1_Bianbu_Robot_Installation.md",
+    "target": "05-机器人开发/5.7-ROS2环境与工具/5.7.1-RDK安装.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "19fb44e90366f6069654d938e5363c06877a0cb9472f5d899bc3b338ebb50b73",
+    "target_content_sha256": "19fb44e90366f6069654d938e5363c06877a0cb9472f5d899bc3b338ebb50b73"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.1_OS_Preparation/6.1.2_ROS2_Installation.md",
+    "target": "05-机器人开发/5.7-ROS2环境与工具/5.7.2-ROS2安装使用.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "a9d83bf2687fa27a37e4d317b2a96d2a6e929b9267e40d3e956e39b0cb52f238",
+    "target_content_sha256": "a9d83bf2687fa27a37e4d317b2a96d2a6e929b9267e40d3e956e39b0cb52f238"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.1_Camera_System/1_USB_Camera_Node.md",
+    "target": "05-机器人开发/5.6-基础传感器/5.6.1-Camera/5.6.1.1-USB相机节点.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "b9c351bb333cf4c8f78c61765f5025a7e7bdab522c5e1390adb490a866e47088",
+    "target_content_sha256": "b9c351bb333cf4c8f78c61765f5025a7e7bdab522c5e1390adb490a866e47088"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.1_Camera_System/2_ROS_Camera_Coding.md",
+    "target": "05-机器人开发/5.6-基础传感器/5.6.1-Camera/5.6.1.2-MIPI相机API.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "06c67253202b25fad6edf66ba9a6ca43a38627e188f946dcc9ac1c1de7e4e81a",
+    "target_content_sha256": "06c67253202b25fad6edf66ba9a6ca43a38627e188f946dcc9ac1c1de7e4e81a"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/1_Message_Interface_Description.md",
+    "target": "05-机器人开发/5.8-人机交互/5.8.1-消息接口说明.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "e046794ff25e0819d9d5a5e009d9a11ae6702085edd63a37b3b5afd69c3f9f24",
+    "target_content_sha256": "e046794ff25e0819d9d5a5e009d9a11ae6702085edd63a37b3b5afd69c3f9f24"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/2_Audio_Acquisition_Node.md",
+    "target": "05-机器人开发/5.8-人机交互/5.8.2-音频采集节点.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "65aa4fc194925e493bd460523aec2545decdddbaa0fc8a13c755ac27b791cbf8",
+    "target_content_sha256": "65aa4fc194925e493bd460523aec2545decdddbaa0fc8a13c755ac27b791cbf8"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/3_VAD_Node.md",
+    "target": "05-机器人开发/5.8-人机交互/5.8.3-VAD节点.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "c827cc6ef50f75de63bac8022ee6f10c87b5c603c9870fb212d5093ccb8abe05",
+    "target_content_sha256": "c827cc6ef50f75de63bac8022ee6f10c87b5c603c9870fb212d5093ccb8abe05"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/4_ASR_Node.md",
+    "target": "05-机器人开发/5.8-人机交互/5.8.4-ASR节点.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "a8cafa928250cdd8c5e1cce5c24a39cb6a76d27c5016ab0a8c65a4a42583b4fc",
+    "target_content_sha256": "a8cafa928250cdd8c5e1cce5c24a39cb6a76d27c5016ab0a8c65a4a42583b4fc"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.4_Sensor_System/1_Using_LiDAR.md",
+    "target": "05-机器人开发/5.6-基础传感器/5.6.4-雷达.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "495d8b007d37d41dd387d485efe80ba84555c0f5f362fc264bfda4bc4088f8fc",
+    "target_content_sha256": "495d8b007d37d41dd387d485efe80ba84555c0f5f362fc264bfda4bc4088f8fc"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.4_Sensor_System/2_CMP10A_IMU.md",
+    "target": "05-机器人开发/5.6-基础传感器/5.6.2-IMU.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "800b585176bffd1c3d0a3af596f9ae0a097762bdac683a4bb7734c3289acedf8",
+    "target_content_sha256": "800b585176bffd1c3d0a3af596f9ae0a097762bdac683a4bb7734c3289acedf8"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.1_Object_Detection/6.3.1.1_YOLO.md",
+    "target": "05-机器人开发/5.1-机器感知/5.1.1-目标检测.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "d04400edbf61fc6009f36a3737fdb54aaa4eb05c5b916de1383231026de26198",
+    "target_content_sha256": "d04400edbf61fc6009f36a3737fdb54aaa4eb05c5b916de1383231026de26198"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.2_Image_Classification/6.3.2.1_mobilenetv2.md",
+    "target": "05-机器人开发/5.1-机器感知/5.1.11-图像分类.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "757fe1cac56f9364408dede3d47a4738dbd7365b44ce1520a1f2cd3cb1470081",
+    "target_content_sha256": "757fe1cac56f9364408dede3d47a4738dbd7365b44ce1520a1f2cd3cb1470081"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.3_Image_Segmentation/6.3.3.1_unet.md",
+    "target": "05-机器人开发/5.1-机器感知/5.1.7-语义分割.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "47b0482ac480d761ddc7816df0709688bb9bd7031b0b933a1fa64e33ff21e9a6",
+    "target_content_sha256": "47b0482ac480d761ddc7816df0709688bb9bd7031b0b933a1fa64e33ff21e9a6"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/1_pose_detection.md",
+    "target": "05-机器人开发/5.1-机器感知/5.1.4-人体姿态.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "9526ddc59e67220720a5bb74de0f72604f65dcde05bf26e88c355b5e8a1e122b",
+    "target_content_sha256": "9526ddc59e67220720a5bb74de0f72604f65dcde05bf26e88c355b5e8a1e122b"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/2_yoloworld_detection.md",
+    "target": "05-机器人开发/5.1-机器感知/5.1.12-YOLO-World.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "0a21eb3fc3be0d73467bd9857d90961c7a94bb08f767fcbd97de54828b125d14",
+    "target_content_sha256": "0a21eb3fc3be0d73467bd9857d90961c7a94bb08f767fcbd97de54828b125d14"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/3_Robot_Human_Following.md",
+    "target": "05-机器人开发/5.2-运动控制/5.2.5-小车人体跟随.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "d15d488b6c879e34af04ae979ae4bbcf9266eaf6638ffcf40bda67e00083b4c6",
+    "target_content_sha256": "d15d488b6c879e34af04ae979ae4bbcf9266eaf6638ffcf40bda67e00083b4c6"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/4_OCR.md",
+    "target": "05-机器人开发/5.1-机器感知/5.1.13-OCR.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "f4c83a689a35f37ba629d7203b3596606cfaa33671362c10da9928daf26822f7",
+    "target_content_sha256": "f4c83a689a35f37ba629d7203b3596606cfaa33671362c10da9928daf26822f7"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/5_YOLOE_Detection.md",
+    "target": "05-机器人开发/5.1-机器感知/5.1.14-YOLOE.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "0e5abadda7399660585a9ac342fae6015012f55ea37bb2f67d9c08369bd50d5e",
+    "target_content_sha256": "0e5abadda7399660585a9ac342fae6015012f55ea37bb2f67d9c08369bd50d5e"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/1_Speech_to_Text.md",
+    "target": "05-机器人开发/5.8-人机交互/5.8.5-ROS2语音转文字.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "dfc7a46c8c65ba6ebb19b1f343245aa57ca3318d693bd21a2be6a79770a02b1c",
+    "target_content_sha256": "dfc7a46c8c65ba6ebb19b1f343245aa57ca3318d693bd21a2be6a79770a02b1c"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/2_LLM_Applications.md",
+    "target": "05-机器人开发/5.8-人机交互/5.8.7-LLM模型聊天.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "92227e3ac1dfdcb7992e39e4e28889e29567db90e82d98fbbcf36b94e114d29d",
+    "target_content_sha256": "92227e3ac1dfdcb7992e39e4e28889e29567db90e82d98fbbcf36b94e114d29d"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/3_circle_mic_sound_location.md",
+    "target": "05-机器人开发/5.8-人机交互/5.8.8-声源定位.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "c3ccc386d2cd60a0bbaf21da756268cfa7d6fbf4649626b884db4da275f74522",
+    "target_content_sha256": "c3ccc386d2cd60a0bbaf21da756268cfa7d6fbf4649626b884db4da275f74522"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/Text_To_Speech.md",
+    "target": "05-机器人开发/5.8-人机交互/5.8.6-ROS2文字转语音.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "28aed1990b36582c0932c7079d0a94afbc4e931603733e21a09741e69e2d3b86",
+    "target_content_sha256": "28aed1990b36582c0932c7079d0a94afbc4e931603733e21a09741e69e2d3b86"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/1_SLAM_Mapping.md",
+    "target": "05-机器人开发/5.3-定位导航/5.3.6-SLAM建图.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "ac320089918a15caf04ba3cb3456b90b3e4939b9f043b9d1bb2ebc091fe22d15",
+    "target_content_sha256": "ac320089918a15caf04ba3cb3456b90b3e4939b9f043b9d1bb2ebc091fe22d15"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/2_Navigation2.md",
+    "target": "05-机器人开发/5.4-路径规划/5.4-nav2.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "4dddb19e5b2aae8a02a2bf328370bf6499d9854db63b1a10bdf2d962a2f7fa52",
+    "target_content_sha256": "4dddb19e5b2aae8a02a2bf328370bf6499d9854db63b1a10bdf2d962a2f7fa52"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/3_VSLAM.md",
+    "target": "05-机器人开发/5.3-定位导航/5.3.5-SVO.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "e64b9ad2bf1efb07e253e3fb50214072fda775a42c84c7a390985d9f3e2ef06d",
+    "target_content_sha256": "e64b9ad2bf1efb07e253e3fb50214072fda775a42c84c7a390985d9f3e2ef06d"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/4_Dynamic_Object_Following.md",
+    "target": "05-机器人开发/5.4-路径规划/5.4.1-动态目标跟随.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "dd3fad232657d77621151cd64b84c445e982a37a0ddedd6f993e223a245a11ad",
+    "target_content_sha256": "dd3fad232657d77621151cd64b84c445e982a37a0ddedd6f993e223a245a11ad"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/5_RTAB‐Map_VSLAM.md",
+    "target": "05-机器人开发/5.3-定位导航/5.3.3-rtabmap.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "44298da01fab70c0426b9c059a0217bbaa3aa6099d6453d50d217a864b18c008",
+    "target_content_sha256": "44298da01fab70c0426b9c059a0217bbaa3aa6099d6453d50d217a864b18c008"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.4_AI_Robotic_Arm/1_lerobot.md",
+    "target": "05-机器人开发/5.2-运动控制/5.2.4-机械臂控制.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "2c8c45b3d300242c9d5e4765971b16e019c2e52f4eb93301dec8c179191face8",
+    "target_content_sha256": "2c8c45b3d300242c9d5e4765971b16e019c2e52f4eb93301dec8c179191face8"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.5_Control_Protocol/Ethercat_motor_driver.md",
+    "target": "05-机器人开发/5.2-运动控制/5.2.6-EtherCAT电机控制.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "d9c935d4a4d80031bd1af2a5aa11771747e41a509b430594cb28d86443a3a5e3",
+    "target_content_sha256": "d9c935d4a4d80031bd1af2a5aa11771747e41a509b430594cb28d86443a3a5e3"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.1_human-robot-interaction/1_agv-follow.md",
+    "target": "05-机器人开发/5.9-机器人应用案例/5.9.1-小车跟随及语音交互.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "ea9a17bf965fc614c202a247ba8a46b2bb316fc1a726f44b5a247cdfa0d852e5",
+    "target_content_sha256": "ea9a17bf965fc614c202a247ba8a46b2bb316fc1a726f44b5a247cdfa0d852e5"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.1_human-robot-interaction/2_smart-retail.md",
+    "target": "05-机器人开发/5.9-机器人应用案例/5.9.2-机械臂智慧零售.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "b8e43a8e7ccee0a3ff05407a51bf23e859cee11116f2fd1c74719ef19608b8d5",
+    "target_content_sha256": "b8e43a8e7ccee0a3ff05407a51bf23e859cee11116f2fd1c74719ef19608b8d5"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.2_environmental-perception/1_slam&navigation.md",
+    "target": "05-机器人开发/5.9-机器人应用案例/5.9.3-小车建图导航.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "250a229bd8fd8cb6138b5bf4a861f7eeb2d658c93ca07a57ec6835562439c8e4",
+    "target_content_sha256": "250a229bd8fd8cb6138b5bf4a861f7eeb2d658c93ca07a57ec6835562439c8e4"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.3_large-language-model/1_ai-chat.md",
+    "target": "05-机器人开发/5.9-机器人应用案例/5.9.4-AI聊天机器人.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "e6455e976607bc7e5049d9e465d5f9dcf0a79fa60913fe3556037493097857f8",
+    "target_content_sha256": "e6455e976607bc7e5049d9e465d5f9dcf0a79fa60913fe3556037493097857f8"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.4_WHEELTEC-robot-adaptation/1_adaptation-for-WHEELTEC-robot.md",
+    "target": "05-机器人开发/5.9-机器人应用案例/5.9.5-WHEELTEC差速小车适配.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "eba1f2f95951098b663bc827d743804a314c9f2a8b7ca239bae258d7c53392c5",
+    "target_content_sha256": "eba1f2f95951098b663bc827d743804a314c9f2a8b7ca239bae258d7c53392c5"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.6_Robot_Simulation_Development/6.6.1_Isaac_ROS_VSLAM.md",
+    "target": "05-机器人开发/5.10-机器人仿真/5.10.1-Isaac-Sim仿真建图.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "b47a6302c3edb599f65395be519bf641ca1eb18a790cbbf604f68c19012a912d",
+    "target_content_sha256": "b47a6302c3edb599f65395be519bf641ca1eb18a790cbbf604f68c19012a912d"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.6_Robot_Simulation_Development/6.6.2_Isaac_ROS_Navigation.md",
+    "target": "05-机器人开发/5.10-机器人仿真/5.10.2-Isaac-Sim仿真导航.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "cb390fe1f1a1386b9f5413e49096a5d2ba9a6d2e1fdecac5fbe9b8c3e59ac5fa",
+    "target_content_sha256": "cb390fe1f1a1386b9f5413e49096a5d2ba9a6d2e1fdecac5fbe9b8c3e59ac5fa"
+  },
+  {
+    "source": "zh/k1/06_Robot_development/6.7_ROS2_Development_Tool_Usage/6.7.1_Windows_ros2_rviz2.md",
+    "target": "05-机器人开发/5.7-ROS2环境与工具/5.7.3-Windows-RViz2.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "89f27065e462f949b11bc65aaa2de4686309aa69937079c1a2b8fa8df1a3f32d",
+    "target_content_sha256": "89f27065e462f949b11bc65aaa2de4686309aa69937079c1a2b8fa8df1a3f32d"
+  },
+  {
+    "source": "zh/k1/07_Advanced_development/7.1_Model_Quantization.md",
+    "target": "06-进阶开发/6.1-模型量化开发.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "e0914fc99de4e1a206cce98c1222d785ba52ab0043b168f5d2ccff0dd9e33bcc",
+    "target_content_sha256": "e0914fc99de4e1a206cce98c1222d785ba52ab0043b168f5d2ccff0dd9e33bcc"
+  },
+  {
+    "source": "zh/k1/07_Advanced_development/7.2_perf.md",
+    "target": "06-进阶开发/6.2-perf-+-FlameGraph-使用教程.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "128322665c944bab4ce7b995ed490eea494dde0e5093e71ab7ae504ddb6d1aee",
+    "target_content_sha256": "128322665c944bab4ce7b995ed490eea494dde0e5093e71ab7ae504ddb6d1aee"
+  },
+  {
+    "source": "zh/k1/07_Advanced_development/7.3_netdata.md",
+    "target": "06-进阶开发/6.3-Netdata-使用教程.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "fdfa87d7c54f10b8bade8de59baa5ab4e35f3e9263154d3420020f89c4f0a1f7",
+    "target_content_sha256": "fdfa87d7c54f10b8bade8de59baa5ab4e35f3e9263154d3420020f89c4f0a1f7"
+  },
+  {
+    "source": "zh/k1/07_Advanced_development/index.md",
+    "target": "06-进阶开发/index.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": true,
+    "source_content_sha256": "6d6b44b39656d2a987297a96ceab23e6a5c3d5b2204441a3ee705773dbe7c10a",
+    "target_content_sha256": "6d6b44b39656d2a987297a96ceab23e6a5c3d5b2204441a3ee705773dbe7c10a"
+  },
+  {
+    "source": "zh/k1/Appendix.md",
+    "target": "附录.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target_content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "zh/k1/faqs.md",
+    "target": "FAQ.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "54895efc8afa5917a7dad3c86263f6a80a03da95ae821ef015bb1b1acd9f2ff8",
+    "target_content_sha256": "54895efc8afa5917a7dad3c86263f6a80a03da95ae821ef015bb1b1acd9f2ff8"
+  },
+  {
+    "source": "zh/k1/image.md",
+    "target": "镜像.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "3f813ec0434417b0e981412a2f370eacab7f6df2d0bc18f607bd456e48480e2c",
+    "target_content_sha256": "3f813ec0434417b0e981412a2f370eacab7f6df2d0bc18f607bd456e48480e2c"
+  },
+  {
+    "source": "zh/k1/intro.md",
+    "target": "平台概览/K1原版简介.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "d591fa047b9645c568514313bc3771982b856d20c592fb370721e88b63d8df30",
+    "target_content_sha256": "d591fa047b9645c568514313bc3771982b856d20c592fb370721e88b63d8df30"
+  },
+  {
+    "source": "平台概览/平台概览.md",
+    "target": "平台概览/平台概览.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "65cfc5f53c5c8f43c46002abd73ce11e00184a4cfa1a087bb533cf8a0244561d",
+    "target_content_sha256": "65cfc5f53c5c8f43c46002abd73ce11e00184a4cfa1a087bb533cf8a0244561d"
+  },
+  {
+    "source": "人工智能与算法/语音/K1_ASR.md",
+    "target": "04-AI与算法/4.1-语音/4.1.1-ASR.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "67971ae7299bb0adf9b8ba6461cfd85bd637e5d093c7da99e131f890fee12e3b",
+    "target_content_sha256": "67971ae7299bb0adf9b8ba6461cfd85bd637e5d093c7da99e131f890fee12e3b"
+  },
+  {
+    "source": "人工智能与算法/语音/K1_TTS.md",
+    "target": "04-AI与算法/4.1-语音/4.1.2-TTS.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "ded09d6746cceffa6f05597758e18d7f36511d71d78519693e4da8c00f18fe8b",
+    "target_content_sha256": "ded09d6746cceffa6f05597758e18d7f36511d71d78519693e4da8c00f18fe8b"
+  },
+  {
+    "source": "人工智能与算法/语音/K1_VAD.md",
+    "target": "04-AI与算法/4.1-语音/4.1.3-VAD.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "1b5ebb9f45d19c4db8ff3ce0a48f8ad124c96206dcfd3f1a0a776aaa6a034e7e",
+    "target_content_sha256": "1b5ebb9f45d19c4db8ff3ce0a48f8ad124c96206dcfd3f1a0a776aaa6a034e7e"
+  },
+  {
+    "source": "人工智能与算法/语音/K1_Voiceprint.md",
+    "target": "04-AI与算法/4.1-语音/4.1.4-声纹.md",
+    "same_content": true,
+    "retained_original": true,
+    "protected": false,
+    "source_content_sha256": "c0f6dd2b99bbac7eae4c24bb7038e4f5e0bb6d7ac3995d77cc3a3223ecb2b7de",
+    "target_content_sha256": "c0f6dd2b99bbac7eae4c24bb7038e4f5e0bb6d7ac3995d77cc3a3223ecb2b7de"
+  },
+  {
+    "source": "人工智能与算法/视觉/K1_Object_Detection.md",
+    "target": "04-AI与算法/4.2-视觉/4.2.1-目标检测.md",
+    "same_content": false,
+    "retained_original": false,
+    "protected": false,
+    "source_content_sha256": "c70cbf51235823a95360f393caa22ba11dfe01464252f7f9c4d0b216ea7089b0",
+    "target_content_sha256": "036aadded67616aac42f7ab426b90baabd9630f5ae100c206c982f8b90f7abea"
+  }
+]

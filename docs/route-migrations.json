@@ -1,0 +1,1031 @@
+[
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/1.1_Hardware_Overview/1.1.1_MUSE_Pi_Pro.md",
+    "old_slug": null,
+    "new_path": "01-快速开始/1.1-硬件介绍/1.1.1-MUSE-Pi-Pro.md",
+    "new_slug": "/k1/quick-start/1.1-硬件介绍/1.1.1-MUSE-Pi-Pro"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/1.1_Hardware_Overview/index.md",
+    "old_slug": "/quick_start/Hardware_Overview",
+    "new_path": "01-快速开始/1.1-硬件介绍/index.md",
+    "new_slug": "/k1/quick-start/1.1-硬件介绍"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/1.2_System_Flashing/1.2.1_MUSE_Pi_Pro.md",
+    "old_slug": null,
+    "new_path": "01-快速开始/1.2-系统烧录/1.2.1-MUSE-Pi-Pro.md",
+    "new_slug": "/k1/quick-start/1.2-系统烧录/1.2.1-MUSE-Pi-Pro"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/1.2_System_Flashing/index.md",
+    "old_slug": "/quick_start/System_Flashing",
+    "new_path": "01-快速开始/1.2-系统烧录/index.md",
+    "new_slug": "/k1/quick-start/1.2-系统烧录"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/1.3_Environment_Setup.md",
+    "old_slug": "/quick_start/1.3_Environment_Setup",
+    "new_path": "01-快速开始/1.3-入门配置.md",
+    "new_slug": "/k1/quick-start/1.3-入门配置"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/1.4_Remote_Access.md",
+    "old_slug": "/quick_start/1.4_Remote_Access",
+    "new_path": "01-快速开始/1.4-远程连接.md",
+    "new_slug": "/k1/quick-start/1.4-远程连接"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/1.5_Resources_Summary.md",
+    "old_slug": "/quick_start/1.5_Resources_Summary",
+    "new_path": "01-快速开始/1.5-资源汇总.md",
+    "new_slug": "/k1/quick-start/1.5-资源汇总"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/1.6_Supported_Hardware_List.md",
+    "old_slug": "/quick_start/1.6_Supported_Hardware_List",
+    "new_path": "01-快速开始/1.6-支持的硬件清单.md",
+    "new_slug": "/k1/quick-start/1.6-支持的硬件清单"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/01_Quick_start/index.md",
+    "old_slug": "/quick_start",
+    "new_path": "01-快速开始/index.md",
+    "new_slug": "/k1/quick-start"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.1_System_Functional_Specification.md",
+    "old_slug": "/system_configuration/2.1_System_Functional_Specification",
+    "new_path": "02-ROS2_LXQT基础使用/2.1-系统功能清单.md",
+    "new_slug": "/k1/system-configuration/2.1-系统功能清单"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.2_Detailed_List_of_Development_Documents.md",
+    "old_slug": "/system_configuration/2.2_Detailed_List_of_Development_Documents",
+    "new_path": "02-ROS2_LXQT基础使用/2.2-开发文档明细列表.md",
+    "new_slug": "/k1/system-configuration/2.2-开发文档明细列表"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.3_System_Dependency_Installation.md",
+    "old_slug": "/system_configuration/2.3_System_Dependency_Installation",
+    "new_path": "02-ROS2_LXQT基础使用/2.3-系统依赖安装.md",
+    "new_slug": "/k1/system-configuration/2.3-系统依赖安装"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.4_Python_Usage.md",
+    "old_slug": "/system_configuration/2.4_Python_Usage",
+    "new_path": "02-ROS2_LXQT基础使用/2.4-Python-使用.md",
+    "new_slug": "/k1/system-configuration/2.4-Python-使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.5_CPP_Usage.md",
+    "old_slug": "/system_configuration/2.5_CPP_Usage",
+    "new_path": "02-ROS2_LXQT基础使用/2.5-C++-使用指南.md",
+    "new_slug": "/k1/system-configuration/2.5-C++-使用指南"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.6_Docker_Usage/2.6.1_Docker_setup.md",
+    "old_slug": null,
+    "new_path": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/2.6.1-Docker-环境设置.md",
+    "new_slug": "/k1/system-configuration/2.6-Docker-资源指南/2.6.1-Docker-环境设置"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.6_Docker_Usage/2.6.2_Node-RED_Usage.md",
+    "old_slug": null,
+    "new_path": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/2.6.2-Node-RED-使用指南.md",
+    "new_slug": "/k1/system-configuration/2.6-Docker-资源指南/2.6.2-Node-RED-使用指南"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.6_Docker_Usage/2.6.3_JupyterLab_Usage.md",
+    "old_slug": null,
+    "new_path": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/2.6.3-JupyterLab-使用指南.md",
+    "new_slug": "/k1/system-configuration/2.6-Docker-资源指南/2.6.3-JupyterLab-使用指南"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.6_Docker_Usage/2.6.4_DemoZoo_Usage.md",
+    "old_slug": null,
+    "new_path": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/2.6.4-DemoZoo-容器使用指南.md",
+    "new_slug": "/k1/system-configuration/2.6-Docker-资源指南/2.6.4-DemoZoo-容器使用指南"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.6_Docker_Usage/index.md",
+    "old_slug": "/system_configuration/2.6_Docker_Usage",
+    "new_path": "02-ROS2_LXQT基础使用/2.6-Docker-资源指南/index.md",
+    "new_slug": "/k1/system-configuration/2.6-Docker-资源指南"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/2.7_Automatic_Startup.md",
+    "old_slug": "/system_configuration/2.7_Automatic_Startup",
+    "new_path": "02-ROS2_LXQT基础使用/2.7-开机自启.md",
+    "new_slug": "/k1/system-configuration/2.7-开机自启"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/02_System_configuration/index.md",
+    "old_slug": "/system_configuration",
+    "new_path": "02-ROS2_LXQT基础使用/index.md",
+    "new_slug": "/k1/system-configuration"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.1_Image_Capture_and_Applications/3.1.1_Using_MIPI_Camera.md",
+    "old_slug": "/basic_applications/image_capture_and_applications/3.1.1_Using_MIPI_Camera",
+    "new_path": "03-基础应用开发/3.1-图像采集与应用/3.1.1-MIPI-相机使用说明.md",
+    "new_slug": "/k1/basic-applications/3.1-图像采集与应用/3.1.1-MIPI-相机使用说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.1_Image_Capture_and_Applications/3.1.2_Using_USB_Camera.md",
+    "old_slug": "/basic_applications/image_capture_and_applications/3.1.2_Using_USB_Camera",
+    "new_path": "03-基础应用开发/3.1-图像采集与应用/3.1.2-USB-相机使用说明.md",
+    "new_slug": "/k1/basic-applications/3.1-图像采集与应用/3.1.2-USB-相机使用说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.1_Image_Capture_and_Applications/3.1.3_USB_Camera_Python_Usage.md",
+    "old_slug": "/basic_applications/image_capture_and_applications/3.1.3_USB_Camera_Python_Usage",
+    "new_path": "03-基础应用开发/3.1-图像采集与应用/3.1.3-Python-使用-USB-相机.md",
+    "new_slug": "/k1/basic-applications/3.1-图像采集与应用/3.1.3-Python-使用-USB-相机"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.1_Image_Capture_and_Applications/index.md",
+    "old_slug": "/basic_applications/image_capture_and_applications",
+    "new_path": "03-基础应用开发/3.1-图像采集与应用/index.md",
+    "new_slug": "/k1/basic-applications/3.1-图像采集与应用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/1_Mic_Hardware_Preparation.md",
+    "old_slug": "/basic_applications/Audio_Capture_and_Applications/1_Mic_Hardware_Preparation",
+    "new_path": "03-基础应用开发/3.2-语音采集与播放/1-麦克风硬件调试说明.md",
+    "new_slug": "/k1/basic-applications/3.2-语音采集与播放/1-麦克风硬件调试说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/2_Speaker_Hardware_Preparation.md",
+    "old_slug": "/basic_applications/Audio_Capture_and_Applications/2_Speaker_Hardware_Preparation",
+    "new_path": "03-基础应用开发/3.2-语音采集与播放/2-扬声器硬件调试说明.md",
+    "new_slug": "/k1/basic-applications/3.2-语音采集与播放/2-扬声器硬件调试说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/3.2.1_USB_Microphone_Audio_Capture.md",
+    "old_slug": "/basic_applications/Audio_Capture_and_Applications/3.2.1_USB_Microphone_Audio_Capture",
+    "new_path": "03-基础应用开发/3.2-语音采集与播放/3.2.1-USB-麦克风使用说明.md",
+    "new_slug": "/k1/basic-applications/3.2-语音采集与播放/3.2.1-USB-麦克风使用说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/3.2.2_Using_Array_Microphone.md",
+    "old_slug": "/basic_applications/Audio_Capture_and_Applications/3.2.2_Using_Array_Microphone",
+    "new_path": "03-基础应用开发/3.2-语音采集与播放/3.2.2-环形麦克风使用说明.md",
+    "new_slug": "/k1/basic-applications/3.2-语音采集与播放/3.2.2-环形麦克风使用说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.2_Audio_Capture_and_Applications/index.md",
+    "old_slug": "/basic_applications/Audio_Capture_and_Applications",
+    "new_path": "03-基础应用开发/3.2-语音采集与播放/index.md",
+    "new_slug": "/k1/basic-applications/3.2-语音采集与播放"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.1_Pin_Definitions.md",
+    "old_slug": "/basic_applications/Pin_Applications/3.3.1_Pin_Definitions",
+    "new_path": "03-基础应用开发/3.3-引脚应用/3.3.1-引脚定义说明.md",
+    "new_slug": "/k1/basic-applications/3.3-引脚应用/3.3.1-引脚定义说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.2_GPIO_Applications.md",
+    "old_slug": "/basic_applications/Pin_Applications/3.3.2_GPIO_Applications",
+    "new_path": "03-基础应用开发/3.3-引脚应用/3.3.2-GPIO-应用说明.md",
+    "new_slug": "/k1/basic-applications/3.3-引脚应用/3.3.2-GPIO-应用说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.3_Using_PWM.md",
+    "old_slug": "/basic_applications/Pin_Applications/3.3.3_Using_PWM",
+    "new_path": "03-基础应用开发/3.3-引脚应用/3.3.3-PWM-使用说明.md",
+    "new_slug": "/k1/basic-applications/3.3-引脚应用/3.3.3-PWM-使用说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.4_Using_I2C.md",
+    "old_slug": "/basic_applications/Pin_Applications/3.3.4_Using_I2C",
+    "new_path": "03-基础应用开发/3.3-引脚应用/3.3.4-I2C-使用说明.md",
+    "new_slug": "/k1/basic-applications/3.3-引脚应用/3.3.4-I2C-使用说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.3_Pin_Applications/3.3.5_Using_SPI_.md",
+    "old_slug": "/basic_applications/Pin_Applications/3.3.5_Using_SPI_",
+    "new_path": "03-基础应用开发/3.3-引脚应用/3.3.5-SPI-使用说明.md",
+    "new_slug": "/k1/basic-applications/3.3-引脚应用/3.3.5-SPI-使用说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.3_Pin_Applications/index.md",
+    "old_slug": "/basic_applications/Pin_Applications",
+    "new_path": "03-基础应用开发/3.3-引脚应用/index.md",
+    "new_slug": "/k1/basic-applications/3.3-引脚应用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.4_Multimedia_Applications/3.4.1_Introduction_to_JDK.md",
+    "old_slug": "/basic_applications/Multimedia_Applications/3.4.1_Introduction_to_JDK",
+    "new_path": "03-基础应用开发/3.4-多媒体应用/3.4.1-JDK-简介.md",
+    "new_slug": "/k1/basic-applications/3.4-多媒体应用/3.4.1-JDK-简介"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.4_Multimedia_Applications/3.4.2_JDK_Reference_Examples.md",
+    "old_slug": "/basic_applications/Multimedia_Applications/3.4.2_JDK_Reference_Examples",
+    "new_path": "03-基础应用开发/3.4-多媒体应用/3.4.2-JDK-示例参考.md",
+    "new_slug": "/k1/basic-applications/3.4-多媒体应用/3.4.2-JDK-示例参考"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.4_Multimedia_Applications/3.4.3_JDK_API_Descriptions.md",
+    "old_slug": "/basic_applications/Multimedia_Applications/3.4.3_JDK_API_Descriptions",
+    "new_path": "03-基础应用开发/3.4-多媒体应用/3.4.3-JDK-API-说明（含-Python-封装）.md",
+    "new_slug": "/k1/basic-applications/3.4-多媒体应用/3.4.3-JDK-API-说明（含-Python-封装）"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.4_Multimedia_Applications/index.md",
+    "old_slug": "/basic_applications/Multimedia_Applications",
+    "new_path": "03-基础应用开发/3.4-多媒体应用/index.md",
+    "new_slug": "/k1/basic-applications/3.4-多媒体应用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/3.5.1_opencv_rvv.md",
+    "old_slug": "/basic_applications/High_Performance_Computing_Library/3.5.1_opencv_rvv",
+    "new_path": "03-基础应用开发/3.5-RVV优化库/3.5.1-OpenCV-RVV-使用.md",
+    "new_slug": "/k1/basic-applications/3.5-RVV优化库/3.5.1-OpenCV-RVV-使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/3.5.2_eigen-rvv.md",
+    "old_slug": "/basic_applications/High_Performance_Computing_Library/3.5.2_eigen-rvv",
+    "new_path": "03-基础应用开发/3.5-RVV优化库/3.5.2-Eigen-RVV-使用.md",
+    "new_slug": "/k1/basic-applications/3.5-RVV优化库/3.5.2-Eigen-RVV-使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/3.5.3_openblas-rvv.md",
+    "old_slug": "/basic_applications/High_Performance_Computing_Library/3.5.3_openblas-rvv",
+    "new_path": "03-基础应用开发/3.5-RVV优化库/3.5.3-OpenBLAS-RVV.md",
+    "new_slug": "/k1/basic-applications/3.5-RVV优化库/3.5.3-OpenBLAS-RVV"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/3.5.4_openVML-rvv.md",
+    "old_slug": "/basic_applications/High_Performance_Computing_Library/3.5.4_openVML-rvv",
+    "new_path": "03-基础应用开发/3.5-RVV优化库/3.5.4-OpenVML-RVV-使用.md",
+    "new_slug": "/k1/basic-applications/3.5-RVV优化库/3.5.4-OpenVML-RVV-使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.5_High_Performance_Computing_Library/index.md",
+    "old_slug": "/basic_applications/High_Performance_Computing_Library",
+    "new_path": "03-基础应用开发/3.5-RVV优化库/index.md",
+    "new_slug": "/k1/basic-applications/3.5-RVV优化库"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.6_SDK_integration/3.6.1_Depth_Camera.md",
+    "old_slug": "/basic_applications/SD_integration/3.6.1_Depth_Camera",
+    "new_path": "03-基础应用开发/3.6-SDK-集成/3.6.1-深度相机使用.md",
+    "new_slug": "/k1/basic-applications/3.6-SDK-集成/3.6.1-深度相机使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.6_SDK_integration/index.md",
+    "old_slug": "/basic_applications/SD_integration",
+    "new_path": "03-基础应用开发/3.6-SDK-集成/index.md",
+    "new_slug": "/k1/basic-applications/3.6-SDK-集成"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.7_Image_processing_acceleration/3.7.1_opengl_img_preproc_acc.md",
+    "old_slug": "/basic_applications/Image_processing_acceleration/3.7.1_opengl_img_preproc_acc",
+    "new_path": "03-基础应用开发/3.7-图像处理加速/3.7.1-OpenCL-图像预处理加速.md",
+    "new_slug": "/k1/basic-applications/3.7-图像处理加速/3.7.1-OpenCL-图像预处理加速"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.7_Image_processing_acceleration/index.md",
+    "old_slug": "/basic_applications/Image_processing_acceleration",
+    "new_path": "03-基础应用开发/3.7-图像处理加速/index.md",
+    "new_slug": "/k1/basic-applications/3.7-图像处理加速"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.8_realsense_usage/3.8.1_realsense_D4xx.md",
+    "old_slug": "/basic_applications/3.8_realsense_usage/3.8.1_realsense_D4xx",
+    "new_path": "03-基础应用开发/3.8-RealSense-深度相机使用/3.8.1-Realsense-D4xx-系列深度相机使用.md",
+    "new_slug": "/k1/basic-applications/3.8-RealSense-深度相机使用/3.8.1-Realsense-D4xx-系列深度相机使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.8_realsense_usage/3.8.2_realsense_L515.md",
+    "old_slug": "/basic_applications/3.8_realsense_usage/3.8.2_realsense_L515",
+    "new_path": "03-基础应用开发/3.8-RealSense-深度相机使用/3.8.2-Realsense-L515-深度相机使用.md",
+    "new_slug": "/k1/basic-applications/3.8-RealSense-深度相机使用/3.8.2-Realsense-L515-深度相机使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/3.8_realsense_usage/index.md",
+    "old_slug": "/basic_applications/3.8_realsense_usage",
+    "new_path": "03-基础应用开发/3.8-RealSense-深度相机使用/index.md",
+    "new_slug": "/k1/basic-applications/3.8-RealSense-深度相机使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/03_Basic_applications/index.md",
+    "old_slug": "/basic_applications",
+    "new_path": "03-基础应用开发/index.md",
+    "new_slug": "/k1/basic-applications"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/04_Model_deployment/4.1_Demo_Zoo_Overview.md",
+    "old_slug": "/04_Model_deployment/4.1_Demo_Zoo_Overview",
+    "new_path": "04-AI与算法/4.8-模型开发与部署/4.8.1-AI-Demo-Zoo.md",
+    "new_slug": "/k1/ai/4.8-模型开发与部署/4.8.1-AI-Demo-Zoo"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/04_Model_deployment/4.2_Python_Inference_Example.md",
+    "old_slug": "/04_Model_deployment/4.2_Python_Inference_Example",
+    "new_path": "04-AI与算法/4.8-模型开发与部署/4.8.2-Python推理示例.md",
+    "new_slug": "/k1/ai/4.8-模型开发与部署/4.8.2-Python推理示例"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/04_Model_deployment/4.3_CPP_Inference_Example.md",
+    "old_slug": "/04_Model_deployment/4.3_CPP_Inference_Example",
+    "new_path": "04-AI与算法/4.8-模型开发与部署/4.8.3-C++推理示例.md",
+    "new_slug": "/k1/ai/4.8-模型开发与部署/4.8.3-C++推理示例"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/04_Model_deployment/4.4_Training_and_Deployment_Pipeline.md",
+    "old_slug": "/04_Model_deployment/4.4_Training_and_Deployment_Pipeline",
+    "new_path": "04-AI与算法/4.8-模型开发与部署/4.8.4-YOLOv8训练部署全流程.md",
+    "new_slug": "/k1/ai/4.8-模型开发与部署/4.8.4-YOLOv8训练部署全流程"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/04_Model_deployment/index.md",
+    "old_slug": "/04_Model_deployment",
+    "new_path": "04-AI与算法/4.8-模型开发与部署/index.md",
+    "new_slug": "/k1/ai/4.8-模型开发与部署"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.0_preliminary_knowledge.md",
+    "old_slug": "/05_AI_Feature_Experience/5.0_preliminary_knowledge",
+    "new_path": "04-AI与算法/4.10-预备知识.md",
+    "new_slug": "/k1/ai/4.10-预备知识"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.1_Voice_Activity_Detection.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.1_Voice_Activity_Detection",
+    "new_path": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.1-VAD.md",
+    "new_slug": "/k1/ai/4.1-语音/4.1.5-K1原有Python接口/4.1.5.1-VAD"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.2_Speech_to_Text.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.2_Speech_to_Text",
+    "new_path": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.2-ASR.md",
+    "new_slug": "/k1/ai/4.1-语音/4.1.5-K1原有Python接口/4.1.5.2-ASR"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.3_Large_Language_Models.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.3_Large_Language_Models",
+    "new_path": "04-AI与算法/4.4-LLM.md",
+    "new_slug": "/k1/ai/4.4-LLM"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.4_Speech_Input_LLM_Output.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.4_Speech_Input_LLM_Output",
+    "new_path": "04-AI与算法/4.7-语音控制.md",
+    "new_slug": "/k1/ai/4.7-语音控制"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.5_Text_to_Speech.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.5_Text_to_Speech",
+    "new_path": "04-AI与算法/4.1-语音/4.1.5-K1原有Python接口/4.1.5.3-TTS.md",
+    "new_slug": "/k1/ai/4.1-语音/4.1.5-K1原有Python接口/4.1.5.3-TTS"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.6_Function_Call.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.6_Function_Call",
+    "new_path": "04-AI与算法/4.5-Agent.md",
+    "new_slug": "/k1/ai/4.5-Agent"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.7_Vision_Language_Model.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.7_Vision_Language_Model",
+    "new_path": "04-AI与算法/4.6-VLM.md",
+    "new_slug": "/k1/ai/4.6-VLM"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/5.1.8_LLMDet.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start/5.1.8_LLMDet",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.11-开放词汇检测.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.11-开放词汇检测"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.1_quickly_start/index.md",
+    "old_slug": "/05_AI_Feature_Experience/5.1_quickly_start",
+    "new_path": "04-AI与算法/index.md",
+    "new_slug": "/k1/ai"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.2_AI_Framework_Support/5.2.1_ultralytics_usage.md",
+    "old_slug": "/05_AI_Feature_Experience/5.2_AI_Framework_Support/5.2.1_ultralytics_usage",
+    "new_path": "04-AI与算法/4.9-AI框架集成/4.9.1-Ultralytics.md",
+    "new_slug": "/k1/ai/4.9-AI框架集成/4.9.1-Ultralytics"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/5.2_AI_Framework_Support/index.md",
+    "old_slug": "/05_AI_Feature_Experience/5.2_AI_Framework_Support",
+    "new_path": "04-AI与算法/4.9-AI框架集成/index.md",
+    "new_slug": "/k1/ai/4.9-AI框架集成"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/05_AI_Feature_Experience/index.md",
+    "old_slug": "/05_AI_Feature_Experience",
+    "new_path": "04-AI与算法/index.md",
+    "new_slug": "/k1/ai"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.1_OS_Preparation/6.1.1_Bianbu_Robot_Installation.md",
+    "old_slug": "/06_Robot_development/OS_Preparation/6.1.1_Bianbu_Robot_Installation",
+    "new_path": "05-机器人开发/5.7-ROS2环境与工具/5.7.1-RDK安装.md",
+    "new_slug": "/k1/robot-dev/5.7-ROS2环境与工具/5.7.1-RDK安装"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.1_OS_Preparation/6.1.2_ROS2_Installation.md",
+    "old_slug": "/06_Robot_development/OS_Preparation/6.1.2_ROS2_Installation",
+    "new_path": "05-机器人开发/5.7-ROS2环境与工具/5.7.2-ROS2安装使用.md",
+    "new_slug": "/k1/robot-dev/5.7-ROS2环境与工具/5.7.2-ROS2安装使用"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.1_OS_Preparation/index.md",
+    "old_slug": "/06_Robot_development/OS_Preparation",
+    "new_path": "05-机器人开发/5.7-ROS2环境与工具/index.md",
+    "new_slug": "/k1/robot-dev/5.7-ROS2环境与工具"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.1_Camera_System/1_USB_Camera_Node.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.1_Camera_System/1_USB_Camera_Node",
+    "new_path": "05-机器人开发/5.6-基础传感器/5.6.1-Camera/5.6.1.1-USB相机节点.md",
+    "new_slug": "/k1/robot-dev/5.6-基础传感器/5.6.1-Camera/5.6.1.1-USB相机节点"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.1_Camera_System/2_ROS_Camera_Coding.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.1_Camera_System/2_ROS_Camera_Coding",
+    "new_path": "05-机器人开发/5.6-基础传感器/5.6.1-Camera/5.6.1.2-MIPI相机API.md",
+    "new_slug": "/k1/robot-dev/5.6-基础传感器/5.6.1-Camera/5.6.1.2-MIPI相机API"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.1_Camera_System/index.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.1_Camera_System",
+    "new_path": "05-机器人开发/5.6-基础传感器/5.6.1-Camera/index.md",
+    "new_slug": "/k1/robot-dev/5.6-基础传感器/5.6.1-Camera"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/1_Message_Interface_Description.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/1_Message_Interface_Description",
+    "new_path": "05-机器人开发/5.8-人机交互/5.8.1-消息接口说明.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互/5.8.1-消息接口说明"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/2_Audio_Acquisition_Node.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/2_Audio_Acquisition_Node",
+    "new_path": "05-机器人开发/5.8-人机交互/5.8.2-音频采集节点.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互/5.8.2-音频采集节点"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/3_VAD_Node.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/3_VAD_Node",
+    "new_path": "05-机器人开发/5.8-人机交互/5.8.3-VAD节点.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互/5.8.3-VAD节点"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/4_ASR_Node.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/4_ASR_Node",
+    "new_path": "05-机器人开发/5.8-人机交互/5.8.4-ASR节点.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互/5.8.4-ASR节点"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction/index.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.2_Human-Robot_Interaction",
+    "new_path": "05-机器人开发/5.8-人机交互/index.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.3_Robot_Perception/index.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.3_Robot_Perception",
+    "new_path": "05-机器人开发/5.1-机器感知/index.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.4_Sensor_System/1_Using_LiDAR.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.4_Sensor_System/1_Using_LiDAR",
+    "new_path": "05-机器人开发/5.6-基础传感器/5.6.4-雷达.md",
+    "new_slug": "/k1/robot-dev/5.6-基础传感器/5.6.4-雷达"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.4_Sensor_System/2_CMP10A_IMU.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.4_Sensor_System/2_CMP10A_IMU",
+    "new_path": "05-机器人开发/5.6-基础传感器/5.6.2-IMU.md",
+    "new_slug": "/k1/robot-dev/5.6-基础传感器/5.6.2-IMU"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/6.2.4_Sensor_System/index.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API/6.2.4_Sensor_System",
+    "new_path": "05-机器人开发/5.6-基础传感器/index.md",
+    "new_slug": "/k1/robot-dev/5.6-基础传感器"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.2_ROS2_API/index.md",
+    "old_slug": "/06_Robot_development/6.2_ROS2_API",
+    "new_path": "05-机器人开发/index.md",
+    "new_slug": "/k1/robot-dev"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.1_Object_Detection/6.3.1.1_YOLO.md",
+    "old_slug": null,
+    "new_path": "05-机器人开发/5.1-机器感知/5.1.1-目标检测.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知/5.1.1-目标检测"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.1_Object_Detection/index.md",
+    "old_slug": "/06_Robot_development/Visual_DNN_Library/6.3.1_Object_Detection",
+    "new_path": "05-机器人开发/5.1-机器感知/index.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.2_Image_Classification/6.3.2.1_mobilenetv2.md",
+    "old_slug": null,
+    "new_path": "05-机器人开发/5.1-机器感知/5.1.11-图像分类.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知/5.1.11-图像分类"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.2_Image_Classification/index.md",
+    "old_slug": "/06_Robot_development/Visual_DNN_Library/6.3.2_Image_Classification",
+    "new_path": "05-机器人开发/5.1-机器感知/index.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.3_Image_Segmentation/6.3.3.1_unet.md",
+    "old_slug": null,
+    "new_path": "05-机器人开发/5.1-机器感知/5.1.7-语义分割.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知/5.1.7-语义分割"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/6.3.3_Image_Segmentation/index.md",
+    "old_slug": "/06_Robot_development/Visual_DNN_Library/6.3.3_Image_Segmentation",
+    "new_path": "05-机器人开发/5.1-机器感知/index.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.3_Visual_DNN_Library/index.md",
+    "old_slug": "/06_Robot_development/Visual_DNN_Library",
+    "new_path": "05-机器人开发/5.1-机器感知/index.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/1_pose_detection.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/1_pose_detection",
+    "new_path": "05-机器人开发/5.1-机器感知/5.1.4-人体姿态.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知/5.1.4-人体姿态"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/2_yoloworld_detection.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/2_yoloworld_detection",
+    "new_path": "05-机器人开发/5.1-机器感知/5.1.12-YOLO-World.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知/5.1.12-YOLO-World"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/3_Robot_Human_Following.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/3_Robot_Human_Following",
+    "new_path": "05-机器人开发/5.2-运动控制/5.2.5-小车人体跟随.md",
+    "new_slug": "/k1/robot-dev/5.2-运动控制/5.2.5-小车人体跟随"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/4_OCR.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/4_OCR",
+    "new_path": "05-机器人开发/5.1-机器感知/5.1.13-OCR.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知/5.1.13-OCR"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/5_YOLOE_Detection.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/5_YOLOE_Detection",
+    "new_path": "05-机器人开发/5.1-机器感知/5.1.14-YOLOE.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知/5.1.14-YOLOE"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception/index.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.1_Robot_Perception",
+    "new_path": "05-机器人开发/5.1-机器感知/index.md",
+    "new_slug": "/k1/robot-dev/5.1-机器感知"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/1_Speech_to_Text.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/1_Speech_to_Text",
+    "new_path": "05-机器人开发/5.8-人机交互/5.8.5-ROS2语音转文字.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互/5.8.5-ROS2语音转文字"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/2_LLM_Applications.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/2_LLM_Applications",
+    "new_path": "05-机器人开发/5.8-人机交互/5.8.7-LLM模型聊天.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互/5.8.7-LLM模型聊天"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/3_circle_mic_sound_location.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/3_circle_mic_sound_location",
+    "new_path": "05-机器人开发/5.8-人机交互/5.8.8-声源定位.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互/5.8.8-声源定位"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/Text_To_Speech.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/Text_To_Speech",
+    "new_path": "05-机器人开发/5.8-人机交互/5.8.6-ROS2文字转语音.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互/5.8.6-ROS2文字转语音"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction/index.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.2_Human-Robot_Interaction",
+    "new_path": "05-机器人开发/5.8-人机交互/index.md",
+    "new_slug": "/k1/robot-dev/5.8-人机交互"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/1_SLAM_Mapping.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/1_SLAM_Mapping",
+    "new_path": "05-机器人开发/5.3-定位导航/5.3.6-SLAM建图.md",
+    "new_slug": "/k1/robot-dev/5.3-定位导航/5.3.6-SLAM建图"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/2_Navigation2.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/2_Navigation2",
+    "new_path": "05-机器人开发/5.4-路径规划/5.4-nav2.md",
+    "new_slug": "/k1/robot-dev/5.4-路径规划/5.4-nav2"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/3_VSLAM.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/3_VSLAM",
+    "new_path": "05-机器人开发/5.3-定位导航/5.3.5-SVO.md",
+    "new_slug": "/k1/robot-dev/5.3-定位导航/5.3.5-SVO"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/4_Dynamic_Object_Following.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/4_Dynamic_Object_Following",
+    "new_path": "05-机器人开发/5.4-路径规划/5.4.1-动态目标跟随.md",
+    "new_slug": "/k1/robot-dev/5.4-路径规划/5.4.1-动态目标跟随"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/5_RTAB‐Map_VSLAM.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/5_RTAB‐Map_VSLAM",
+    "new_path": "05-机器人开发/5.3-定位导航/5.3.3-rtabmap.md",
+    "new_slug": "/k1/robot-dev/5.3-定位导航/5.3.3-rtabmap"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation/index.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.3_SLAM_And_Navigation",
+    "new_path": "05-机器人开发/5.3-定位导航/index.md",
+    "new_slug": "/k1/robot-dev/5.3-定位导航"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.4_AI_Robotic_Arm/1_lerobot.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.4_AI_Robotic_Arm/1_lerobot",
+    "new_path": "05-机器人开发/5.2-运动控制/5.2.4-机械臂控制.md",
+    "new_slug": "/k1/robot-dev/5.2-运动控制/5.2.4-机械臂控制"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.4_AI_Robotic_Arm/index.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.4_AI_Robotic_Arm",
+    "new_path": "05-机器人开发/5.2-运动控制/index.md",
+    "new_slug": "/k1/robot-dev/5.2-运动控制"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.5_Control_Protocol/Ethercat_motor_driver.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.5_Control_Protocol/Ethercat_motor_driver",
+    "new_path": "05-机器人开发/5.2-运动控制/5.2.6-EtherCAT电机控制.md",
+    "new_slug": "/k1/robot-dev/5.2-运动控制/5.2.6-EtherCAT电机控制"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/6.4.5_Control_Protocol/index.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module/6.4.5_Control_Protocol",
+    "new_path": "05-机器人开发/5.2-运动控制/index.md",
+    "new_slug": "/k1/robot-dev/5.2-运动控制"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.4_Robot_Application_Module/index.md",
+    "old_slug": "/06_Robot_development/6.4_Robot_Application_Module",
+    "new_path": "05-机器人开发/index.md",
+    "new_slug": "/k1/robot-dev"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.1_human-robot-interaction/1_agv-follow.md",
+    "old_slug": "/06_Robot_development/Robot_Application_Cases/human_robot_interaction/1_agv-follow",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/5.9.1-小车跟随及语音交互.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例/5.9.1-小车跟随及语音交互"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.1_human-robot-interaction/2_smart-retail.md",
+    "old_slug": "06_Robot_development/Robot_Application_Cases/human_robot_interaction/2_smart-retail",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/5.9.2-机械臂智慧零售.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例/5.9.2-机械臂智慧零售"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.1_human-robot-interaction/index.md",
+    "old_slug": "06_Robot_development/Robot_Application_Cases/human_robot_interaction",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/index.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.2_environmental-perception/1_slam&navigation.md",
+    "old_slug": "06_Robot_development/Robot_Application_Cases/integrated-applications/1_slam&navigation",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/5.9.3-小车建图导航.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例/5.9.3-小车建图导航"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.2_environmental-perception/index.md",
+    "old_slug": "06_Robot_development/Robot_Application_Cases/integrated-applications",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/index.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.3_large-language-model/1_ai-chat.md",
+    "old_slug": "06_Robot_development/Robot_Application_Cases/large-language-model/1_ai-chat",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/5.9.4-AI聊天机器人.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例/5.9.4-AI聊天机器人"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.3_large-language-model/index.md",
+    "old_slug": "06_Robot_development/Robot_Application_Cases/large-language-model",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/index.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.4_WHEELTEC-robot-adaptation/1_adaptation-for-WHEELTEC-robot.md",
+    "old_slug": "06_Robot_development/Robot_Application_Cases/WHEELTEC-robot-adaptation/1_adaptation-for-WHEELTEC-robot",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/5.9.5-WHEELTEC差速小车适配.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例/5.9.5-WHEELTEC差速小车适配"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/6.5.4_WHEELTEC-robot-adaptation/index.md",
+    "old_slug": "06_Robot_development/Robot_Application_Cases/WHEELTEC-robot-adaptation",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/index.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.5_Robot_Application_Cases/index.md",
+    "old_slug": "/06_Robot_development/Robot_Application_Cases",
+    "new_path": "05-机器人开发/5.9-机器人应用案例/index.md",
+    "new_slug": "/k1/robot-dev/5.9-机器人应用案例"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.6_Robot_Simulation_Development/6.6.1_Isaac_ROS_VSLAM.md",
+    "old_slug": "/06_Robot_development/Robot_Simulation_Development/6.6.1_Isaac_ROS_VSLAM",
+    "new_path": "05-机器人开发/5.10-机器人仿真/5.10.1-Isaac-Sim仿真建图.md",
+    "new_slug": "/k1/robot-dev/5.10-机器人仿真/5.10.1-Isaac-Sim仿真建图"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.6_Robot_Simulation_Development/6.6.2_Isaac_ROS_Navigation.md",
+    "old_slug": "/06_Robot_development/Robot_Simulation_Development/6.6.2_Isaac_ROS_Navigation",
+    "new_path": "05-机器人开发/5.10-机器人仿真/5.10.2-Isaac-Sim仿真导航.md",
+    "new_slug": "/k1/robot-dev/5.10-机器人仿真/5.10.2-Isaac-Sim仿真导航"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.6_Robot_Simulation_Development/index.md",
+    "old_slug": "/06_Robot_development/Robot_Simulation_Development",
+    "new_path": "05-机器人开发/5.10-机器人仿真/index.md",
+    "new_slug": "/k1/robot-dev/5.10-机器人仿真"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.7_ROS2_Development_Tool_Usage/6.7.1_Windows_ros2_rviz2.md",
+    "old_slug": null,
+    "new_path": "05-机器人开发/5.7-ROS2环境与工具/5.7.3-Windows-RViz2.md",
+    "new_slug": "/k1/robot-dev/5.7-ROS2环境与工具/5.7.3-Windows-RViz2"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/6.7_ROS2_Development_Tool_Usage/index.md",
+    "old_slug": "/06_Robot_development/6.7_ROS2_Development_Tool_Usage",
+    "new_path": "05-机器人开发/5.7-ROS2环境与工具/index.md",
+    "new_slug": "/k1/robot-dev/5.7-ROS2环境与工具"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/06_Robot_development/index.md",
+    "old_slug": "/06_Robot_development",
+    "new_path": "05-机器人开发/index.md",
+    "new_slug": "/k1/robot-dev"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/07_Advanced_development/7.1_Model_Quantization.md",
+    "old_slug": null,
+    "new_path": "06-进阶开发/6.1-模型量化开发.md",
+    "new_slug": "/k1/advanced/6.1-模型量化开发"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/07_Advanced_development/7.2_perf.md",
+    "old_slug": null,
+    "new_path": "06-进阶开发/6.2-perf-+-FlameGraph-使用教程.md",
+    "new_slug": "/k1/advanced/6.2-perf-+-FlameGraph-使用教程"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/07_Advanced_development/7.3_netdata.md",
+    "old_slug": null,
+    "new_path": "06-进阶开发/6.3-Netdata-使用教程.md",
+    "new_slug": "/k1/advanced/6.3-Netdata-使用教程"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/07_Advanced_development/index.md",
+    "old_slug": "/07_Advanced_development",
+    "new_path": "06-进阶开发/index.md",
+    "new_slug": "/k1/advanced"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/Appendix.md",
+    "old_slug": "/09_Appendix",
+    "new_path": "附录.md",
+    "new_slug": "/k1/附录"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/faqs.md",
+    "old_slug": "/08_FAQ",
+    "new_path": "FAQ.md",
+    "new_slug": "/k1/FAQ"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/image.md",
+    "old_slug": null,
+    "new_path": "镜像.md",
+    "new_slug": "/k1/镜像"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/index.md",
+    "old_slug": null,
+    "new_path": "index.md",
+    "new_slug": "/k1"
+  },
+  {
+    "source_repository": "spacemit-com/docs-ros",
+    "old_path": "zh/k1/intro.md",
+    "old_slug": "/",
+    "new_path": "平台概览/K1原版简介.md",
+    "new_slug": "/k1/overview/K1原版简介"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "平台概览/平台概览.md",
+    "old_slug": null,
+    "new_path": "平台概览/平台概览.md",
+    "new_slug": "/k1/overview"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/语音/K1_ASR.md",
+    "old_slug": null,
+    "new_path": "04-AI与算法/4.1-语音/4.1.1-ASR.md",
+    "new_slug": "/k1/ai/4.1-语音/4.1.1-ASR"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/语音/K1_TTS.md",
+    "old_slug": null,
+    "new_path": "04-AI与算法/4.1-语音/4.1.2-TTS.md",
+    "new_slug": "/k1/ai/4.1-语音/4.1.2-TTS"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/语音/K1_VAD.md",
+    "old_slug": null,
+    "new_path": "04-AI与算法/4.1-语音/4.1.3-VAD.md",
+    "new_slug": "/k1/ai/4.1-语音/4.1.3-VAD"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/语音/K1_Voiceprint.md",
+    "old_slug": null,
+    "new_path": "04-AI与算法/4.1-语音/4.1.4-声纹.md",
+    "new_slug": "/k1/ai/4.1-语音/4.1.4-声纹"
+  },
+  {
+    "source_repository": "zyi952694-crypto/K1",
+    "old_path": "人工智能与算法/视觉/K1_Object_Detection.md",
+    "old_slug": "/k1/ai/vision/4-2-1-目标检测",
+    "new_path": "04-AI与算法/4.2-视觉/4.2.1-目标检测.md",
+    "new_slug": "/k1/ai/4.2-视觉/4.2.1-目标检测"
+  }
+]
