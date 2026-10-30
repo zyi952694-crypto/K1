@@ -1,0 +1,13 @@
+[Unit]
+Description=Bind the K1 SPI3 WS2812 device to spidev
+After=systemd-modules-load.service systemd-udev-trigger.service
+ConditionPathExists=/sys/firmware/devicetree/base/soc/spi@d401c000/led-strip@0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/modprobe spidev
+ExecStart=/usr/local/sbin/k1-spi3-spidev-bind
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
