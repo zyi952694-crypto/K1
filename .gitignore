@@ -1,0 +1,7 @@
+# LibreOffice / WPS 临时锁文件
+.~*
+~$*
+*.tmp
+
+# macOS
+.DS_Store
