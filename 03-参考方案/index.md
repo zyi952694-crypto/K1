@@ -5,7 +5,7 @@ slug: /k1/reference-solutions
 
 # 3. 参考方案
 
-本章收录在 K1（MUSE Pi Pro）上实现的完整机器人方案，内容均为 K1 原有方案。K3 的参考方案（Reachy Mini、Linksee、机械臂、人形、Rivion）依赖 K3 硬件，K1 文档不收录。
+本章介绍基于 K1（MUSE Pi Pro）实现的完整机器人方案，涵盖差速小车、语音交互、建图导航、机械臂零售、AI 聊天和 Isaac Sim 仿真。
 
 - [3.1 WHEELTEC 差速小车适配](3.1-WHEELTEC差速小车适配.md)
 - [3.2 小车跟随及语音交互](3.2-小车跟随及语音交互.md)
