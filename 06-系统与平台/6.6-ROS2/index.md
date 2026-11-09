@@ -1,10 +1,14 @@
 ---
-sidebar_position: 1
-slug: /k1/robot-dev/5.1-ROS2环境与工具
+sidebar_position: 6
+slug: /k1/system-platform/ros2
 ---
 
-# 5.1 ROS2环境与工具
+# 6.6 ROS2
 
-- [5.1.1 AI Robot安装](6.6.5-AI-Robot安装.md)
-- [5.1.2 ROS2安装](6.6.1-ROS2安装.md)
-- [5.1.3 Windows-RViz2](6.6.4-Windows-RViz2.md)
+本节为 K1 原有的 ROS2 环境与工具内容。使用 K3 SDK 时，按 [2.3 构建编译](../../02-快速入门/2.3-构建编译.md) 获取 SDK，SDK 会按方案自动安装 ROS2 依赖。
+
+- [6.6.1 ROS2 安装](6.6.1-ROS2安装.md)
+- [6.6.2 USB 相机节点](6.6.2-USB相机节点.md)
+- [6.6.3 MIPI 相机 API](6.6.3-MIPI相机API.md)
+- [6.6.4 Windows RViz2](6.6.4-Windows-RViz2.md)
+- [6.6.5 AI Robot 安装](6.6.5-AI-Robot安装.md)
