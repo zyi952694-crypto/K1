@@ -1,3 +1,8 @@
+---
+slug: /k1/system-platform/peripherals-drivers/assets/k1_spi3_spidev
+sidebar_class_name: hidden
+---
+
 # K1 MUSE Pi Pro SPI3 与 spidev 配置
 
 本说明用于 [LED 章节](../6.2.7-LED.md) 的 SPI 前置配置。若系统已提供排针对应的可用 `/dev/spidev3.0`，无需重复配置。
