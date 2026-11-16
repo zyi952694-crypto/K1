@@ -1,0 +1,15 @@
+diff --git a/nav_goal_send/goal_update_pose.py b/nav_goal_send/goal_update_pose.py
+index c624135..6f64673 100644
+--- a/nav_goal_send/goal_update_pose.py
++++ b/nav_goal_send/goal_update_pose.py
+@@ -163,8 +163,8 @@ class GoalUpdatePose(Node):
+         # print(f"current_x:{current_x}, current_y:{current_y}")
+ 
+         angle_rad = self.normalize_angle(angle_rad + yaw)
+-        target_x = current_x + d_x * math.cos(angle_rad)
+-        target_y = current_y + d_x * math.sin(angle_rad)
++        target_x = current_x + d_x * math.cos(yaw) - d_y * math.sin(yaw)
++        target_y = current_y + d_x * math.sin(yaw) + d_y * math.cos(yaw)
+         # print(f"target_x:{target_x}, target_y:{target_y}")
+ 
+         goal_update_pose = PoseStamped()

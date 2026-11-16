@@ -1,0 +1,85 @@
+--- a/jobot_asr_py/wake_asr_node.py
++++ b/jobot_asr_py/wake_asr_node.py
+@@ -4,6 +4,7 @@
+ from jobot_interfaces.msg import AudioFrame
+ from jobot_interfaces.msg import VADResult
+ import numpy as np
++import math
+ from scipy.signal import resample
+ import sys
+ import os
+@@ -39,7 +40,10 @@
+         self.use_vad = self.get_parameter('use_vad').get_parameter_value().bool_value
+         vad_topic = self.get_parameter('vad_topic').get_parameter_value().string_value
+ 
++        if not math.isfinite(max_time) or max_time <= 0:
++            raise ValueError('max_time must be finite and greater than zero')
+         self.target_rate = 16000
++        self.max_samples = max(1, int(max_time * self.target_rate))
+         self.asr_model = ASRModel()
+ 
+         self.get_logger().info(f"加载 ASR 模型完成，开始订阅音频...")
+@@ -97,6 +101,8 @@
+             num_samples = int(len(audio_np) * self.target_rate / msg.sample_rate)
+             audio_np = resample(audio_np, num_samples)
+ 
++        if audio_np.size == 0:
++            return
+         max_val = np.max(np.abs(audio_np))
+ 
+         now = self.get_clock().now().seconds_nanoseconds()[0]
+@@ -115,8 +121,8 @@
+             self.audio_buffer.append(np.array(self.pre_buffer))
+             self.pre_buffer.clear()
+             self.last_speech_time = now
+-        else:
+-            # 每次都先存入 pre_buffer
++        elif not self.state:
++            # Only idle audio belongs to the pre-roll of the next segment.
+             self.pre_buffer.extend(audio_np)
+        
+         if self.state:
+@@ -125,23 +131,29 @@
+             if voice_detected:
+                 self.last_speech_time = now
+ 
+-            # 判断是否结束录音
+-            if now - self.last_speech_time > self.silence_limit:
+-                # 拼接音频并识别
+-                self.get_logger().info(f"静音超过：{self.silence_limit} s, 停止记录音频，开始语音转文字...")
+-                if self.audio_buffer:
+-                    audio_data = np.concatenate(self.audio_buffer)
+-                    text = self.asr_model.generate(audio_data, lang=self.language)
+-                    print(f"用户说: {text}")
+-                    if text:
+-                        msg_out = String()
+-                        msg_out.data = text
+-                        self.text_pub.publish(msg_out)
+-                # 重置状态回唤醒监听
++            # Bound segments by audio samples, independent of ROS callback timing.
++            audio_data = np.concatenate(self.audio_buffer)
++            while len(audio_data) >= self.max_samples:
++                self.recognize_segment(audio_data[:self.max_samples])
++                audio_data = audio_data[self.max_samples:]
++                self.pre_buffer.clear()
++            self.audio_buffer = [audio_data] if len(audio_data) else []
++            self.state = bool(self.audio_buffer)
++
++            if self.state and now - self.last_speech_time > self.silence_limit:
++                self.recognize_segment(audio_data)
++                self.pre_buffer.extend(audio_data[-self.pre_buffer.maxlen:])
+                 self.state = False
+                 self.audio_buffer = []
+ 
+-                self.get_logger().info(f"语音转文字完成，进入监听模式...\n")
++    def recognize_segment(self, audio_data):
++        """Recognize one bounded segment and publish its nonempty transcript."""
++        text = self.asr_model.generate(audio_data, lang=self.language)
++        if text:
++            msg_out = String()
++            msg_out.data = text
++            self.text_pub.publish(msg_out)
++
+ 
+ def main(args=None):
+     rclpy.init(args=args)

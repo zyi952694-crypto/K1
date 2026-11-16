@@ -1,0 +1,11 @@
+--- a/launch/bringup_launch.py
++++ b/launch/bringup_launch.py
+@@ -165,7 +165,7 @@
+                               'container_name': 'nav2_container'}.items()),
+ 
+         IncludeLaunchDescription(
+-            PythonLaunchDescriptionSource(os.path.join(rdk_navigation_dir, 'navigation_launch.py')),
++            PythonLaunchDescriptionSource(os.path.join(rdk_navigation_launch, 'navigation_launch.py')),
+             launch_arguments={'namespace': namespace,
+                               'use_sim_time': use_sim_time,
+                               'autostart': autostart,

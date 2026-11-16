@@ -1,0 +1,42 @@
+--- a/llm_setup.sh
++++ b/llm_setup.sh
+@@ -20,19 +20,27 @@
+   python3-venv \
+   python3-spacemit-ort
+ 
+-# Set Download Directory
+-MODEL_DIR=~/models
+-mkdir -p $MODEL_DIR
+-cd $MODEL_DIR
++# Keep downloads private and remove only this invocation's temporary directory.
++MODEL_DIR=$(mktemp -d "${TMPDIR:-/tmp}/rdk-llm.XXXXXX")
++cleanup() {
++    rm -rf -- "$MODEL_DIR"
++}
++trap cleanup EXIT
++trap 'exit 130' INT
++trap 'exit 143' TERM
++cd "$MODEL_DIR"
+ 
+-# Download and create the Qwen2.5 0.5B model
+-wget -c https://archive.spacemit.com/spacemit-ai/gguf/Qwen2.5-0.5B-Instruct-Q4_0.gguf --no-check-certificate
+-wget -c https://archive.spacemit.com/spacemit-ai/modelfile/qwen2.5:0.5b.modelfile --no-check-certificate
++# Download over normally verified TLS; stop on failed or empty downloads.
++wget -O Qwen2.5-0.5B-Instruct-Q4_0.gguf \
++  https://archive.spacemit.com/spacemit-ai/gguf/Qwen2.5-0.5B-Instruct-Q4_0.gguf
++wget -O qwen2.5:0.5b.modelfile \
++  https://archive.spacemit.com/spacemit-ai/modelfile/qwen2.5:0.5b.modelfile
++test -s Qwen2.5-0.5B-Instruct-Q4_0.gguf
++test -s qwen2.5:0.5b.modelfile
++if [ "$(head -c 4 Qwen2.5-0.5B-Instruct-Q4_0.gguf)" != "GGUF" ]; then
++    echo "Downloaded model is not a GGUF file" >&2
++    exit 1
++fi
+ ollama create qwen2.5:0.5b -f qwen2.5:0.5b.modelfile
+ 
+-# Delete the model directory
+-cd ~
+-rm -rf $MODEL_DIR
+-
+ echo "All dependencies installed successfully."
+-
