@@ -1,0 +1,185 @@
+diff --git a/jdk_examples/jdk_venc/src/main.cpp b/jdk_examples/jdk_venc/src/main.cpp
+index f8c62cb..52d60ee 100755
+--- a/jdk_examples/jdk_venc/src/main.cpp
++++ b/jdk_examples/jdk_venc/src/main.cpp
+@@ -17,18 +17,44 @@ int main(int argc, char* argv[]) {
+ 	int	 height	  = 1080;
+ 	int	 size	  = 3110400;  // NV12
+ 	auto jdkFrame = std::make_shared<JdkFrame>(dma_fd, size, width, height);
+-	jdkFrame->loadFromFile("decoder_1920x1080_nv12.yuv", size);
+-	// jdkFrame->saveToFile("1080p_dump.h264");
++	if (!jdkFrame->loadFromFile("decoder_1920x1080_nv12.yuv", size)) {
++		std::cerr << "Failed to load input NV12 frame\n";
++		return 1;
++	}
++
++	std::ofstream output("1_1920x1080_nv12toH264.h264", std::ios::binary | std::ios::trunc);
++	if (!output) {
++		std::cerr << "Failed to open output H.264 stream\n";
++		return 1;
++	}
+ 	auto encoder = std::make_shared<JdkEncoder>(width, height, CODING_H264, PIXEL_FORMAT_NV12);
++	int packets_written = 0;
++	size_t bytes_written = 0;
+ 	for (int i = 0; i < 100; i++) {
+-		auto decFrame = encoder->Encode(jdkFrame);
+-		// printf("decoder  ok!\r\n");
+-		if (decFrame) {
+-			if (1024 < decFrame->getSize())
+-				decFrame->saveToFile("1_1920x1080_nv12toH264.h264");
++		auto encodedFrame = encoder->Encode(jdkFrame);
++		if (!encodedFrame || encodedFrame->getSize() == 0) {
++			continue;
+ 		}
++		const auto* data = encodedFrame->toHost();
++		if (!data) {
++			std::cerr << "Failed to map encoded packet\n";
++			return 1;
++		}
++		output.write(reinterpret_cast<const char*>(data),
++					 static_cast<std::streamsize>(encodedFrame->getSize()));
++		if (!output) {
++			std::cerr << "Failed to write output H.264 stream\n";
++			return 1;
++		}
++		++packets_written;
++		bytes_written += encodedFrame->getSize();
+ 	}
+ 
+-	printf("decoder exit ok!\r\n");
++	output.close();
++	if (!output || packets_written == 0) {
++		std::cerr << "Failed to finish output H.264 stream\n";
++		return 1;
++	}
++	printf("Encoded packets: %d, bytes: %zu\n", packets_written, bytes_written);
+ 	return 0;
+-}
+\ No newline at end of file
++}
+diff --git a/jdk_examples/jdk_venc/tests/test_stream_output.py b/jdk_examples/jdk_venc/tests/test_stream_output.py
+new file mode 100644
+index 0000000..d1eee87
+--- /dev/null
++++ b/jdk_examples/jdk_venc/tests/test_stream_output.py
+@@ -0,0 +1,120 @@
++#!/usr/bin/env python3
++"""Run the real example main with synthetic encoder packets, without devices."""
++
++import os
++from pathlib import Path
++import subprocess
++import tempfile
++import unittest
++
++
++HEADER = r'''
++#pragma once
++#include <cstdlib>
++#include <fstream>
++#include <memory>
++#include <string>
++#include <utility>
++#include <vector>
++
++constexpr int CODING_H264 = 0;
++constexpr int PIXEL_FORMAT_NV12 = 0;
++
++class JdkFrame {
++public:
++    JdkFrame(int, int, int, int) {}
++    explicit JdkFrame(std::vector<unsigned char> bytes) : bytes_(std::move(bytes)) {}
++    bool loadFromFile(const std::string& filename, size_t) {
++        return std::ifstream(filename).good();
++    }
++    size_t getSize() const { return bytes_.size(); }
++    unsigned char* toHost() {
++        return std::getenv("FAIL_MAP") ? nullptr : bytes_.data();
++    }
++    bool saveToFile(const std::string& filename) const {
++        std::ofstream out(filename, std::ios::binary | std::ios::trunc);
++        out.write(reinterpret_cast<const char*>(bytes_.data()), bytes_.size());
++        return out.good();
++    }
++private:
++    std::vector<unsigned char> bytes_;
++};
++
++class JdkEncoder {
++public:
++    JdkEncoder(int, int, int, int) {}
++    std::shared_ptr<JdkFrame> Encode(std::shared_ptr<JdkFrame>) {
++        const int sequence = sequence_++;
++        if (std::getenv("NO_PACKETS") || sequence == 0) return nullptr;
++        if (sequence == 1) return std::make_shared<JdkFrame>(std::vector<unsigned char>{});
++        // Two small parameter packets must precede every larger frame.
++        const size_t size = sequence < 4 ? 7 : 2048;
++        return std::make_shared<JdkFrame>(std::vector<unsigned char>(size, sequence));
++    }
++private:
++    int sequence_ = 0;
++};
++'''
++
++
++class StreamOutputTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        cls.build = tempfile.TemporaryDirectory(prefix="jdk-venc-build-")
++        build = Path(cls.build.name)
++        (build / "JdkEncoder.hpp").write_text(HEADER)
++        cls.binary = build / "jdk_venc"
++        source = Path(__file__).resolve().parents[1] / "src/main.cpp"
++        subprocess.run([os.environ.get("CXX", "c++"), "-std=c++20", "-I", str(build),
++                        str(source), "-o", str(cls.binary)], check=True)
++
++    @classmethod
++    def tearDownClass(cls):
++        cls.build.cleanup()
++
++    def setUp(self):
++        self.runtime = tempfile.TemporaryDirectory(prefix="jdk-venc-runtime-")
++        self.directory = Path(self.runtime.name)
++        self.input = self.directory / "decoder_1920x1080_nv12.yuv"
++        self.output = self.directory / "1_1920x1080_nv12toH264.h264"
++        self.input.write_bytes(b"synthetic input")
++
++    def tearDown(self):
++        self.runtime.cleanup()
++
++    def run_example(self, **settings):
++        return subprocess.run([str(self.binary)], cwd=self.directory,
++                              env={**os.environ, **settings}, capture_output=True)
++
++    def test_all_packets_written_in_order(self):
++        self.output.write_bytes(b"stale output" * 20000)
++        result = self.run_example()
++        self.assertEqual(result.returncode, 0, result.stderr)
++        expected = b"".join(bytes([i]) * (7 if i < 4 else 2048) for i in range(2, 100))
++        self.assertEqual(self.output.read_bytes(), expected)
++        self.assertIn(f"Encoded packets: 98, bytes: {len(expected)}".encode(), result.stdout)
++
++    def test_input_failure_preserves_existing_output(self):
++        self.input.unlink()
++        self.output.write_bytes(b"existing output")
++        self.assertNotEqual(self.run_example().returncode, 0)
++        self.assertEqual(self.output.read_bytes(), b"existing output")
++
++    def test_open_failure_is_reported(self):
++        self.output.mkdir()
++        self.assertNotEqual(self.run_example().returncode, 0)
++
++    @unittest.skipUnless(Path("/dev/full").exists(), "requires /dev/full")
++    def test_write_failure_is_reported(self):
++        self.output.symlink_to("/dev/full")
++        self.assertNotEqual(self.run_example().returncode, 0)
++
++    def test_no_packets_is_reported(self):
++        self.assertNotEqual(self.run_example(NO_PACKETS="1").returncode, 0)
++
++    def test_mapping_failure_is_reported(self):
++        self.assertNotEqual(self.run_example(FAIL_MAP="1").returncode, 0)
++
++
++if __name__ == "__main__":
++    unittest.main()

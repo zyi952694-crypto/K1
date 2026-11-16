@@ -1,0 +1,95 @@
+diff --git a/nav_goal_send/goal_update_pose.py b/nav_goal_send/goal_update_pose.py
+index c624135..6f64673 100644
+--- a/nav_goal_send/goal_update_pose.py
++++ b/nav_goal_send/goal_update_pose.py
+@@ -163,8 +163,8 @@ class GoalUpdatePose(Node):
+         # print(f"current_x:{current_x}, current_y:{current_y}")
+ 
+         angle_rad = self.normalize_angle(angle_rad + yaw)
+-        target_x = current_x + d_x * math.cos(angle_rad)
+-        target_y = current_y + d_x * math.sin(angle_rad)
++        target_x = current_x + d_x * math.cos(yaw) - d_y * math.sin(yaw)
++        target_y = current_y + d_x * math.sin(yaw) + d_y * math.cos(yaw)
+         # print(f"target_x:{target_x}, target_y:{target_y}")
+ 
+         goal_update_pose = PoseStamped()
+diff --git a/test/test_pose_transform.py b/test/test_pose_transform.py
+new file mode 100644
+index 0000000..a62d6c2
+--- /dev/null
++++ b/test/test_pose_transform.py
+@@ -0,0 +1,74 @@
++"""Exercise the production pose publication with known planar transforms."""
++
++import math
++from types import SimpleNamespace
++import unittest
++
++from builtin_interfaces.msg import Time
++from geometry_msgs.msg import TransformStamped
++
++from nav_goal_send.goal_update_pose import GoalUpdatePose
++
++
++class PoseTransformTest(unittest.TestCase):
++    def publish_pose(self, dx, dy, tx=0.0, ty=0.0, yaw=0.0):
++        transform = TransformStamped()
++        transform.transform.translation.x = tx
++        transform.transform.translation.y = ty
++        transform.transform.rotation.z = math.sin(yaw / 2)
++        transform.transform.rotation.w = math.cos(yaw / 2)
++        messages = []
++        markers = []
++        log = SimpleNamespace(info=lambda text: None, warn=lambda text: None)
++        clock = SimpleNamespace(now=lambda: SimpleNamespace(to_msg=lambda: Time()))
++        node = SimpleNamespace(
++            tf_buffer=SimpleNamespace(lookup_transform=lambda *args: transform),
++            quaternion_to_euler=lambda q: GoalUpdatePose.quaternion_to_euler(None, q),
++            normalize_angle=lambda a: GoalUpdatePose.normalize_angle(None, a),
++            euler_to_quaternion=lambda *args: GoalUpdatePose.euler_to_quaternion(None, *args),
++            get_logger=lambda: log,
++            get_clock=lambda: clock,
++            visualize_person_pose=markers.append,
++            goal_update_publisher_=SimpleNamespace(publish=messages.append),
++        )
++        GoalUpdatePose.caculate_goal_pose(node, dx, dy)
++        self.assertEqual(len(messages), 1)
++        self.assertEqual(markers, messages)
++        self.assertEqual(messages[0].header.frame_id, 'map')
++        return messages[0].pose
++
++    def test_identity_preserves_forward_and_lateral_components(self):
++        for point in [(2.0, 0.0), (1.8, -0.84), (0.0, 2.0), (-2.0, 1.0)]:
++            with self.subTest(point=point):
++                pose = self.publish_pose(*point)
++                self.assertAlmostEqual(pose.position.x, point[0])
++                self.assertAlmostEqual(pose.position.y, point[1])
++
++    def test_quarter_turn_with_translation(self):
++        pose = self.publish_pose(2.0, 1.0, tx=10.0, ty=-4.0, yaw=math.pi / 2)
++        self.assertAlmostEqual(pose.position.x, 9.0)
++        self.assertAlmostEqual(pose.position.y, -2.0)
++        angle = 2 * math.atan2(pose.orientation.z, pose.orientation.w)
++        self.assertAlmostEqual(angle, math.pi / 2 + math.atan2(1.0, 2.0))
++
++    def test_negative_rotation(self):
++        pose = self.publish_pose(2.0, -1.0, tx=-3.0, ty=7.0, yaw=-math.pi / 2)
++        self.assertAlmostEqual(pose.position.x, -4.0)
++        self.assertAlmostEqual(pose.position.y, 5.0)
++
++    def test_missing_transform_does_not_publish(self):
++        def unavailable(*args):
++            raise RuntimeError('no transform')
++
++        messages = []
++        node = SimpleNamespace(
++            tf_buffer=SimpleNamespace(lookup_transform=unavailable),
++            get_logger=lambda: SimpleNamespace(warn=lambda text: None),
++            goal_update_publisher_=SimpleNamespace(publish=messages.append),
++        )
++        GoalUpdatePose.caculate_goal_pose(node, 1.0, 2.0)
++        self.assertEqual(messages, [])
++
++
++if __name__ == '__main__':
++    unittest.main()

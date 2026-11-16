@@ -1,0 +1,127 @@
+diff --git a/ppq_decorator/ppq/parser/onnx_parser.py b/ppq_decorator/ppq/parser/onnx_parser.py
+index 91a0310..66d929d 100644
+--- a/ppq_decorator/ppq/parser/onnx_parser.py
++++ b/ppq_decorator/ppq/parser/onnx_parser.py
+@@ -1,6 +1,6 @@
+ from typing import Any, Dict, Iterable, List, Union
+ import onnx
+-from onnx import helper, mapping, numpy_helper
++from onnx import helper, numpy_helper
+ from xquant.defs import MIN_ONNX_OPSET_VERSION, GLOBAL_FUNCTIONS_MAPPING
+ from ..core import DEFAULT_OPSET_DOMAIN, GRAPH_OPSET_ATTRIB, NetworkFramework, is_file_exist
+ from ..IR import BaseGraph, GraphBuilder, Operation, Opset, Variable
+@@ -106,7 +106,7 @@ class OnnxParser(GraphBuilder):
+                     value = numpy_helper.to_array(value).copy()
+                 if op.type == "Cast":
+                     # The attribute of 'Cast' node is data type (represented in int), need to convert to numpy data type
+-                    value = mapping.TENSOR_TYPE_TO_NP_TYPE[value]
++                    value = helper.tensor_dtype_to_np_dtype(value)
+                 op.attributes[key] = value
+ 
+         graph_initializers = []
+diff --git a/tests/test_onnx_dtype_compat.py b/tests/test_onnx_dtype_compat.py
+new file mode 100644
+index 0000000..59876f2
+--- /dev/null
++++ b/tests/test_onnx_dtype_compat.py
+@@ -0,0 +1,85 @@
++"""Check parser and calibration dtype contracts across supported ONNX versions."""
++
++import unittest
++
++import numpy as np
++import onnx
++from onnx import TensorProto, helper, numpy_helper
++
++from xquant.ppq_decorator.ppq.parser.onnx_parser import OnnxParser
++from xquant.xquant_setting import CalibrationParameterSetting, InputParameterSetting
++
++
++DTYPES = (
++    (TensorProto.FLOAT, np.float32),
++    (TensorProto.FLOAT16, np.float16),
++    (TensorProto.DOUBLE, np.float64),
++    (TensorProto.INT32, np.int32),
++    (TensorProto.INT64, np.int64),
++    (TensorProto.UINT8, np.uint8),
++    (TensorProto.BOOL, np.bool_),
++)
++
++
++def cast_model(input_dtype, output_dtype):
++    node = helper.make_node("Cast", ["input"], ["output"], name="cast", to=output_dtype)
++    graph = helper.make_graph(
++        [node],
++        "dtype_contract",
++        [helper.make_tensor_value_info("input", input_dtype, [1, 3])],
++        [helper.make_tensor_value_info("output", output_dtype, [1, 3])],
++    )
++    return helper.make_model(graph, opset_imports=[helper.make_opsetid("", 13)], ir_version=9)
++
++
++class OnnxDtypeCompatibilityTest(unittest.TestCase):
++    def test_cast_attributes_are_numpy_dtypes(self):
++        for proto_dtype, np_dtype in DTYPES:
++            with self.subTest(dtype=proto_dtype):
++                graph = OnnxParser().build(cast_model(TensorProto.FLOAT, proto_dtype))
++                self.assertEqual(graph.operations["cast"].attributes["to"], np.dtype(np_dtype))
++                self.assertEqual(set(graph.inputs), {"input"})
++                self.assertEqual(set(graph.outputs), {"output"})
++
++    def test_calibration_reads_input_metadata(self):
++        for proto_dtype, np_dtype in DTYPES:
++            with self.subTest(dtype=proto_dtype):
++                graph = OnnxParser().build(cast_model(proto_dtype, TensorProto.FLOAT))
++                settings = CalibrationParameterSetting()
++                parameter = InputParameterSetting()
++                parameter.mean_value = [0]
++                settings.input_parametres = [parameter]
++                settings.check_input_parametres(graph)
++                self.assertEqual(parameter.dtype, np.dtype(np_dtype).name)
++                self.assertEqual(parameter.input_name, "input")
++                self.assertEqual(parameter.input_shape, [1, 3])
++                self.assertEqual(parameter.mean_value, [0])
++                parameter.input_shape = [2, 3]
++                parameter.input_name = "caller_selected"
++                settings.check_input_parametres(graph)
++                self.assertEqual(parameter.input_shape, [2, 3])
++                self.assertEqual(parameter.input_name, "caller_selected")
++
++    def test_constants_and_parameters_remain_unchanged(self):
++        values = np.array([1.5, -2.0], dtype=np.float32)
++        graph = helper.make_graph(
++            [
++                helper.make_node("Constant", [], ["constant"], name="constant",
++                                 value=numpy_helper.from_array(values)),
++                helper.make_node("Add", ["constant", "bias"], ["output"], name="add"),
++            ],
++            "constant_contract", [],
++            [helper.make_tensor_value_info("output", TensorProto.FLOAT, [2])],
++            [numpy_helper.from_array(values, "bias")],
++        )
++        model = helper.make_model(graph, opset_imports=[helper.make_opsetid("", 13)],
++                                  ir_version=9)
++        onnx.checker.check_model(model)
++        parsed = OnnxParser().build(model)
++        np.testing.assert_array_equal(parsed.operations["constant"].attributes["value"], values)
++        np.testing.assert_array_equal(parsed.variables["bias"].value, values)
++        self.assertTrue(parsed.variables["bias"].is_parameter)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/xquant_setting.py b/xquant_setting.py
+index aeebbaa..4d28f3f 100644
+--- a/xquant_setting.py
++++ b/xquant_setting.py
+@@ -186,7 +186,9 @@ class CalibrationParameterSetting(SettingSerialize):
+                 for i in in_type.type.tensor_type.shape.dim
+             ]
+             if isinstance(in_type.type.tensor_type.elem_type, int):
+-                input_dtype = onnx.mapping.TENSOR_TYPE_TO_NP_TYPE[in_type.type.tensor_type.elem_type].name
++                input_dtype = onnx.helper.tensor_dtype_to_np_dtype(
++                    in_type.type.tensor_type.elem_type
++                ).name
+             else:
+                 input_dtype = None
+             if input_dtype is not None:

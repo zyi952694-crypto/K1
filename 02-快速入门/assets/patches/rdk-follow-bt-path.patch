@@ -1,0 +1,87 @@
+diff --git a/config/param_mini_diff_follow_point.yaml b/config/param_mini_diff_follow_point.yaml
+index 577ede0..efbc931 100644
+--- a/config/param_mini_diff_follow_point.yaml
++++ b/config/param_mini_diff_follow_point.yaml
+@@ -73,8 +73,7 @@ bt_navigator:
+     # nav2_bt_navigator/navigate_to_pose_w_replanning_and_recovery.xml
+     # nav2_bt_navigator/navigate_through_poses_w_replanning_and_recovery.xml
+     # They can be set here or via a RewrittenYaml remap from a parent launch file to Nav2.
+-    default_nav_to_pose_bt_xml: "/rdk/rdk_navigation/config/behavior_trees/follow_point.xml"
+-    # default_nav_to_pose_bt_xml: "/rdk/rdk_navigation/config/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml"
++    default_nav_to_pose_bt_xml: "$(find-pkg-share rdk_navigation)/config/behavior_tree/follow_point.xml"
+     plugin_lib_names: #行为树节点共享库列表，Humble后的版本默认包含所有NAV2 BT库，这里可以加入自定义BT节点
+     - nav2_compute_path_to_pose_action_bt_node
+     - nav2_compute_path_through_poses_action_bt_node
+diff --git a/test/test_follow_bt_path.py b/test/test_follow_bt_path.py
+new file mode 100644
+index 0000000..1c95af3
+--- /dev/null
++++ b/test/test_follow_bt_path.py
+@@ -0,0 +1,67 @@
++"""Resolve the follow behavior tree through the real launch parameter pipeline."""
++
++import os
++from pathlib import Path
++import tempfile
++import unittest
++from unittest.mock import patch
++
++from launch import LaunchContext
++from launch_ros.descriptions import ParameterFile
++from nav2_common.launch import RewrittenYaml
++import yaml
++
++
++PACKAGE_ROOT = Path(__file__).resolve().parents[1]
++
++
++class FollowBehaviorTreePathTest(unittest.TestCase):
++    def resolve(self, config, namespace=''):
++        parameter = ParameterFile(
++            RewrittenYaml(
++                source_file=str(config), root_key=namespace,
++                param_rewrites={'use_sim_time': 'false'}, convert_types=True),
++            allow_substs=True)
++        try:
++            result = yaml.safe_load(Path(parameter.evaluate(LaunchContext())).read_text())
++        finally:
++            parameter.cleanup()
++        return result[namespace] if namespace else result
++
++    def test_default_uses_current_install_prefix(self):
++        config = PACKAGE_ROOT / 'config/param_mini_diff_follow_point.yaml'
++        original_prefixes = os.environ.get('AMENT_PREFIX_PATH', '')
++        with tempfile.TemporaryDirectory() as work:
++            for dirname in ['install-one', 'relocated-install']:
++                prefix = Path(work) / dirname
++                marker = prefix / 'share/ament_index/resource_index/packages/rdk_navigation'
++                marker.parent.mkdir(parents=True)
++                marker.touch()
++                tree = prefix / 'share/rdk_navigation/config/behavior_tree/follow_point.xml'
++                tree.parent.mkdir(parents=True)
++                source_tree = PACKAGE_ROOT / 'config/behavior_trees/follow_point.xml'
++                tree.write_bytes(source_tree.read_bytes())
++                with patch.dict(os.environ, {'AMENT_PREFIX_PATH': f'{prefix}:{original_prefixes}'}):
++                    for namespace in ['', 'robot_a']:
++                        with self.subTest(prefix=dirname, namespace=namespace):
++                            params = self.resolve(config, namespace)
++                            navigator = params['bt_navigator']['ros__parameters']
++                            path = navigator['default_nav_to_pose_bt_xml']
++                            self.assertEqual(path, str(tree))
++                            self.assertTrue(Path(path).is_file())
++
++    def test_custom_params_keep_user_tree(self):
++        with tempfile.TemporaryDirectory() as work:
++            tree = Path(work) / 'custom.xml'
++            tree.write_text('<root/>')
++            config = Path(work) / 'params.yaml'
++            config.write_text(yaml.safe_dump({'bt_navigator': {'ros__parameters': {
++                'default_nav_to_pose_bt_xml': str(tree), 'use_sim_time': True}}}))
++            result = self.resolve(config)
++            self.assertEqual(
++                result['bt_navigator']['ros__parameters']['default_nav_to_pose_bt_xml'], str(tree))
++            self.assertFalse(result['bt_navigator']['ros__parameters']['use_sim_time'])
++
++
++if __name__ == '__main__':
++    unittest.main()

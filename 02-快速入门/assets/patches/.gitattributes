@@ -1,0 +1,2 @@
+# Preserve whitespace required by unified diffs and format-patch trailers.
+*.patch -whitespace

@@ -1,0 +1,215 @@
+--- a/scripts/download_assets.sh
++++ b/scripts/download_assets.sh
+@@ -15,7 +15,7 @@
+ echo "Scan: $ROOT/examples, $ROOT/applications (*.yaml)"
+ 
+ ASSET_PATHS=$(find "$ROOT/examples" "$ROOT/applications" -name '*.yaml' \
+-  -exec grep -hoE '\.cache/assets/(image|video)/[A-Za-z0-9._-]+' {} + 2>/dev/null | sort -u)
++  -exec grep -hoE '\.cache/assets/(image|video)/[A-Za-z0-9._/-]+' {} + 2>/dev/null | sort -u)
+ 
+ if [ -z "$ASSET_PATHS" ]; then
+   echo "Warning: no asset paths found in yaml configs."
+@@ -24,22 +24,38 @@
+ 
+ download_one() {
+   rel="$1"
++  case "/$rel/" in
++    */../*|*/./*) echo "Error: invalid asset path: $rel" >&2; return 1 ;;
++  esac
+   dest="$CACHE/$rel"
+   mkdir -p "$(dirname "$dest")"
+-  if [ -f "$dest" ]; then
++  if { [ -e "$dest" ] || [ -L "$dest" ]; } && [ ! -f "$dest" ]; then
++    echo "Error: asset destination is not a regular file: $dest" >&2
++    return 1
++  fi
++  if [ -f "$dest" ] && [ -s "$dest" ]; then
+     echo "  Exists: $dest"
+     return 0
+   fi
+   url="$BASE_URL/$rel"
+   echo "  >>> $rel"
++  asset_temp="$(mktemp "$dest.part.XXXXXX")"
++  trap 'rm -f "$asset_temp"' 0
++  trap 'exit 1' HUP INT TERM
+   if command -v wget >/dev/null 2>&1; then
+-    wget -q --show-progress -O "$dest" "$url"
++    wget -q --show-progress -O "$asset_temp" "$url"
+   elif command -v curl >/dev/null 2>&1; then
+-    curl -fsSL -o "$dest" "$url"
++    curl -fsSL -o "$asset_temp" "$url"
+   else
+     echo "Error: need wget or curl."
+     exit 1
+   fi
++  if [ ! -s "$asset_temp" ]; then
++    echo "Error: empty asset response: $url" >&2
++    return 1
++  fi
++  mv -f "$asset_temp" "$dest"
++  trap - 0 HUP INT TERM
+ }
+ 
+ for path in $ASSET_PATHS; do
+--- /dev/null
++++ b/tests/test_download_assets.py
+@@ -0,0 +1,159 @@
++"""Exercise the asset downloader against a local HTTP server and empty caches."""
++
++import http.server
++import os
++from pathlib import Path
++import shutil
++import subprocess
++import tempfile
++import threading
++import unittest
++
++
++class DownloadAssetsTest(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.temp.cleanup)
++        self.root = Path(self.temp.name)
++        self.responses = {}
++        self.requests = []
++        test = self
++
++        class Handler(http.server.BaseHTTPRequestHandler):
++            def do_GET(self):
++                test.requests.append(self.path)
++                status, body = test.responses.get(self.path, (404, b"missing"))
++                self.send_response(status)
++                self.send_header("Content-Length", str(len(body)))
++                self.end_headers()
++                self.wfile.write(body)
++
++            def log_message(self, *args):
++                pass
++
++        self.server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
++        self.thread = threading.Thread(target=self.server.serve_forever, daemon=True)
++        self.thread.start()
++        self.addCleanup(self.stop_server)
++
++    def stop_server(self):
++        self.server.shutdown()
++        self.server.server_close()
++        self.thread.join()
++
++    def fixture(self, downloader, asset="image/example.jpg"):
++        root = self.root / downloader
++        (root / "scripts").mkdir(parents=True)
++        (root / "examples").mkdir()
++        (root / "applications").mkdir()
++        (root / "examples/test.yaml").write_text(f'input: "~/.cache/assets/{asset}"\n')
++        self.cache = root / "cache"
++        source = Path(os.environ.get(
++            "VISION_ASSET_TEST_SCRIPT",
++            str(Path(__file__).resolve().parents[1] / "scripts/download_assets.sh")))
++        text = source.read_text()
++        # Isolate only the cache prefix; leave HOME and the user's cache untouched.
++        assignment = 'CACHE="${HOME}/.cache/assets"'
++        self.assertEqual(text.count(assignment), 1)
++        (root / "scripts/download_assets.sh").write_text(
++            text.replace(assignment, f'CACHE="{self.cache}"'))
++        commands = root / "bin"
++        commands.mkdir()
++        for name in ["dirname", "mkdir", "find", "grep", "sort", "mktemp", "rm",
++                     "mv", "ls", downloader]:
++            executable = shutil.which(name)
++            self.assertIsNotNone(executable, name)
++            (commands / name).symlink_to(executable)
++        env = dict(os.environ, PATH=str(commands),
++                   VISION_ASSETS_URL=f"http://127.0.0.1:{self.server.server_port}",
++                   NO_PROXY="127.0.0.1", no_proxy="127.0.0.1")
++
++        def run():
++            return subprocess.run(["/bin/sh", str(root / "scripts/download_assets.sh")],
++                                  env=env, capture_output=True, text=True, timeout=15)
++
++        return run, self.cache / asset
++
++    def test_nested_reference(self):
++        for downloader in ["wget", "curl"]:
++            with self.subTest(downloader=downloader):
++                run, dest = self.fixture(downloader, "image/barcelona/query/query_0.jpg")
++                self.responses["/image/barcelona/query/query_0.jpg"] = (200, b"nested")
++                result = run()
++                self.assertEqual(result.returncode, 0, result.stderr)
++                self.assertEqual(dest.read_bytes(), b"nested")
++
++    def test_nonempty_cache_is_preserved(self):
++        for downloader in ["wget", "curl"]:
++            with self.subTest(downloader=downloader):
++                run, dest = self.fixture(downloader)
++                dest.parent.mkdir(parents=True)
++                dest.write_bytes(b"existing")
++                self.assertEqual(run().returncode, 0)
++                self.assertEqual(dest.read_bytes(), b"existing")
++                self.assertEqual(self.requests, [])
++
++    def test_zero_byte_cache_is_retried(self):
++        for downloader in ["wget", "curl"]:
++            with self.subTest(downloader=downloader):
++                run, dest = self.fixture(downloader)
++                dest.parent.mkdir(parents=True)
++                dest.touch()
++                self.responses["/image/example.jpg"] = (200, b"complete")
++                self.assertEqual(run().returncode, 0)
++                self.assertEqual(dest.read_bytes(), b"complete")
++
++    def test_failed_download_does_not_poison_cache(self):
++        for downloader in ["wget", "curl"]:
++            with self.subTest(downloader=downloader):
++                run, dest = self.fixture(downloader)
++                self.responses["/image/example.jpg"] = (403, b"denied")
++                self.assertNotEqual(run().returncode, 0)
++                self.assertFalse(dest.exists())
++                self.assertEqual(list(dest.parent.glob("*.part.*")), [])
++                self.responses["/image/example.jpg"] = (200, b"retry")
++                self.assertEqual(run().returncode, 0)
++                self.assertEqual(dest.read_bytes(), b"retry")
++
++    def test_empty_response_is_rejected(self):
++        for downloader in ["wget", "curl"]:
++            with self.subTest(downloader=downloader):
++                run, dest = self.fixture(downloader)
++                self.responses["/image/example.jpg"] = (200, b"")
++                self.assertNotEqual(run().returncode, 0)
++                self.assertFalse(dest.exists())
++                self.assertEqual(list(dest.parent.glob("*.part.*")), [])
++
++    def test_video_and_duplicate_references(self):
++        for downloader in ["wget", "curl"]:
++            with self.subTest(downloader=downloader):
++                run, dest = self.fixture(downloader, "video/sample.mp4")
++                other = self.root / downloader / "applications/second.yaml"
++                other.write_text('input: "~/.cache/assets/video/sample.mp4"\n')
++                self.responses["/video/sample.mp4"] = (200, b"video")
++                before = len(self.requests)
++                self.assertEqual(run().returncode, 0)
++                self.assertEqual(dest.read_bytes(), b"video")
++                self.assertEqual(len(self.requests) - before, 1)
++
++    def test_directory_destination_is_rejected(self):
++        for downloader in ["wget", "curl"]:
++            with self.subTest(downloader=downloader):
++                run, dest = self.fixture(downloader)
++                dest.mkdir(parents=True)
++                (dest / "keep.txt").write_text("keep")
++                self.responses["/image/example.jpg"] = (200, b"asset")
++                self.assertNotEqual(run().returncode, 0)
++                self.assertEqual(list(dest.iterdir()), [dest / "keep.txt"])
++                self.assertEqual(self.requests, [])
++
++    def test_parent_traversal_is_rejected(self):
++        for downloader in ["wget", "curl"]:
++            with self.subTest(downloader=downloader):
++                run, _ = self.fixture(downloader, "image/../../escape.jpg")
++                self.assertNotEqual(run().returncode, 0)
++                self.assertEqual(self.requests, [])
++
++
++if __name__ == "__main__":
++    unittest.main()

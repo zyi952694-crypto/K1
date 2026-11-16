@@ -1,0 +1,67 @@
+--- a/test/vdec/include/parse.h
++++ b/test/vdec/include/parse.h
+@@ -31,6 +31,8 @@
+ 
+ struct _MppParseContext {
+     ParseOps *ops;
++    /* Set only when each parse call receives all bytes remaining to file EOF. */
++    S32 complete_file;
+ };
+ 
+ /**
+--- a/test/vdec/parse/parse.c
++++ b/test/vdec/parse/parse.c
+@@ -25,6 +25,7 @@
+         return NULL;
+     }
+ 
++    parse_context->complete_file = 0;
+     parse_context->ops = (ParseOps *)malloc(sizeof(ParseOps));
+     if (!parse_context->ops) {
+         error("can not malloc MppParseContext->ops, please check!");
+--- a/test/vdec/parse/h265parse.c
++++ b/test/vdec/parse/h265parse.c
+@@ -284,6 +284,17 @@
+             break;
+     }
+ 
++    /* A complete file needs no following NAL to delimit its final frame.
++     * Streaming callers must keep complete_file disabled and supply more data. */
++    if (ctx && ctx->complete_file && num_start_code == 1 && start_pos) {
++        S32 tail_size = stream_size - (S32)(start_pos - stream_start_addr);
++        if (tail_size <= 0 || tail_size > STREAM_BUFFER_SIZE)
++            return -1;
++        *frame_size = tail_size;
++        memcpy(frame_start_addr, start_pos, *frame_size);
++        return 0;
++    }
++
+     if (2 == num_start_code) {
+         memcpy(frame_start_addr, start_pos, *frame_size);
+         return 0;
+--- a/test/vdec/test_vdec.c
++++ b/test/vdec/test_vdec.c
+@@ -594,6 +594,7 @@
+         goto err;
+     }
+ 
++    pctx->complete_file = 1;
+     frame_buf = (U8 *)malloc(STREAM_BUFFER_SIZE);
+     if (!frame_buf) {
+         fprintf(stderr, "malloc frame buf\n");
+@@ -812,6 +813,7 @@
+         goto err;
+     }
+ 
++    pctx->complete_file = 1;
+     frame_buf = (U8 *)malloc(STREAM_BUFFER_SIZE);
+     if (!frame_buf) {
+         fprintf(stderr, "malloc frame buf\n");
+@@ -998,6 +1000,7 @@
+             fprintf(stderr, "parse init failed ch %d\n", i);
+             goto fail_free;
+         }
++        st[i].pctx->complete_file = 1;
+         st[i].frame_buf = (U8 *)malloc(STREAM_BUFFER_SIZE);
+         if (!st[i].frame_buf) {
+             goto fail_free;

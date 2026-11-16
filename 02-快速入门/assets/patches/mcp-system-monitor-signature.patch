@@ -1,0 +1,220 @@
+diff --git a/examples/services/system_monitor/http_server.py b/examples/services/system_monitor/http_server.py
+index 8d8b128..7b298ea 100644
+--- a/examples/services/system_monitor/http_server.py
++++ b/examples/services/system_monitor/http_server.py
+@@ -26,6 +26,7 @@ import os
+ import platform
+ import atexit
+ from datetime import datetime
++from functools import wraps
+ from urllib.request import urlopen, Request
+ from urllib.error import URLError
+ 
+@@ -66,12 +67,11 @@ def format_bytes(bytes_val: int) -> str:
+ 
+ def require_psutil(func):
+     """检查 psutil 是否可用的装饰器"""
++    @wraps(func)
+     def wrapper(*args, **kwargs):
+         if not HAS_PSUTIL:
+             return "错误: 需要安装 psutil 才能使用此功能\n请运行: pip install psutil"
+         return func(*args, **kwargs)
+-    wrapper.__name__ = func.__name__
+-    wrapper.__doc__ = func.__doc__
+     return wrapper
+ 
+ 
+@@ -81,7 +81,7 @@ def require_psutil(func):
+ 
+ @mcp.tool()
+ @require_psutil
+-def get_cpu_info(**kwargs) -> str:
++def get_cpu_info() -> str:
+     """获取 CPU 详细信息，包括使用率、核心数、频率"""
+     cpu_percent = psutil.cpu_percent(interval=0.5)
+     cpu_count = psutil.cpu_count(logical=False)
+@@ -101,7 +101,7 @@ def get_cpu_info(**kwargs) -> str:
+ 
+ @mcp.tool()
+ @require_psutil
+-def get_memory_info(**kwargs) -> str:
++def get_memory_info() -> str:
+     """获取内存使用信息，包括物理内存和 Swap"""
+     mem = psutil.virtual_memory()
+     swap = psutil.swap_memory()
+@@ -116,7 +116,7 @@ def get_memory_info(**kwargs) -> str:
+ 
+ @mcp.tool()
+ @require_psutil
+-def get_disk_info(**kwargs) -> str:
++def get_disk_info() -> str:
+     """获取所有磁盘分区的使用信息"""
+     partitions = psutil.disk_partitions()
+     result = "磁盘信息:\n"
+@@ -138,7 +138,7 @@ def get_disk_info(**kwargs) -> str:
+ 
+ @mcp.tool()
+ @require_psutil
+-def get_network_info(**kwargs) -> str:
++def get_network_info() -> str:
+     """获取网络接口信息和流量统计"""
+     net_io = psutil.net_io_counters()
+     net_if = psutil.net_if_addrs()
+@@ -162,7 +162,7 @@ def get_network_info(**kwargs) -> str:
+ 
+ @mcp.tool()
+ @require_psutil
+-def get_top_processes(limit: int = 5, sort_by: str = "memory", **kwargs) -> str:
++def get_top_processes(limit: int = 5, sort_by: str = "memory") -> str:
+     """
+     获取资源占用最高的进程列表
+ 
+@@ -193,7 +193,7 @@ def get_top_processes(limit: int = 5, sort_by: str = "memory", **kwargs) -> str:
+ 
+ @mcp.tool()
+ @require_psutil
+-def get_system_overview(**kwargs) -> str:
++def get_system_overview() -> str:
+     """获取系统概览，包括运行时长、资源使用率等"""
+     boot_time = psutil.boot_time()
+     boot_dt = datetime.fromtimestamp(boot_time)
+@@ -211,7 +211,7 @@ def get_system_overview(**kwargs) -> str:
+ 
+ 
+ @mcp.tool()
+-def get_load_average(**kwargs) -> str:
++def get_load_average() -> str:
+     """获取系统负载（1/5/15 分钟平均值）"""
+     try:
+         load = os.getloadavg()
+diff --git a/examples/services/system_monitor/test_http_server.py b/examples/services/system_monitor/test_http_server.py
+new file mode 100644
+index 0000000..0f3b163
+--- /dev/null
++++ b/examples/services/system_monitor/test_http_server.py
+@@ -0,0 +1,125 @@
++#!/usr/bin/env python3
++"""SystemMonitor tool contracts. Run with: python -m unittest discover -s
++examples/services/system_monitor -p 'test_*.py' -v
++"""
++
++import importlib.util
++import inspect
++from pathlib import Path
++from types import SimpleNamespace
++import unittest
++from unittest.mock import patch
++
++
++spec = importlib.util.spec_from_file_location(
++    "system_monitor_http_server", Path(__file__).with_name("http_server.py")
++)
++server = importlib.util.module_from_spec(spec)
++spec.loader.exec_module(server)
++
++
++def result_text(result):
++    """Collect text from FastMCP's content and optional structured result."""
++    if isinstance(result, tuple):
++        result = result[0]
++    return "\n".join(item.text for item in result if hasattr(item, "text"))
++
++
++class SystemMonitorToolsTest(unittest.IsolatedAsyncioTestCase):
++    """Check the public tool schema and dispatch, not only Python calls."""
++
++    async def test_all_tools_expose_only_real_parameters(self):
++        tools = {tool.name: tool for tool in await server.mcp.list_tools()}
++        no_argument_tools = {
++            "get_cpu_info", "get_memory_info", "get_disk_info", "get_network_info",
++            "get_system_overview", "get_load_average",
++        }
++        self.assertEqual(set(tools), no_argument_tools | {"get_top_processes"})
++        for name in no_argument_tools:
++            with self.subTest(tool=name):
++                self.assertEqual(tools[name].inputSchema.get("properties", {}), {})
++                self.assertFalse(tools[name].inputSchema.get("required"))
++
++        schema = tools["get_top_processes"].inputSchema
++        self.assertEqual(set(schema["properties"]), {"limit", "sort_by"})
++        self.assertEqual(schema["properties"]["limit"]["type"], "integer")
++        self.assertEqual(schema["properties"]["limit"]["default"], 5)
++        self.assertEqual(schema["properties"]["sort_by"]["type"], "string")
++        self.assertEqual(schema["properties"]["sort_by"]["default"], "memory")
++        self.assertFalse(schema.get("required"))
++
++    def test_decorator_preserves_signature_and_annotations(self):
++        signature = inspect.signature(server.get_top_processes)
++        self.assertEqual(list(signature.parameters), ["limit", "sort_by"])
++        self.assertIs(signature.parameters["limit"].annotation, int)
++        self.assertIs(signature.parameters["sort_by"].annotation, str)
++        self.assertIs(signature.return_annotation, str)
++        self.assertEqual(server.get_top_processes.__name__, "get_top_processes")
++        self.assertIn("获取资源占用最高的进程列表", server.get_top_processes.__doc__)
++
++    async def test_memory_tool_accepts_empty_arguments(self):
++        memory = SimpleNamespace(total=4096, used=1024, available=3072, percent=25.0)
++        swap = SimpleNamespace(total=2048, used=512, percent=25.0)
++        with patch.object(server, "HAS_PSUTIL", True), \
++                patch.object(server.psutil, "virtual_memory", return_value=memory), \
++                patch.object(server.psutil, "swap_memory", return_value=swap):
++            result = result_text(await server.mcp.call_tool("get_memory_info", {}))
++        self.assertIn("总内存: 4.00 KB", result)
++        self.assertIn("Swap 已用: 512.00 B (25.0%)", result)
++
++    async def test_process_limit_sort_and_defaults(self):
++        processes = [
++            SimpleNamespace(info={"pid": i, "name": f"process-{i}",
++                                  "cpu_percent": float(i), "memory_percent": 7.0 - i})
++            for i in range(1, 7)
++        ]
++        with patch.object(server, "HAS_PSUTIL", True), \
++                patch.object(server.psutil, "process_iter", return_value=processes):
++            result = result_text(await server.mcp.call_tool(
++                "get_top_processes", {"limit": 2, "sort_by": "cpu"}
++            ))
++            default_result = result_text(await server.mcp.call_tool("get_top_processes", {}))
++        self.assertEqual(len(result.splitlines()), 3)
++        self.assertIn("1. [6] process-6", result)
++        self.assertIn("2. [5] process-5", result)
++        self.assertEqual(len(default_result.splitlines()), 6)
++        self.assertIn("Top 5 进程 (按 memory 排序)", default_result)
++        self.assertIn("1. [1] process-1", default_result)
++
++    async def test_missing_psutil_keeps_installation_error(self):
++        with patch.object(server, "HAS_PSUTIL", False):
++            for name in ("get_cpu_info", "get_memory_info", "get_disk_info",
++                         "get_network_info", "get_system_overview", "get_top_processes"):
++                with self.subTest(tool=name):
++                    result = result_text(await server.mcp.call_tool(name, {}))
++                    self.assertEqual(
++                        result, "错误: 需要安装 psutil 才能使用此功能\n请运行: pip install psutil"
++                    )
++
++    async def test_disk_permission_error_skips_only_unreadable_partition(self):
++        partitions = [
++            SimpleNamespace(device="blocked", mountpoint="/blocked", fstype="ext4"),
++            SimpleNamespace(device="readable", mountpoint="/readable", fstype="ext4"),
++        ]
++        usage = SimpleNamespace(total=4096, used=1024, free=3072, percent=25.0)
++        with patch.object(server, "HAS_PSUTIL", True), \
++                patch.object(server.psutil, "disk_partitions", return_value=partitions), \
++                patch.object(server.psutil, "disk_usage", side_effect=[PermissionError(), usage]):
++            result = result_text(await server.mcp.call_tool("get_disk_info", {}))
++        self.assertNotIn("blocked", result)
++        self.assertIn("[readable] 挂载于 /readable", result)
++
++    async def test_load_average_fallback_and_unsupported_error(self):
++        with patch.object(server.os, "getloadavg", side_effect=OSError()), \
++                patch.object(server, "HAS_PSUTIL", True), \
++                patch.object(server.psutil, "getloadavg", return_value=(1.0, 2.0, 3.0)):
++            result = result_text(await server.mcp.call_tool("get_load_average", {}))
++        self.assertIn("1分钟: 1.00", result)
++        with patch.object(server.os, "getloadavg", side_effect=OSError()), \
++                patch.object(server, "HAS_PSUTIL", False):
++            result = result_text(await server.mcp.call_tool("get_load_average", {}))
++        self.assertEqual(result, "系统负载: 当前平台不支持")
++
++
++if __name__ == "__main__":
++    unittest.main()

@@ -1,0 +1,196 @@
+diff --git a/python/examples/tts_file_demo.py b/python/examples/tts_file_demo.py
+index fe0a442..59aa112 100644
+--- a/python/examples/tts_file_demo.py
++++ b/python/examples/tts_file_demo.py
+@@ -26,7 +26,7 @@ def main():
+     print(f"Synthesizing: {text}")
+     result = engine.synthesize(text)
+ 
+-    if result:
++    if result.is_success:
+         print("✓ Success!")
+         print(f"  Duration: {result.duration_ms} ms")
+         print(f"  RTF: {result.rtf:.3f}")
+@@ -34,10 +34,11 @@ def main():
+ 
+         # Save to file
+         output_file = "output_chinese.wav"
+-        result.save(output_file)
++        if not result.save(output_file):
++            raise RuntimeError("Failed to save synthesized audio")
+         print(f"  Saved to: {output_file}")
+     else:
+-        print(f"✗ Failed: {result.message}")
++        raise RuntimeError(f"Synthesis failed: {result.message}")
+     print()
+ 
+     # English synthesis
+@@ -51,16 +52,17 @@ def main():
+     print(f"Synthesizing: {text_en}")
+     result_en = engine_en.synthesize(text_en)
+ 
+-    if result_en:
++    if result_en.is_success:
+         print("✓ Success!")
+         print(f"  Duration: {result_en.duration_ms} ms")
+         print(f"  RTF: {result_en.rtf:.3f}")
+ 
+         output_file = "output_english.wav"
+-        result_en.save(output_file)
++        if not result_en.save(output_file):
++            raise RuntimeError("Failed to save synthesized audio")
+         print(f"  Saved to: {output_file}")
+     else:
+-        print(f"✗ Failed: {result_en.message}")
++        raise RuntimeError(f"Synthesis failed: {result_en.message}")
+     print()
+ 
+     # Bilingual synthesis
+@@ -74,16 +76,17 @@ def main():
+     print(f"Synthesizing: {text_bilingual}")
+     result_bilingual = engine_bilingual.synthesize(text_bilingual)
+ 
+-    if result_bilingual:
++    if result_bilingual.is_success:
+         print("✓ Success!")
+         print(f"  Duration: {result_bilingual.duration_ms} ms")
+         print(f"  RTF: {result_bilingual.rtf:.3f}")
+ 
+         output_file = "output_bilingual.wav"
+-        result_bilingual.save(output_file)
++        if not result_bilingual.save(output_file):
++            raise RuntimeError("Failed to save synthesized audio")
+         print(f"  Saved to: {output_file}")
+     else:
+-        print(f"✗ Failed: {result_bilingual.message}")
++        raise RuntimeError(f"Synthesis failed: {result_bilingual.message}")
+     print()
+ 
+     # Kokoro synthesis (24000Hz)
+@@ -98,34 +101,42 @@ def main():
+     print(f"Synthesizing: {text_kokoro}")
+     result_kokoro = engine_kokoro.synthesize(text_kokoro)
+ 
+-    if result_kokoro:
++    if result_kokoro.is_success:
+         print("✓ Success!")
+         print(f"  Duration: {result_kokoro.duration_ms} ms")
+         print(f"  RTF: {result_kokoro.rtf:.3f}")
+ 
+         output_file = "output_kokoro.wav"
+-        result_kokoro.save(output_file)
++        if not result_kokoro.save(output_file):
++            raise RuntimeError("Failed to save synthesized audio")
+         print(f"  Saved to: {output_file}")
+     else:
+-        print(f"✗ Failed: {result_kokoro.message}")
++        raise RuntimeError(f"Synthesis failed: {result_kokoro.message}")
+     print()
+ 
+     # Adjust speed
+     print("Synthesizing with different speeds...")
+     engine.set_speed(0.8)
+     result_slow = engine.synthesize("这是慢速语音。")
+-    result_slow.save("output_slow.wav")
++    if not result_slow.is_success:
++        raise RuntimeError(f"Synthesis failed: {result_slow.message}")
++    if not result_slow.save("output_slow.wav"):
++        raise RuntimeError("Failed to save synthesized audio")
+     print(f"  Slow (0.8x): {result_slow.duration_ms} ms")
+ 
+     engine.set_speed(1.5)
+     result_fast = engine.synthesize("这是快速语音。")
+-    result_fast.save("output_fast.wav")
++    if not result_fast.is_success:
++        raise RuntimeError(f"Synthesis failed: {result_fast.message}")
++    if not result_fast.save("output_fast.wav"):
++        raise RuntimeError("Failed to save synthesized audio")
+     print(f"  Fast (1.5x): {result_fast.duration_ms} ms")
+     print()
+ 
+     # Quick synthesis using utility function
+     print("Quick synthesis using utility function...")
+-    spacemit_tts.synthesize_to_file("这是快速合成", "output_quick.wav")
++    if not spacemit_tts.synthesize_to_file("这是快速合成", "output_quick.wav"):
++        raise RuntimeError("Quick synthesis failed")
+     print("  Saved to: output_quick.wav")
+     print()
+ 
+diff --git a/python/tests/test_demo_errors.py b/python/tests/test_demo_errors.py
+new file mode 100644
+index 0000000..17e96cf
+--- /dev/null
++++ b/python/tests/test_demo_errors.py
+@@ -0,0 +1,72 @@
++#!/usr/bin/env python3
++"""Run the real demo with injected synthesis and output failures."""
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++
++FAKE = '''
++import os
++from pathlib import Path
++counter = 0
++class Config:
++    @staticmethod
++    def preset(name): return Config()
++    def with_provider(self, name): return self
++class Result:
++    def __init__(self, index):
++        self.is_success = index != int(os.environ.get("FAIL_SYNTH", "0"))
++        self.index = index
++        self.message = "injected failure"
++        self.duration_ms = 100
++        self.rtf = 0.1
++        self.audio_float = [0.1] * 10
++    def __bool__(self): return self.is_success
++    def save(self, name):
++        if not self.is_success or self.index == int(os.environ.get("FAIL_SAVE", "0")):
++            return False
++        Path(name).write_bytes(b"fixture audio")
++        return True
++class Engine:
++    engine_name = "fixture"
++    sample_rate = 16000
++    def __init__(self, config=None): pass
++    def set_speed(self, speed): pass
++    def synthesize(self, text):
++        global counter
++        counter += 1
++        return Result(counter)
++def synthesize_to_file(text, filename):
++    return Engine().synthesize(text).save(filename)
++'''
++
++
++def main():
++    source = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else (
++        Path(__file__).resolve().parents[1] / "examples/tts_file_demo.py")
++    cases = [("success", 0, 0)]
++    cases += [(f"synthesis-{i}", i, 0) for i in range(1, 8)]
++    cases += [(f"save-{i}", 0, i) for i in range(1, 8)]
++    outcomes = []
++    for name, synth, save in cases:
++        with tempfile.TemporaryDirectory() as directory:
++            root = Path(directory)
++            (root / "spacemit_tts.py").write_text(FAKE)
++            env = dict(os.environ, PYTHONPATH=directory, FAIL_SYNTH=str(synth),
++                       FAIL_SAVE=str(save), PYTHONDONTWRITEBYTECODE="1")
++            result = subprocess.run([sys.executable, str(source)], cwd=root, env=env,
++                                    capture_output=True, text=True, timeout=20)
++            if synth or save:
++                passed = result.returncode != 0 and "completed successfully" not in result.stdout
++            else:
++                passed = result.returncode == 0 and len(list(root.glob("*.wav"))) == 7
++                passed = passed and "completed successfully" in result.stdout
++            outcomes.append(dict(case=name, passed=passed, returncode=result.returncode))
++    print(json.dumps(outcomes, indent=2))
++    return 0 if all(case["passed"] for case in outcomes) else 1
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())

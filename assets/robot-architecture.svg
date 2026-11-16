@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="1012" viewBox="0 0 1360 1012" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+<rect width="1360" height="1012" fill="#ffffff"/>
+<rect x="28" y="28" width="1048" height="188" rx="8" fill="#ffffff" stroke="#354fd4" stroke-width="1.8"/>
+<text x="46" y="64" font-size="24" font-weight="700" fill="#242830">应用形态与拓展场景</text>
+<rect x="44.0" y="76" width="242.0" height="56" rx="6" fill="#fce5e3"/>
+<text x="165.0" y="110.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">具身人形机器人</text>
+<rect x="302.0" y="76" width="242.0" height="56" rx="6" fill="#fce5e3"/>
+<text x="423.0" y="110.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">四足机器人</text>
+<rect x="560.0" y="76" width="242.0" height="56" rx="6" fill="#fce5e3"/>
+<text x="681.0" y="110.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">工业移动机器人</text>
+<rect x="818.0" y="76" width="242.0" height="56" rx="6" fill="#fce5e3"/>
+<text x="939.0" y="110.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">协作机械臂</text>
+<rect x="44.0" y="144" width="242.0" height="56" rx="6" fill="#fce5e3"/>
+<text x="165.0" y="178.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">商用服务机器人</text>
+<rect x="302.0" y="144" width="242.0" height="56" rx="6" fill="#fce5e3"/>
+<text x="423.0" y="178.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">户外巡检与作业</text>
+<rect x="560.0" y="144" width="242.0" height="56" rx="6" fill="#fce5e3"/>
+<text x="681.0" y="178.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">智能交互终端</text>
+<rect x="818.0" y="144" width="242.0" height="56" rx="6" fill="#fce5e3"/>
+<text x="939.0" y="178.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">更多智能设备</text>
+<rect x="28" y="236" width="1048" height="218" rx="8" fill="#ffffff" stroke="#354fd4" stroke-width="1.8"/>
+<text x="46" y="272" font-size="24" font-weight="700" fill="#242830">交互与通信</text>
+<rect x="44" y="290" width="330" height="148" rx="6" fill="#f3f7fd" stroke="#b9cdee" stroke-width="1.2"/>
+<text x="60" y="318" font-size="18" font-weight="700" fill="#354fd4">AI Agent</text>
+<rect x="60" y="330" width="298" height="28" rx="6" fill="#dce8f8"/>
+<text x="209.0" y="349.76" font-size="16" fill="#242830" text-anchor="middle">任务理解与编排</text>
+<rect x="60" y="364" width="298" height="28" rx="6" fill="#dce8f8"/>
+<text x="209.0" y="383.76" font-size="16" fill="#242830" text-anchor="middle">多模态交互</text>
+<rect x="60" y="398" width="298" height="28" rx="6" fill="#dce8f8"/>
+<text x="209.0" y="417.76" font-size="16" fill="#242830" text-anchor="middle">工具调用与协同</text>
+<rect x="390" y="290" width="670" height="148" rx="6" fill="#f3f7fd" stroke="#b9cdee" stroke-width="1.2"/>
+<text x="406" y="318" font-size="18" font-weight="700" fill="#354fd4">通信与组件接入</text>
+<rect x="406.0" y="330" width="313.0" height="44" rx="6" fill="#dce8f8"/>
+<text x="562.5" y="358.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">ROS 2 / DDS</text>
+<rect x="731.0" y="330" width="313.0" height="44" rx="6" fill="#dce8f8"/>
+<text x="887.5" y="358.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">服务化接入</text>
+<rect x="406.0" y="384" width="313.0" height="44" rx="6" fill="#dce8f8"/>
+<text x="562.5" y="412.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">自定义协议</text>
+<rect x="731.0" y="384" width="313.0" height="44" rx="6" fill="#dce8f8"/>
+<text x="887.5" y="412.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">组件接口直连</text>
+<rect x="28" y="474" width="1048" height="212" rx="8" fill="#ffffff" stroke="#354fd4" stroke-width="1.8"/>
+<text x="46" y="510" font-size="24" font-weight="700" fill="#242830">核心功能套件</text>
+<rect x="44" y="522" width="116" height="64" rx="6" fill="#bfe3c9"/>
+<text x="102" y="560" font-size="17" font-weight="700" fill="#242830" text-anchor="middle">机器人能力</text>
+<rect x="172.0" y="522" width="213.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="278.5" y="560.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">感知与理解</text>
+<rect x="397.0" y="522" width="213.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="503.5" y="560.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">定位与导航</text>
+<rect x="622.0" y="522" width="213.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="728.5" y="560.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">规划与决策</text>
+<rect x="847.0" y="522" width="213.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="953.5" y="560.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">运动与操作</text>
+<rect x="44" y="598" width="116" height="64" rx="6" fill="#bfe3c9"/>
+<text x="102" y="636" font-size="17" font-weight="700" fill="#242830" text-anchor="middle">通用能力</text>
+<rect x="172.0" y="598" width="168.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="256.0" y="636.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">模型与交互</text>
+<rect x="352.0" y="598" width="168.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="436.0" y="636.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">智能多媒体</text>
+<rect x="532.0" y="598" width="168.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="616.0" y="636.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">设备接入</text>
+<rect x="712.0" y="598" width="168.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="796.0" y="636.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">系统服务</text>
+<rect x="892.0" y="598" width="168.0" height="64" rx="6" fill="#e0f2e5"/>
+<text x="976.0" y="636.48" font-size="18" font-weight="600" fill="#242830" text-anchor="middle">计算加速</text>
+<rect x="28" y="706" width="1048" height="134" rx="8" fill="#ffffff" stroke="#354fd4" stroke-width="1.8"/>
+<text x="46" y="742" font-size="24" font-weight="700" fill="#242830">系统环境</text>
+<rect x="44.0" y="756" width="328.0" height="68" rx="6" fill="#fbe8d0"/>
+<text x="208.0" y="797.2" font-size="20" font-weight="600" fill="#242830" text-anchor="middle">Bianbu 通用系统</text>
+<rect x="388.0" y="756" width="328.0" height="68" rx="6" fill="#fbe8d0"/>
+<text x="552.0" y="797.2" font-size="20" font-weight="600" fill="#242830" text-anchor="middle">ROS 2 系统</text>
+<rect x="732.0" y="756" width="328.0" height="68" rx="6" fill="#fbe8d0"/>
+<text x="896.0" y="797.2" font-size="20" font-weight="600" fill="#242830" text-anchor="middle">Buildroot 定制系统</text>
+<rect x="28" y="860" width="1048" height="56" rx="8" fill="#354fd4"/>
+<text x="552" y="895" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">Linux 内核与驱动</text>
+<rect x="28" y="928" width="1048" height="56" rx="8" fill="#d8efad" stroke="#9cc95a" stroke-width="1.2"/>
+<text x="552" y="963" font-size="22" font-weight="700" fill="#242830" text-anchor="middle">SpacemiT RISC-V AI CPU</text>
+<rect x="1104" y="28" width="228" height="956" rx="8" fill="#ffffff" stroke="#354fd4" stroke-width="1.8"/>
+<text x="1122" y="64" font-size="24" font-weight="700" fill="#242830">开发工具链</text>
+<rect x="1120" y="84" width="196" height="150" rx="6" fill="#edf2fa"/>
+<text x="1218" y="120" font-size="18" font-weight="700" fill="#242830" text-anchor="middle">方案与配置</text>
+<rect x="1136" y="138" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="160" font-size="15" fill="#242830" text-anchor="middle">组件组合</text>
+<rect x="1136" y="180" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="202" font-size="15" fill="#242830" text-anchor="middle">参数配置</text>
+<path d="M1218 238 L1218 254 M1211 247 L1218 255 L1225 247" stroke="#354fd4" stroke-width="2" fill="none"/>
+<rect x="1120" y="262" width="196" height="150" rx="6" fill="#edf2fa"/>
+<text x="1218" y="298" font-size="18" font-weight="700" fill="#242830" text-anchor="middle">开发与构建</text>
+<rect x="1136" y="316" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="338" font-size="15" fill="#242830" text-anchor="middle">工程构建</text>
+<rect x="1136" y="358" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="380" font-size="15" fill="#242830" text-anchor="middle">交叉编译</text>
+<path d="M1218 416 L1218 432 M1211 425 L1218 433 L1225 425" stroke="#354fd4" stroke-width="2" fill="none"/>
+<rect x="1120" y="440" width="196" height="150" rx="6" fill="#edf2fa"/>
+<text x="1218" y="476" font-size="18" font-weight="700" fill="#242830" text-anchor="middle">调试与分析</text>
+<rect x="1136" y="494" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="516" font-size="15" fill="#242830" text-anchor="middle">运行观测</text>
+<rect x="1136" y="536" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="558" font-size="15" fill="#242830" text-anchor="middle">性能分析</text>
+<path d="M1218 594 L1218 610 M1211 603 L1218 611 L1225 603" stroke="#354fd4" stroke-width="2" fill="none"/>
+<rect x="1120" y="618" width="196" height="150" rx="6" fill="#edf2fa"/>
+<text x="1218" y="654" font-size="18" font-weight="700" fill="#242830" text-anchor="middle">端侧 AI 部署</text>
+<rect x="1136" y="672" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="694" font-size="15" fill="#242830" text-anchor="middle">模型优化</text>
+<rect x="1136" y="714" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="736" font-size="15" fill="#242830" text-anchor="middle">模型部署</text>
+<path d="M1218 772 L1218 788 M1211 781 L1218 789 L1225 781" stroke="#354fd4" stroke-width="2" fill="none"/>
+<rect x="1120" y="796" width="196" height="150" rx="6" fill="#edf2fa"/>
+<text x="1218" y="832" font-size="18" font-weight="700" fill="#242830" text-anchor="middle">仿真与联调</text>
+<rect x="1136" y="850" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="872" font-size="15" fill="#242830" text-anchor="middle">虚实联调</text>
+<rect x="1136" y="892" width="164" height="32" rx="5" fill="#ffffff" stroke="#c7d3ea"/>
+<text x="1218" y="914" font-size="15" fill="#242830" text-anchor="middle">PC / GPU 主机</text>
+</svg>

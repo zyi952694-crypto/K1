@@ -26,7 +26,7 @@ grep -E 'CONFIG_SPI_K1X=|CONFIG_SPI_SPIDEV=|CONFIG_MODULES=|CONFIG_MODVERSIONS='
 2. 设备树声明 SPI3 下的目标从设备。
 3. `spidev` 驱动可用，并绑定该从设备。
 
-`CONFIG_SPI_K1X=y` 只代表控制器驱动可用。仅有 `spi4.0` 也不代表排针 SPI3 可用；MUSE Pi Pro 的 `spi4.0` 用于板载 NOR Flash，不要将它解绑或用于 LED 测试。
+`CONFIG_SPI_K1X=y` 启用控制器驱动，还需配置 SPI3 从设备并绑定 `spidev`。`spi4.0` 用于板载 NOR Flash，保留其驱动绑定。
 
 以下配置会启用 SPI3，并停用与其物理针脚 23、24 冲突的普通 CAN。修改前断开这组排针上的外设，完成重启和节点检查后，再断电接入灯带。
 
@@ -34,7 +34,7 @@ grep -E 'CONFIG_SPI_K1X=|CONFIG_SPI_SPIDEV=|CONFIG_MODULES=|CONFIG_MODVERSIONS='
 
 如果运行内核已启用 `CONFIG_SPI_SPIDEV=y`，不需要编译额外模块；若为 `m` 且配套模块已安装，执行 `sudo modprobe spidev` 即可。否则，可在匹配的内核源码中启用 `CONFIG_SPI_SPIDEV=m` 或 `y`，按 [官方内核编译指南](https://github.com/spacemit-com/docs-bianbu/blob/main/zh/development/kernel_compile.md) 构建与安装。
 
-对于已有匹配内核开发包且支持模块加载的系统，也可以单独编译 `spidev.ko`。下面给出已在 **内核包 `6.6.63-2.2.9.2`、RISC-V、GCC 13.2** 环境使用的源码与构建方法。它不要求重编内核镜像，但不能将编译后的 `.ko` 直接套用到其他内核。
+对于已有匹配内核开发包且支持模块加载的系统，也可以单独编译 `spidev.ko`。以下以 **内核包 `6.6.63-2.2.9.2`、RISC-V、GCC 13.2** 环境为例，介绍源码与构建方法。它不要求重编内核镜像，但不能将编译后的 `.ko` 直接套用到其他内核。
 
 先核对内核、开发包和构建目录：
 
@@ -68,7 +68,7 @@ sudo depmod -a "$(uname -r)"
 sudo modprobe spidev
 ```
 
-若提示 `invalid module format` 或符号不匹配，应重新核对开发包、配置及编译器，不要强制加载。此方法不修改 `spidev.c`，也不改变已安装的 `/boot/config-*` 文件；加载后可通过 `/sys/module/spidev` 检查实际状态。
+若提示 `invalid module format` 或符号不匹配，重新核对开发包、配置及编译器，不要强制加载。加载后通过 `/sys/module/spidev` 查看状态。
 
 ## 3. 配置 SPI3 与从设备
 
@@ -97,7 +97,7 @@ sudo modprobe spidev
 
 `worldsemi,ws2812` 在这里用于标识用户态灯带适配设备，并非该内核中可自动匹配 `spidev` 的设备树绑定。第 4 步通过标准 `driver_override` 接口显式绑定，不需要修改驱动匹配表。不要改为 `compatible = "spidev"`，该内核不支持这种通用声明。
 
-按照官方内核编译指南准备构建依赖和匹配的源码。在 **K1 板端的该内核源码根目录**，使用当前系统配置构建设备树：
+按照官方内核编译指南准备构建依赖和匹配的源码。在 **开发板的内核源码根目录**，使用当前系统配置构建设备树：
 
 ```bash
 cp "/boot/config-$(uname -r)" .config
@@ -108,7 +108,7 @@ ls -l arch/riscv/boot/dts/spacemit/k1-x_MUSE-Pi-Pro.dtb
 
 这是设备树构建，不安装内核镜像。若在 PC 交叉编译，需按官方指南设置工具链和 `CROSS_COMPILE`，不能直接照搬板端命令。
 
-**部署时必须确认系统实际加载的 DTB 路径。** 某些 Bianbu 6.6.63 系统使用 `/boot/spacemit/6.6.63/k1-x_MUSE-Pi-Pro.dtb`；其他版本应检查 GRUB、extlinux 或实际启动配置，不要只因同名文件存在就认定它正在使用。
+部署前检查 GRUB、extlinux 或其他启动配置，确定实际加载的 DTB 路径。下例使用 `/boot/spacemit/6.6.63/k1-x_MUSE-Pi-Pro.dtb`，按本机启动配置调整。
 
 以下命令只用于已确认采用该目录布局的系统，在上述内核源码根目录执行。先备份，再替换；若 `.before-led` 已存在，命令会停止，应先核对已有备份，或另选备份名称并同步调整恢复步骤。
 
@@ -139,7 +139,7 @@ ls -l /sys/bus/spi/devices/spi3.0/of_node
 
 ## 4. 绑定 spidev 并设置开机加载
 
-下载随本文提供的两个文件，保存到 K1 的同一目录：
+下载随本文提供的两个文件，保存到开发板的同一目录：
 
 - [k1-spi3-spidev-bind.py](k1-spi3-spidev-bind.py)
 - [k1-spi3-spidev.service](k1-spi3-spidev.service)
@@ -182,4 +182,4 @@ test -f "${led_dtb}.before-led" &&
 
 确认恢复成功后重启，原配置在下次启动生效；停用服务本身不会立即恢复排针复用。若无法启动，可在恢复环境挂载 boot 分区，将备份 DTB 还原到原位置。应在替换 DTB 前准备好可用的本地控制台或系统恢复方式。
 
-上述修改仅涉及 K1 板级设备树、匹配的驱动模块及本机开机绑定服务，不要求修改 K1/K3 共用 LED SDK 源码。内核升级后需重新核对启动设备树和模块兼容性，不要继续复用旧 `.ko`。
+内核升级后，重新核对启动设备树，并为新内核准备匹配的驱动模块。

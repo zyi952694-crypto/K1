@@ -1,0 +1,138 @@
+diff --git a/llm_setup.sh b/llm_setup.sh
+index e1de0e5..39968f3 100644
+--- a/llm_setup.sh
++++ b/llm_setup.sh
+@@ -20,19 +20,27 @@ sudo apt install -y \
+   python3-venv \
+   python3-spacemit-ort
+ 
+-# Set Download Directory
+-MODEL_DIR=~/models
+-mkdir -p $MODEL_DIR
+-cd $MODEL_DIR
+-
+-# Download and create the Qwen2.5 0.5B model
+-wget -c https://archive.spacemit.com/spacemit-ai/gguf/Qwen2.5-0.5B-Instruct-Q4_0.gguf --no-check-certificate
+-wget -c https://archive.spacemit.com/spacemit-ai/modelfile/qwen2.5:0.5b.modelfile --no-check-certificate
++# Keep downloads private and remove only this invocation's temporary directory.
++MODEL_DIR=$(mktemp -d "${TMPDIR:-/tmp}/rdk-llm.XXXXXX")
++cleanup() {
++    rm -rf -- "$MODEL_DIR"
++}
++trap cleanup EXIT
++trap 'exit 130' INT
++trap 'exit 143' TERM
++cd "$MODEL_DIR"
++
++# Download over normally verified TLS; stop on failed or empty downloads.
++wget -O Qwen2.5-0.5B-Instruct-Q4_0.gguf \
++  https://archive.spacemit.com/spacemit-ai/gguf/Qwen2.5-0.5B-Instruct-Q4_0.gguf
++wget -O qwen2.5:0.5b.modelfile \
++  https://archive.spacemit.com/spacemit-ai/modelfile/qwen2.5:0.5b.modelfile
++test -s Qwen2.5-0.5B-Instruct-Q4_0.gguf
++test -s qwen2.5:0.5b.modelfile
++if [ "$(head -c 4 Qwen2.5-0.5B-Instruct-Q4_0.gguf)" != "GGUF" ]; then
++    echo "Downloaded model is not a GGUF file" >&2
++    exit 1
++fi
+ ollama create qwen2.5:0.5b -f qwen2.5:0.5b.modelfile
+ 
+-# Delete the model directory
+-cd ~
+-rm -rf $MODEL_DIR
+-
+ echo "All dependencies installed successfully."
+-
+diff --git a/test/test_setup_safety.py b/test/test_setup_safety.py
+new file mode 100644
+index 0000000..42743b6
+--- /dev/null
++++ b/test/test_setup_safety.py
+@@ -0,0 +1,87 @@
++"""Run llm_setup.sh with isolated HOME and command fixtures; no downloads/install."""
++
++import json
++import os
++from pathlib import Path
++import subprocess
++import tempfile
++import unittest
++
++
++COMMAND_FIXTURE = '''#!/usr/bin/env python3
++import json, os, pathlib, sys
++name=pathlib.Path(sys.argv[0]).name
++with open(os.environ['CALL_LOG'],'a') as f:
++ f.write(json.dumps([name,sys.argv[1:],os.getcwd()])+'\\n')
++mode=os.environ.get('FAIL_MODE','')
++if name=='wget':
++ if mode=='download': sys.exit(8)
++ args=sys.argv[1:]
++ if '-O' in args: out=args[args.index('-O')+1]
++ else: out=args[args.index('-c')+1].rsplit('/',1)[-1]
++ data=b'GGUFfixture' if out.endswith('.gguf') else b'FROM ./Qwen2.5-0.5B-Instruct-Q4_0.gguf\\n'
++ if mode=='empty': data=b''
++ if mode=='html' and out.endswith('.gguf'): data=b'<html>error</html>'
++ pathlib.Path(out).write_bytes(data)
++if name=='ollama' and mode=='create': sys.exit(9)
++'''
++
++
++class SetupSafetyTest(unittest.TestCase):
++    def run_script(self, mode, home_name='home'):
++        temporary = tempfile.TemporaryDirectory(prefix='rdk-setup-test-')
++        self.addCleanup(temporary.cleanup)
++        root = Path(temporary.name)
++        home, scratch, commands = root/home_name, root/'scratch', root/'bin'
++        for directory in [home/'models', scratch, commands]:
++            directory.mkdir(parents=True)
++        sentinel = home/'models/user-model.gguf'
++        sentinel.write_bytes(b'existing user data')
++        for name in ['sudo', 'wget', 'ollama']:
++            p = commands/name
++            p.write_text(COMMAND_FIXTURE)
++            p.chmod(0o755)
++        log = root/'calls.jsonl'
++        env = dict(os.environ, HOME=str(home), TMPDIR=str(scratch),
++                   PATH=str(commands)+':'+os.environ['PATH'], CALL_LOG=str(log), FAIL_MODE=mode)
++        script = Path(__file__).parents[1]/'llm_setup.sh'
++        result = subprocess.run(['bash', str(script)], env=env, cwd=root,
++                                capture_output=True, text=True, timeout=15)
++        calls = [json.loads(line) for line in log.read_text().splitlines()]
++        self.assertTrue(sentinel.exists(), result.stderr)
++        self.assertEqual(sentinel.read_bytes(), b'existing user data')
++        self.assertEqual(
++            list(scratch.iterdir()), [], 'Owned downloads must be cleaned on every exit')
++        for name, args, cwd in calls:
++            if name == 'wget':
++                self.assertNotIn('--no-check-certificate', args)
++                self.assertTrue(any(a.startswith('https://') for a in args))
++                self.assertTrue(Path(cwd).is_relative_to(scratch))
++        return result, calls
++
++    def test_success_preserves_existing_models_and_verifies_tls(self):
++        result, calls = self.run_script('')
++        self.assertEqual(result.returncode, 0, result.stderr)
++        create = [x for x in calls if x[0] == 'ollama']
++        self.assertEqual(len(create), 1)
++        self.assertEqual(create[0][1], ['create', 'qwen2.5:0.5b', '-f', 'qwen2.5:0.5b.modelfile'])
++
++    def test_home_path_with_spaces_is_preserved(self):
++        result, _ = self.run_script('', home_name='home with spaces')
++        self.assertEqual(result.returncode, 0, result.stderr)
++
++    def test_failed_empty_and_non_model_downloads_do_not_create_model(self):
++        for mode in ['download', 'empty', 'html']:
++            with self.subTest(mode=mode):
++                result, calls = self.run_script(mode)
++                self.assertNotEqual(result.returncode, 0)
++                self.assertFalse(any(x[0] == 'ollama' for x in calls))
++
++    def test_failed_ollama_preserves_error_and_cleans_downloads(self):
++        result, calls = self.run_script('create')
++        self.assertEqual(result.returncode, 9)
++        self.assertEqual(sum(x[0] == 'ollama' for x in calls), 1)
++
++
++if __name__ == '__main__':
++    unittest.main()

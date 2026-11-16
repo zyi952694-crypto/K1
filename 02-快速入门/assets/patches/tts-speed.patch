@@ -1,0 +1,128 @@
+diff --git a/src/tts/tts_model.cpp b/src/tts/tts_model.cpp
+index 0f678e1..7e005db 100644
+--- a/src/tts/tts_model.cpp
++++ b/src/tts/tts_model.cpp
+@@ -16,6 +16,7 @@
+ #include <cctype>   // for isalnum, ispunct
+ #include <fftw3.h>
+ #include <regex>
++#include <stdexcept>
+ #include <mutex>
+ #include <unistd.h>  // for dup, dup2, close
+ #include <fcntl.h>   // for open
+@@ -517,6 +518,9 @@ public:
+     }
+     
+     GeneratedAudio generate(const std::string& text, int speaker_id, float speed) {
++        if (!std::isfinite(speed) || speed <= 0.0f) {
++            throw std::invalid_argument("speed must be finite and greater than zero");
++        }
+         if (!initialized_) {
+             throw std::runtime_error("TTS model not initialized");
+         }
+@@ -1239,7 +1243,8 @@ private:
+         std::vector<int64_t> length_shape = {1};
+         std::vector<float> noise_scale_data = {config_.noise_scale};
+         std::vector<int64_t> noise_scale_shape = {1};
+-        std::vector<float> length_scale_data = {speed * config_.length_scale};
++        // Matcha length_scale controls duration; playback speed is its inverse.
++        std::vector<float> length_scale_data = {config_.length_scale / speed};
+         std::vector<int64_t> length_scale_shape = {1};
+         
+         auto memory_info = Ort::MemoryInfo::CreateCpu(OrtArenaAllocator, OrtMemTypeDefault);
+diff --git a/src/tts_demo.cpp b/src/tts_demo.cpp
+index 3feef72..bb6d136 100644
+--- a/src/tts_demo.cpp
++++ b/src/tts_demo.cpp
+@@ -5,10 +5,15 @@
+ #include <sndfile.h>
+ #include <algorithm>
+ #include <cstdint>
++#include <cmath>
+ 
+ TTSDemo::TTSDemo(const Params& params) : params_(params) {}
+ 
+ bool TTSDemo::initialize(){
++    if (!std::isfinite(params_.tts_speed) || params_.tts_speed <= 0.0f) {
++        std::cerr << "tts_speed must be finite and greater than zero" << std::endl;
++        return false;
++    }
+     tts::TTSModelDownloader tts_downloader;
+     if (!tts_downloader.ensureModelsExist(params_.tts_type)) {
+         std::cerr << "Failed to ensure TTS models exist" << std::endl;
+@@ -40,7 +45,8 @@ bool TTSDemo::initialize(){
+     }
+     tts_config.sample_rate = 22050;
+     tts_config.noise_scale = 1.0f;
+-    tts_config.length_scale = params_.tts_speed;
++    // Per-request speed is applied once by TTSModel::generate.
++    tts_config.length_scale = 1.0f;
+     tts_config.target_rms = params_.target_rms;
+     tts_config.compression_ratio = params_.compression_ratio;
+     tts_config.compression_threshold = params_.compression_threshold;
+diff --git a/test/test_tts_speed.py b/test/test_tts_speed.py
+new file mode 100644
+index 0000000..60a7873
+--- /dev/null
++++ b/test/test_tts_speed.py
+@@ -0,0 +1,60 @@
++"""Offline integration regression; pass a built tts_file_node, with models cached.
++
++Usage: python3 test/test_tts_speed.py /path/to/tts_file_node
++The node writes WAV files only; no microphone or playback device is opened.
++"""
++
++import array
++import json
++import math
++from pathlib import Path
++import struct
++import subprocess
++import sys
++import tempfile
++
++
++def inspect_wav(path):
++    data = path.read_bytes()
++    assert data[:4] == b'RIFF' and data[8:12] == b'WAVE', 'Invalid WAV header'
++    position, fmt, audio = 12, None, None
++    while position + 8 <= len(data):
++        name, size = struct.unpack_from('<4sI', data, position)
++        body = data[position + 8:position + 8 + size]
++        if name == b'fmt ':
++            fmt = struct.unpack_from('<HHIIHH', body)
++        elif name == b'data':
++            audio = body
++        position += 8 + size + size % 2
++    assert fmt and audio
++    encoding, channels, rate, _, align, bits = fmt
++    assert (encoding, channels, rate, bits) == (3, 1, 22050, 32), fmt
++    samples = array.array('f')
++    samples.frombytes(audio)
++    if sys.byteorder != 'little':
++        samples.byteswap()
++    assert all(math.isfinite(x) for x in samples)
++    assert max(abs(x) for x in samples) > 0.001
++    return {'frames': len(audio) // align, 'rate': rate, 'seconds': len(audio) / align / rate}
++
++
++def main():
++    executable = str(Path(sys.argv[1]).resolve())
++    results = {}
++    with tempfile.TemporaryDirectory(prefix='tts-speed-test-') as directory:
++        for speed in (1.0, 0.5, 2.0):
++            output = Path(directory)/f'{speed}.wav'
++            command = [executable, '--ros-args', '-p', 'text:=你好，今天天气怎么样。',
++                       '-p', f'save_audio_path:={output}', '-p', f'tts_speed:={speed}']
++            process = subprocess.run(command, capture_output=True, text=True, timeout=180)
++            assert process.returncode == 0, process.stdout + process.stderr
++            assert output.is_file(), process.stdout + process.stderr
++            results[str(speed)] = inspect_wav(output)
++        normal, slow, fast = (results[str(x)]['seconds'] for x in (1.0, 0.5, 2.0))
++        assert 1.6 < slow / normal < 2.4, results
++        assert 0.35 < fast / normal < 0.65, results
++        print(json.dumps(results, ensure_ascii=False, indent=2))
++
++
++if __name__ == '__main__':
++    main()

@@ -1,0 +1,20 @@
+--- a/cv_robot_arm_demo.py
++++ b/cv_robot_arm_demo.py
+@@ -15,7 +15,7 @@
+             if not ret:
+                 break
+             # 进行检测
+-            result_image, rect_list = detector.infer(frame)
++            result_image, rect_list, _ = detector.infer(frame)
+             # 显示结果
+             cv2.imshow('frame', result_image)
+             if cv2.waitKey(1) & 0xFF == ord('q'):
+@@ -26,7 +26,7 @@
+         # 读取图像
+         image = cv2.imread(args.image)
+         # 进行检测
+-        result_image, rect_list = detector.infer(image)
++        result_image, rect_list, _ = detector.infer(image)
+         # 显示结果
+         cv2.imwrite('result.jpg', result_image)
+         # cv2.imshow('frame', result_image)

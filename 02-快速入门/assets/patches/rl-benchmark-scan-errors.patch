@@ -1,0 +1,85 @@
+diff --git a/example/benchmark_common.h b/example/benchmark_common.h
+index 248ae9a..95f1e5a 100644
+--- a/example/benchmark_common.h
++++ b/example/benchmark_common.h
+@@ -146,9 +146,11 @@ inline double ParseDouble(const char *text, const std::string &name) {
+     return value;
+ }
+ 
+-inline Options ParseOptions(int argc, char *argv[], int first_option, double default_hz) {
++inline Options ParseOptions(int argc, char *argv[], int first_option, double default_hz,
++                            const std::string &default_provider = "auto") {
+     Options options;
+     options.hz = default_hz;
++    options.provider = default_provider;
+ 
+     const auto require_value = [&](int index, const std::string &name) {
+         if (index + 1 >= argc) {
+diff --git a/example/benchmark_policy_executor.cpp b/example/benchmark_policy_executor.cpp
+index 48fcc95..f2294ee 100644
+--- a/example/benchmark_policy_executor.cpp
++++ b/example/benchmark_policy_executor.cpp
+@@ -166,7 +166,8 @@ int main(int argc, char *argv[]) {
+             = rl_policy::LoadPolicyConfigFromYaml(yaml_path, policy_name, robot_dir);
+         ValidatePipelineBoundary(loaded);
+ 
+-        const Options options = rl_benchmark::ParseOptions(argc, argv, 4, 1.0 / loaded.rl_dt);
++        const Options options = rl_benchmark::ParseOptions(
++            argc, argv, 4, 1.0 / loaded.rl_dt, loaded.exec_cfg.runtime.provider);
+         const double input_dt = options.hz_overridden ? 1.0 / options.hz : loaded.rl_dt;
+         const std::string affinity_before_init
+             = rl_benchmark::ApplyAndGetAffinity(options.affinity);
+diff --git a/example/test_onnx_infer.cpp b/example/test_onnx_infer.cpp
+index 5d1ab5f..dbba0d2 100644
+--- a/example/test_onnx_infer.cpp
++++ b/example/test_onnx_infer.cpp
+@@ -415,6 +415,11 @@ int main(int argc, char *argv[]) {
+         }
+ 
+         print_report(results);
++        for (const auto &result : results) {
++            if (!result.load_ok || !result.infer_ok) {
++                return 1;
++            }
++        }
+         return 0;
+     }
+ 
+diff --git a/tests/benchmark_scan_errors.sh b/tests/benchmark_scan_errors.sh
+new file mode 100644
+index 0000000..6d54aea
+--- /dev/null
++++ b/tests/benchmark_scan_errors.sh
+@@ -0,0 +1,32 @@
++#!/usr/bin/env bash
++# Regression checks using a policy configured with provider: cpu and an ONNX model.
++set -euo pipefail
++if [[ $# != 5 ]]; then
++    echo "usage: $0 BUILD_DIR POLICY_YAML POLICY_NAME ROBOT_DIR VALID_ONNX" >&2
++    exit 2
++fi
++build_dir=$(realpath "$1")
++policy_yaml=$(realpath "$2")
++policy_name=$3
++robot_dir=$(realpath "$4")
++model=$(realpath "$5")
++work=$(mktemp -d)
++trap 'rm -rf "$work"' EXIT
++"$build_dir/benchmark_policy_executor" "$policy_yaml" "$policy_name" "$robot_dir" \
++    --warmup 1 --rounds 3 > "$work/default.log"
++cat "$work/default.log"
++grep -q "Provider:    requested=cpu" "$work/default.log"
++"$build_dir/benchmark_policy_executor" "$policy_yaml" "$policy_name" "$robot_dir" \
++    --provider cpu --warmup 1 --rounds 3
++mkdir -p "$work/good" "$work/bad" "$work/mixed"
++ln -s "$model" "$work/good/model.onnx"
++ln -s "$model" "$work/mixed/model.onnx"
++printf 'not an ONNX model\n' > "$work/bad/invalid.onnx"
++cp "$work/bad/invalid.onnx" "$work/mixed/invalid.onnx"
++"$build_dir/test_onnx_infer" --scan "$work/good"
++for fixture in bad mixed; do
++    if "$build_dir/test_onnx_infer" --scan "$work/$fixture"; then
++        echo "scan incorrectly succeeded for $fixture" >&2
++        exit 1
++    fi
++done

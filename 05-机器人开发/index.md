@@ -17,5 +17,5 @@ slug: /k1/robot-dev
 
 相关内容：
 
-- ROS2 的安装、相机节点和 RViz2 说明见 [6.6 ROS2](../06-系统与平台/6.6-ROS2/index.md)。
+- ROS2 的安装、相机节点和 RViz2 说明见 [6.5 ROS2](../06-系统与平台/6.5-ROS2/index.md)。
 - 完整的机器人方案（小车、机械臂、AI 聊天、Isaac Sim 仿真）见 [3. 参考方案](../03-参考方案/index.md)。

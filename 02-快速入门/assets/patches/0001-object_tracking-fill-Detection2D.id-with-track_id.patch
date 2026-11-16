@@ -1,0 +1,24 @@
+From 3d6aec1e349f6d7b6cfab0841318e7a9977a7457 Mon Sep 17 00:00:00 2001
+From: wangjie <jie.wang@spacemit.com>
+Date: Wed, 11 Nov 2026 10:27:56 +0800
+Subject: [PATCH] object_tracking: fill Detection2D.id with track_id
+
+---
+ src/detection_utils.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/detection_utils.cpp b/src/detection_utils.cpp
+index b2de235..50b2878 100644
+--- a/src/detection_utils.cpp
++++ b/src/detection_utils.cpp
+@@ -53,6 +53,7 @@ vision_msgs::msg::Detection2DArray EncodeDetection2DArray(
+     for (const auto& b : boxes) {
+         vision_msgs::msg::Detection2D det;
+         det.header = header;
++        det.id = std::to_string(b.track_id);
+ 
+         det.bbox.center.position.x = static_cast<double>(b.x1 + b.x2) / 2.0;
+         det.bbox.center.position.y = static_cast<double>(b.y1 + b.y2) / 2.0;
+-- 
+2.34.1
+
