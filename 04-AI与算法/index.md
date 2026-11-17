@@ -12,4 +12,3 @@ slug: /k1/ai
 - [4.5 Agent](4.5-Agent.md)
 - [4.6 VLM](4.6-VLM.md)
 - [4.7 语音控制](4.7-语音控制.md)
-- [4.8 Ultralytics](4.8-Ultralytics.md)

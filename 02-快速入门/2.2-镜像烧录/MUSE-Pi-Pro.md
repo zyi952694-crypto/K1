@@ -17,7 +17,7 @@ Muse Pi Pro 开发板配备多个按键，其中固件烧录时主要使用 **FD
 
 ### 固件下载
 
-**推荐使用 Bianbu 2.3.5 及以上版本。** 从 [Bianbu v2.3.5 下载目录](https://archive.spacemit.com/image/k1/version/bianbu/v2.3.5/)选择符合使用场景的镜像；其他版本见 [Bianbu 镜像目录](https://archive.spacemit.com/image/k1/version/bianbu/)。
+**新部署 SDK 推荐使用 Bianbu 2.3.5。** 从 [Bianbu v2.3.5 下载目录](https://archive.spacemit.com/image/k1/version/bianbu/v2.3.5/)选择符合使用场景的镜像；其他版本见 [Bianbu 镜像目录](https://archive.spacemit.com/image/k1/version/bianbu/)。
 
 | 固件 | 适用场景 | v2.3.5 镜像 |
 | :--- | :--- | :--- |
@@ -25,7 +25,7 @@ Muse Pi Pro 开发板配备多个按键，其中固件烧录时主要使用 **FD
 | Bianbu LXQt（Desktop Lite） | 需要轻量桌面 | `Bianbu-LXQt-K1-V2.3.5-20260602111447.zip` |
 | Bianbu GNOME（Desktop） | 需要完整桌面 | `Bianbu-GNOME-K1-V2.3.5-20260601190226.zip` |
 
-已安装 ROS2_LXQT 或早期 Bianbu 2.x 的设备，建议先按 [2.3 系统升级](../2.3-系统升级.md)升级到 Bianbu 2.3.5。
+已有项目可继续使用配套的 ROS2_LXQT 或 Bianbu 2.2 系统；需要切换到 2.3.5 时，按 [2.3 系统升级](../2.3-系统升级.md)准备环境。
 
 ### 刷机模式设置
 
@@ -54,11 +54,11 @@ ROS2_LXQT 不是独立的发行版，而是在 **Bianbu 2.2 LXQt 通用固件**�
 | :--- | :--- |
 | ROS 2 与 BRDK | 预装 ROS 2 Humble；预装 BRDK（`bros.tar.gz` 解压到 `/opt/bros`）；`~/.bashrc` 末尾加入 `source /opt/bros/humble/setup.bash` |
 | 软件源优先级 | `/etc/apt/preferences.d/` 中将 `noble-ros` 源（`o=Spacemit, n=noble-ros`）设为 `Pin-Priority: 1100`；将当前内核包 `linux-image-6.6.63` 锁定为指定版本，避免安装软件包时被降级 |
-| 桌面与工具 | 桌面增加“开发环境安装”图标（一键安装 RDK、MediaEngine、ROS 2 依赖，见 [6.7.3 系统依赖安装](../../06-系统与平台/6.7-开发工具/6.7.3-系统依赖安装.md)）；内置 FeatherPad 文本编辑器和 `ddr_bw` 内存带宽测试工具；默认提供 Wi-Fi 连接图标；关闭自动锁屏 |
+| 桌面与工具 | 桌面增加“开发环境安装”图标（一键安装 RDK、MediaEngine、ROS 2 依赖，见 [5.1.3 ROS2_LXQT 桌面安装工具](../../05-机器人开发/5.1-系统准备/5.1.3-ROS2_LXQT桌面安装工具.md)）；内置 FeatherPad 文本编辑器和 `ddr_bw` 内存带宽测试工具；默认提供 Wi-Fi 连接图标；关闭自动锁屏 |
 | 权限与系统 | 调整 `/opt` 下目录的用户组，普通用户可直接在其中编译示例；登录界面版本号更新为 2.2；移除 GCC |
 | 网络 | MUSE Pi 上将 `eth0` 用于 EtherCAT（MUSE Pi Pro 等其他板型不受影响） |
 
-现有 ROS2_LXQT 系统建议按 [2.3 系统升级](../2.3-系统升级.md)更新后继续使用。需要编译 SDK 或 C/C++ 示例时，先安装 `build-essential`。
+需要编译 SDK 或 C/C++ 示例时，先安装 `build-essential`。
 
 ### Bianbu 固件烧录后配置
 
@@ -68,8 +68,8 @@ ROS2_LXQT 不是独立的发行版，而是在 **Bianbu 2.2 LXQt 通用固件**�
 | :--- | :--- |
 | 编译工具 | `sudo apt update && sudo apt install build-essential git` |
 | 使用 Robot SDK | 按 [2.4 构建编译](../2.4-构建编译.md)获取并编译 SDK，构建时按提示安装所需依赖 |
-| 只需要 ROS 2 | 按 [6.5.1 ROS2 安装](../../06-系统与平台/6.5-ROS2/6.5.1-ROS2安装.md) 启用 `noble-ros` 源并安装 `ros-humble-ros-base`，或参考 [2.4 构建编译](../2.4-构建编译.md) 的“不使用 SDK 时安装 ROS 2 与基础依赖” |
-| 使用 BRDK（`/opt/bros` 下的 RDK 功能包） | 先安装 ROS 2，再按 [6.5.5 AI Robot 安装](../../06-系统与平台/6.5-ROS2/6.5.5-AI-Robot安装.md) 下载 `bros.tar.gz` 解压到 `/opt` |
+| 只需要 ROS 2 | 按 [5.1.1 ROS2 安装](../../05-机器人开发/5.1-系统准备/5.1.1-ROS2安装.md) 启用 `noble-ros` 源并安装 `ros-humble-ros-base`，或参考 [2.4 构建编译](../2.4-构建编译.md) 的“不使用 SDK 时安装 ROS 2 与基础依赖” |
+| 使用 BRDK（`/opt/bros` 下的 RDK 功能包） | 先安装 ROS 2，再按 [5.1.2 AI Robot 安装](../../05-机器人开发/5.1-系统准备/5.1.2-AI-Robot安装.md) 下载 `bros.tar.gz` 解压到 `/opt` |
 
 可选：如果希望与 ROS2_LXQT 一样优先使用 `noble-ros` 源中的软件包版本，可添加以下 APT 优先级配置。该配置会让 `noble-ros` 中的同名包覆盖系统源版本，仅在确有需要时添加：
 
