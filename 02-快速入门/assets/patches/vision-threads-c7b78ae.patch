@@ -1,0 +1,127 @@
+diff --git a/src/core/cpp/vision_model_base.cpp b/src/core/cpp/vision_model_base.cpp
+--- a/src/core/cpp/vision_model_base.cpp
++++ b/src/core/cpp/vision_model_base.cpp
+@@ -36,6 +36,46 @@
+     const fs::path hint =
+         get_vision_root_dir() / "examples" / "<model>" / "scripts" / "download_models.sh";
+     return hint.lexically_normal().string();
++}
++
++static int detect_ai_core_count() {
++    if (const char* env = std::getenv("SPACEMIT_EP_MAX_THREADS")) {
++        const int v = std::atoi(env);
++        if (v > 0) {
++            return v;
++        }
++    }
++    int count = 0;
++    std::error_code ec;
++    const fs::path soc("/proc/device-tree/soc");
++    if (!fs::is_directory(soc, ec)) {
++        return 0;
++    }
++    for (const auto& tcm : fs::directory_iterator(soc, ec)) {
++        if (tcm.path().filename().string().rfind("tcm", 0) != 0 || !tcm.is_directory(ec)) {
++            continue;
++        }
++        for (const auto& node : fs::directory_iterator(tcm.path(), ec)) {
++            if (node.is_directory(ec) &&
++                node.path().filename().string().find("_tcm") != std::string::npos) {
++                ++count;
++            }
++        }
++    }
++    return count;
++}
++
++int clamp_ep_threads(int num_threads, const std::string& provider) {
++    if (provider != "SpaceMITExecutionProvider") {
++        return num_threads;
++    }
++    static const int max_threads = detect_ai_core_count();
++    if (max_threads > 0 && num_threads > max_threads) {
++        std::cerr << "[vision] num_threads " << num_threads << " exceeds available AI cores "
++                  << max_threads << ", using " << max_threads << std::endl;
++        return max_threads;
++    }
++    return num_threads;
+ }
+ 
+ static std::string expand_tilde(const std::string& path) {
+@@ -225,7 +265,7 @@
+     model_path_ = resolve_and_check_model_path(model_path_);
+ 
+     Ort::SessionOptions session_options;
+-    session_options.SetIntraOpNumThreads(num_threads);
++    session_options.SetIntraOpNumThreads(clamp_ep_threads(num_threads, provider));
+     session_options.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_ALL);
+ 
+     if (provider == "SpaceMITExecutionProvider") {
+diff --git a/src/core/cpp/vision_model_base.h b/src/core/cpp/vision_model_base.h
+--- a/src/core/cpp/vision_model_base.h
++++ b/src/core/cpp/vision_model_base.h
+@@ -51,6 +51,16 @@
+ };
+ 
+ Ort::Env& shared_ort_env();
++
++/**
++ * @brief Clamp intra-op thread count to the AI cores available to SpaceMIT EP.
++ *
++ * Only applies to SpaceMITExecutionProvider; other providers return the value
++ * unchanged. The limit comes from SPACEMIT_EP_MAX_THREADS if set, otherwise from
++ * the number of per-core TCM nodes in the device tree (/proc/device-tree/soc/tcm*).
++ * Returns the requested value when the limit cannot be determined.
++ */
++int clamp_ep_threads(int num_threads, const std::string& provider);
+ 
+ /**
+  * @brief Base class for all vision models
+diff --git a/src/deploy/mobilesam1/cpp/mobilesam_segmentor.cpp b/src/deploy/mobilesam1/cpp/mobilesam_segmentor.cpp
+--- a/src/deploy/mobilesam1/cpp/mobilesam_segmentor.cpp
++++ b/src/deploy/mobilesam1/cpp/mobilesam_segmentor.cpp
+@@ -46,7 +46,7 @@
+         if (model_loaded_) return;
+         init_session(threads_, provider_);
+         Ort::SessionOptions options;
+-        options.SetIntraOpNumThreads(threads_);
++        options.SetIntraOpNumThreads(vision_core::clamp_ep_threads(threads_, provider_));
+         if (provider_ == "SpaceMITExecutionProvider") {
+             Ort::Status status = Ort::SessionOptionsSpaceMITEnvInit(options);
+             if (!status.IsOK())
+diff --git a/src/deploy/nanotrack/cpp/nanotrack_tracker.cpp b/src/deploy/nanotrack/cpp/nanotrack_tracker.cpp
+--- a/src/deploy/nanotrack/cpp/nanotrack_tracker.cpp
++++ b/src/deploy/nanotrack/cpp/nanotrack_tracker.cpp
+@@ -88,7 +88,7 @@
+         throw std::invalid_argument(
+             "NanoTracker session options are invalid");
+     }
+-    options->SetIntraOpNumThreads(num_threads);
++    options->SetIntraOpNumThreads(vision_core::clamp_ep_threads(num_threads, provider));
+     options->SetGraphOptimizationLevel(
+         GraphOptimizationLevel::ORT_ENABLE_ALL);
+     if (provider == "SpaceMITExecutionProvider") {
+diff --git a/src/deploy/ppocr/cpp/ppocr_detector.cpp b/src/deploy/ppocr/cpp/ppocr_detector.cpp
+--- a/src/deploy/ppocr/cpp/ppocr_detector.cpp
++++ b/src/deploy/ppocr/cpp/ppocr_detector.cpp
+@@ -202,7 +202,7 @@
+     init_session(num_threads_, provider_);
+ 
+     Ort::SessionOptions rec_opts;
+-    rec_opts.SetIntraOpNumThreads(num_threads_);
++    rec_opts.SetIntraOpNumThreads(vision_core::clamp_ep_threads(num_threads_, provider_));
+     rec_opts.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_ALL);
+     if (provider_ == "SpaceMITExecutionProvider") {
+         Ort::Status status = Ort::SessionOptionsSpaceMITEnvInit(rec_opts);
+diff --git a/src/deploy/siglip2/cpp/siglip2_encoder.cpp b/src/deploy/siglip2/cpp/siglip2_encoder.cpp
+--- a/src/deploy/siglip2/cpp/siglip2_encoder.cpp
++++ b/src/deploy/siglip2/cpp/siglip2_encoder.cpp
+@@ -68,7 +68,7 @@
+ 
+ void Siglip2Encoder::init_text_session() {
+     Ort::SessionOptions opts;
+-    opts.SetIntraOpNumThreads(num_threads_);
++    opts.SetIntraOpNumThreads(vision_core::clamp_ep_threads(num_threads_, provider_));
+     opts.SetGraphOptimizationLevel(GraphOptimizationLevel::ORT_ENABLE_ALL);
+     if (provider_ == "SpaceMITExecutionProvider") {
+         Ort::Status status = Ort::SessionOptionsSpaceMITEnvInit(opts);

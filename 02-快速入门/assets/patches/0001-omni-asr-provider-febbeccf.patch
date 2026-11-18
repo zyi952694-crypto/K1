@@ -1,0 +1,192 @@
+diff --git a/examples/voice_chat.cpp b/examples/voice_chat.cpp
+index aac3d76428a6612217291ccedca0ccf54beec68a..292c1034184a45a7e673a5f79379758045c21ea5 100644
+--- a/examples/voice_chat.cpp
++++ b/examples/voice_chat.cpp
+@@ -71,6 +71,7 @@ struct Config {
+     std::string asr_endpoint = "http://127.0.0.1:8063/v1/chat/completions";
+     std::string asr_model = "qwen3-asr";
+     int asr_timeout = 60;
++    std::string asr_provider = "";
+     bool wake_enabled = false;
+     std::string wake_device = "/dev/hidraw0";
+     bool wake_interrupt_mode = true;
+@@ -150,6 +151,8 @@ Config parseArgs(int argc, char* argv[]) {
+             cfg.asr_model = argv[++i];
+         } else if (strcmp(argv[i], "--asr-timeout") == 0 && i + 1 < argc) {
+             cfg.asr_timeout = std::stoi(argv[++i]);
++        } else if (strcmp(argv[i], "--asr-provider") == 0 && i + 1 < argc) {
++            cfg.asr_provider = argv[++i];
+         } else if ((strcmp(argv[i], "--input-device") == 0 || strcmp(argv[i], "-i") == 0) && i + 1 < argc) {
+             cfg.input_device = std::stoi(argv[++i]);
+         } else if ((strcmp(argv[i], "--output-device") == 0 || strcmp(argv[i], "-o") == 0) && i + 1 < argc) {
+@@ -343,6 +346,7 @@ Config parseArgs(int argc, char* argv[]) {
+                 << "  --asr-endpoint <url>          qwen3-asr llama-server endpoint\n"
+                 << "  --asr-model <name>            qwen3-asr model tag (默认: qwen3-asr)\n"
+                 << "  --asr-timeout <sec>           qwen3-asr HTTP超时 (默认: 60)\n"
++                << "  --asr-provider <name>    ASR推理provider: cpu | spacemit (默认: 沿用engine预设)\n"
+                 << "\n唤醒:\n"
+                 << "  --wake-enabled, --wake        开启 HID 唤醒打断\n"
+                 << "  --no-wake                     关闭 HID 唤醒打断\n"
+@@ -568,6 +572,9 @@ int main(int argc, char* argv[]) {
+     if (cfg.asr_engine == "qwen3-asr") {
+         std::cout << " (" << cfg.asr_endpoint << ", model=" << cfg.asr_model << ")";
+     }
++    if (!cfg.asr_provider.empty()) {
++        std::cout << " provider=" << cfg.asr_provider;
++    }
+     std::cout << "\n";
+     std::cout << getTimestamp() << " HID唤醒: "
+         << (cfg.wake_enabled ? ("ON (" + cfg.wake_device + ")") : "OFF") << "\n";
+@@ -604,7 +611,8 @@ int main(int argc, char* argv[]) {
+     if (!vad) return 1;
+ 
+     auto asr = initASR(
+-        cfg.asr_engine, cfg.asr_endpoint, cfg.asr_model, cfg.asr_timeout);
++        cfg.asr_engine, cfg.asr_endpoint, cfg.asr_model, cfg.asr_timeout,
++        cfg.asr_provider);
+     if (!asr) return 1;
+ 
+     auto tts_result = initTTS(cfg.tts_type);
+diff --git a/examples/voice_chat_aec.cpp b/examples/voice_chat_aec.cpp
+index cfb6122439d5029381654e9441bb6722ac467eb0..357c071da3dcadbb21d6691893730a3b6c6c9096 100644
+--- a/examples/voice_chat_aec.cpp
++++ b/examples/voice_chat_aec.cpp
+@@ -62,6 +62,7 @@ struct Config {
+     std::string asr_endpoint = "http://127.0.0.1:8063/v1/chat/completions";
+     std::string asr_model = "qwen3-asr";
+     int asr_timeout = 60;
++    std::string asr_provider = "";
+     bool wake_enabled = false;
+     std::string wake_device = "/dev/hidraw0";
+     bool wake_interrupt_mode = true;
+@@ -136,6 +137,8 @@ Config parseArgs(int argc, char* argv[]) {
+             cfg.asr_model = argv[++i];
+         } else if (strcmp(argv[i], "--asr-timeout") == 0 && i + 1 < argc) {
+             cfg.asr_timeout = std::stoi(argv[++i]);
++        } else if (strcmp(argv[i], "--asr-provider") == 0 && i + 1 < argc) {
++            cfg.asr_provider = argv[++i];
+         } else if ((strcmp(argv[i], "--input-device") == 0 || strcmp(argv[i], "-i") == 0) && i + 1 < argc) {
+             cfg.input_device = std::stoi(argv[++i]);
+         } else if ((strcmp(argv[i], "--output-device") == 0 || strcmp(argv[i], "-o") == 0) && i + 1 < argc) {
+@@ -287,6 +290,7 @@ Config parseArgs(int argc, char* argv[]) {
+                 << "  --asr-endpoint <url>      qwen3-asr llama-server endpoint\n"
+                 << "  --asr-model <name>        qwen3-asr model tag (默认: qwen3-asr)\n"
+                 << "  --asr-timeout <sec>       qwen3-asr HTTP超时 (默认: 60)\n"
++                << "  --asr-provider <name>    ASR推理provider: cpu | spacemit (默认: 沿用engine预设)\n"
+                 << "\n唤醒:\n"
+                 << "  --wake-enabled, --wake    开启 HID 唤醒打断\n"
+                 << "  --no-wake                 关闭 HID 唤醒打断\n"
+@@ -586,6 +590,9 @@ int main(int argc, char* argv[]) {
+     if (cfg.asr_engine == "qwen3-asr") {
+         std::cout << " (" << cfg.asr_endpoint << ", model=" << cfg.asr_model << ")";
+     }
++    if (!cfg.asr_provider.empty()) {
++        std::cout << " provider=" << cfg.asr_provider;
++    }
+     std::cout << "\n";
+     std::cout << getTimestamp() << " HID唤醒: "
+         << (cfg.wake_enabled ? ("ON (" + cfg.wake_device + ")") : "OFF") << "\n";
+@@ -622,7 +629,8 @@ int main(int argc, char* argv[]) {
+     if (!vad) return 1;
+ 
+     auto asr = initASR(
+-        cfg.asr_engine, cfg.asr_endpoint, cfg.asr_model, cfg.asr_timeout);
++        cfg.asr_engine, cfg.asr_endpoint, cfg.asr_model, cfg.asr_timeout,
++        cfg.asr_provider);
+     if (!asr) return 1;
+ 
+     auto tts_result = initTTS(cfg.tts_type);
+diff --git a/examples/voice_chat_daemon.cpp b/examples/voice_chat_daemon.cpp
+index 41642bca7a38643589ef94e7641224564b948c38..a2aa3bf9d72657dc93a2b5dea6e5a81c3e664cc7 100644
+--- a/examples/voice_chat_daemon.cpp
++++ b/examples/voice_chat_daemon.cpp
+@@ -1782,6 +1782,10 @@ int CmdStart(int argc, char** argv) {
+     vc_args.push_back(std::to_string(cfg.audio.speech_channel));
+     vc_args.push_back("--asr-engine");
+     vc_args.push_back(cfg.asr.engine);
++    if (!cfg.asr.provider.empty()) {
++        vc_args.push_back("--asr-provider");
++        vc_args.push_back(cfg.asr.provider);
++    }
+     if (!asr_endpoint.empty()) {
+         vc_args.push_back("--asr-endpoint");
+         vc_args.push_back(asr_endpoint);
+diff --git a/include/engine_init.hpp b/include/engine_init.hpp
+index 97dce05c068fdda36751d3d09c3b5afa5f8bd29f..435a1a46f7ff8d887765fb26988cda3a2619acb0 100644
+--- a/include/engine_init.hpp
++++ b/include/engine_init.hpp
+@@ -37,7 +37,8 @@ std::shared_ptr<SpacemiT::AsrEngine> initASR(
+     const std::string& asr_engine,
+     const std::string& asr_endpoint,
+     const std::string& asr_model,
+-    int asr_timeout);
++    int asr_timeout,
++    const std::string& asr_provider = "");
+ 
+ struct TTSInitResult {
+     std::shared_ptr<SpacemiT::TtsEngine> tts;
+diff --git a/src/daemon_config.cpp b/src/daemon_config.cpp
+index 9f1f1bbba087ac1623bdb45a934a457b11aa53f6..17cee5f94f10ff1f37cb08ad6884270a35a77c4a 100644
+--- a/src/daemon_config.cpp
++++ b/src/daemon_config.cpp
+@@ -69,6 +69,7 @@ const char* kVoiceChatConfigTemplate = R"({
+     },
+     "asr": {
+         "engine":             "qwen3-asr",
++        "provider":           "",
+         "endpoint":           "http://127.0.0.1:8063/v1/chat/completions",
+         "model":              "qwen3-asr",
+         "timeout":            60,
+@@ -294,6 +295,7 @@ void ParseAsr(const json& j, AsrCfg& asr) {
+     }
+     const json& a = *it;
+     GetOpt(a, "engine", asr.engine);
++    GetOpt(a, "provider", asr.provider);
+     GetOpt(a, "endpoint", asr.endpoint);
+     GetOpt(a, "model", asr.model);
+     GetOpt(a, "timeout", asr.timeout);
+@@ -544,6 +546,7 @@ json VoiceChatJson(const DaemonConfig& cfg) {
+     };
+     j["asr"] = {
+         {"engine", cfg.asr.engine},
++        {"provider", cfg.asr.provider},
+         {"endpoint", cfg.asr.endpoint},
+         {"model", cfg.asr.model},
+         {"timeout", cfg.asr.timeout},
+diff --git a/src/daemon_config.hpp b/src/daemon_config.hpp
+index 87df7b659fe93a74ac7ff275ad975e4d983177cb..be95d8ed3b3c52043e81765477ed93a312580313 100644
+--- a/src/daemon_config.hpp
++++ b/src/daemon_config.hpp
+@@ -58,6 +58,8 @@ struct VadCfg {
+ struct AsrCfg {
+     // ASR 后端：sensevoice / qwen3-asr / zipformer。
+     std::string engine = "qwen3-asr";
++    // ASR 推理 provider：cpu / spacemit；为空时沿用 engine preset 的默认值。
++    std::string provider;
+     // Qwen3-ASR llama-server OpenAI-compatible chat completions endpoint。
+     std::string endpoint = "http://127.0.0.1:8063/v1/chat/completions";
+     // Qwen3-ASR llama-server model tag。
+diff --git a/src/engine_init.cpp b/src/engine_init.cpp
+index 737aa606c3fd2ff33ba46ede143e0eda38e2d03d..2fd2e8d54e18c95884b2dc5f2905442847e09bea 100644
+--- a/src/engine_init.cpp
++++ b/src/engine_init.cpp
+@@ -127,7 +127,8 @@ std::shared_ptr<SpacemiT::AsrEngine> initASR(
+     const std::string& asr_engine,
+     const std::string& asr_endpoint,
+     const std::string& asr_model,
+-    int asr_timeout) {
++    int asr_timeout,
++    const std::string& asr_provider) {
+     std::string engine = normalizeAsrEngine(asr_engine);
+     std::cout << getTimestamp() << " [3/5] 初始化 ASR (" << engine
+         << ")..." << std::flush;
+@@ -142,6 +143,9 @@ std::shared_ptr<SpacemiT::AsrEngine> initASR(
+     }
+     asr_config.language = "auto";
+     asr_config.punctuation = true;
++    if (!asr_provider.empty()) {
++        asr_config.provider = asr_provider;
++    }
+     if (engine == "qwen3-asr") {
+         if (!asr_endpoint.empty()) {
+             asr_config.endpoint = asr_endpoint;

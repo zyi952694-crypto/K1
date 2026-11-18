@@ -1,0 +1,92 @@
+diff --git a/examples/voice_chat_daemon.cpp b/examples/voice_chat_daemon.cpp
+index a2aa3bf9d72657dc93a2b5dea6e5a81c3e664cc7..bafd2d8b037cbd784bb599f3488f140b0b00431a 100644
+--- a/examples/voice_chat_daemon.cpp
++++ b/examples/voice_chat_daemon.cpp
+@@ -312,15 +312,6 @@ bool PortInUse(const std::string& host, int port) {
+     return connected;
+ }
+ 
+-bool WaitPortReady(const std::string& host, int port, int timeout_sec) {
+-    for (int i = 0; i < timeout_sec * 4; ++i) {
+-        if (PortInUse(host, port)) {
+-            return true;
+-        }
+-        usleep(250 * 1000);
+-    }
+-    return false;
+-}
+ 
+ int RunSyncWithEnv(const std::string& prog,
+         const std::vector<std::string>& args,
+@@ -1552,11 +1543,13 @@ int CmdStart(int argc, char** argv) {
+     }
+     if (p1 > 0) {
+         close(startup_pipe[1]);
+-        const int startup_wait_ticks = 100
+-            + (start_local_llm ? 700 : 0)
+-            + (start_local_asr ? (cfg.asr.startup_timeout + 10) * 10 : 0);
++        const int64_t startup_wait_ticks = 100
++            + (start_local_llm
++                ? (static_cast<int64_t>(std::max(1, cfg.llm.startup_timeout)) + 10) * 10
++                : 0)
++            + (start_local_asr ? (static_cast<int64_t>(cfg.asr.startup_timeout) + 10) * 10 : 0);
+         bool startup_failed = false;
+-        for (int i = 0; i < startup_wait_ticks; ++i) {
++        for (int64_t i = 0; i < startup_wait_ticks; ++i) {
+             char status = 0;
+             ssize_t n = read(startup_pipe[0], &status, 1);
+             if (n == 1) {
+@@ -1658,8 +1651,10 @@ int CmdStart(int argc, char** argv) {
+             stop_mcp_if_started();
+             return 1;
+         }
+-        if (!WaitPortReady(cfg.llm.server_host, cfg.llm.server_port, 60)) {
+-            std::cerr << "错误: llama-server 60 秒内未就绪 (port "
++        if (!WaitHttpHealthReady(cfg.llm.server_host, cfg.llm.server_port,
++                cfg.llm.startup_timeout)) {
++            std::cerr << "错误: llama-server " << cfg.llm.startup_timeout
++                << " 秒内未就绪 (port "
+                 << cfg.llm.server_port << ")\n";
+             kill(llama_pid, SIGTERM);
+             WriteStartupStatus(startup_pipe[1], '0');
+diff --git a/src/daemon_config.cpp b/src/daemon_config.cpp
+index 17cee5f94f10ff1f37cb08ad6884270a35a77c4a..124a7d0eb51eacf31e5657b49bacc9d4ad33a6a1 100644
+--- a/src/daemon_config.cpp
++++ b/src/daemon_config.cpp
+@@ -121,6 +121,7 @@ const char* kLlmConfigTemplate = R"({
+     "model_name":        "qwen2.5-0.5b",
+     "ctx_size":          4096,
+     "threads":           4,
++    "startup_timeout":   60,
+     "reasoning_budget":  0,
+     "extra_args":        [],
+     "max_tokens":        150,
+@@ -376,6 +377,7 @@ void ParseLlm(const json& j, DaemonConfig& cfg) {
+     GetOpt(j, "model_name", llm.model_name);
+     GetOpt(j, "ctx_size", llm.ctx_size);
+     GetOpt(j, "threads", llm.threads);
++    GetOpt(j, "startup_timeout", llm.startup_timeout);
+     GetOpt(j, "reasoning_budget", llm.reasoning_budget);
+     GetOpt(j, "extra_args", llm.extra_args);
+     GetOpt(j, "max_tokens", llm.max_tokens);
+@@ -599,6 +601,7 @@ json LlmJson(const LlmCfg& llm) {
+         {"model_name", llm.model_name},
+         {"ctx_size", llm.ctx_size},
+         {"threads", llm.threads},
++        {"startup_timeout", llm.startup_timeout},
+         {"reasoning_budget", llm.reasoning_budget},
+         {"extra_args", llm.extra_args},
+         {"max_tokens", llm.max_tokens},
+diff --git a/src/daemon_config.hpp b/src/daemon_config.hpp
+index be95d8ed3b3c52043e81765477ed93a312580313..751133b547f6c27b960daf4c48997003ababe7ff 100644
+--- a/src/daemon_config.hpp
++++ b/src/daemon_config.hpp
+@@ -151,6 +151,8 @@ struct LlmCfg {
+     int ctx_size = 4096;
+     // llama-server 推理线程数。
+     int threads = 4;
++    // 等待 /health 返回 200，单位秒；非正值按 1 秒处理。
++    int startup_timeout = 60;
+     // Qwen/DeepSeek-R1 等 thinking 模型的 reasoning budget；-1 表示不传。
+     int reasoning_budget = 0;
+     // 追加给 llama-server 的原始参数。
